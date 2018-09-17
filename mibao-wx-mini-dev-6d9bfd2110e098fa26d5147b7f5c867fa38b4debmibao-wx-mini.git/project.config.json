@@ -1,0 +1,103 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.0",
+	"appid": "wx40fd286017769227",
+	"projectname": "%E5%AF%86%E5%AE%9D%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 9,
+			"list": [
+				{
+					"id": 0,
+					"name": "二维码",
+					"pathName": "pages/merchant/store/store",
+					"query": "merchantId=163",
+					"scene": "1011"
+				},
+				{
+					"id": 1,
+					"name": "店铺",
+					"pathName": "pages/merchant/store/store",
+					"query": "merchantId=163",
+					"scene": "1011"
+				},
+				{
+					"id": 2,
+					"name": "退还",
+					"pathName": "pages/order/orderReturn/orderReturn",
+					"query": "id=47402"
+				},
+				{
+					"id": -1,
+					"name": "赔偿维权",
+					"pathName": "pages/order/orderCompensate/compensateApply/compensateApply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评论",
+					"pathName": "pages/comment/common/common",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单物流",
+					"pathName": "pages/order/orderExpress/orderExpress",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "订单详情",
+					"pathName": "pages/order/orderDetail/orderDetail",
+					"query": "id=47402"
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/order/orderList/orderList",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "结果",
+					"pathName": "pages/order/orderPayResult/orderPayResult",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单lb",
+					"pathName": "pages/order/orderList/orderList",
+					"query": ""
+				}
+			]
+		}
+	}
+}

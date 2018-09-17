@@ -1,0 +1,19 @@
+<view class="type">
+    {{desType}}
+</view>
+<view class="comment-wp">
+    <view class="textarea">
+        <textarea placeholder="请添加描述" value="{{content}}" focus placeholder-class="pc" bindinput="setContent"></textarea>
+    </view>
+    <view class="imgcomment">
+        <block wx:for="{{imgList}}" wx:key="index">
+            <view class="image-item" catchtap="previewImage" data-index="{{index}}">
+                <image src="{{item.url}}" class="item"></image>
+                <image class="icon" src="../../images/comment/ico-del.png" catchtap="delPhote" data-index="{{index}}"></image>
+            </view>
+        </block>
+        <view class="upload" bindtap="chooseImage" hidden="{{imgList.length>=4}}">
+            <text class="icon iconfont icon-ico_add" ></text>
+        </view>
+    </view>
+</view>

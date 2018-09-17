@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText":"商品详情",
+  "usingComponents": {
+    "pop-up":"/components/pop-up/index",
+    "share":"/components/share/index",
+    "empty":"/components/empty/index",
+    "go-home":"/components/goHome/index"
+  }
+}

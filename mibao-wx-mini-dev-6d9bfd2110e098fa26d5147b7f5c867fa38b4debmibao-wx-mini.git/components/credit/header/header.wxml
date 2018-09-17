@@ -1,0 +1,11 @@
+<block>
+  <view class="credit-step">
+    <div class="step {{stepIndex>=3?'active':''}}">2.信用认证</div>
+    <div class="step {{stepIndex>=2?'active':''}}">1.实名信息</div>
+    <!--<div class="step {{stepIndex>=1?'active':''}}">1.绑定手机</div>-->
+  </view>
+  <view class="credit-step-tip">
+    *仅需2步，立即预约下单
+  </view>
+</block>
+

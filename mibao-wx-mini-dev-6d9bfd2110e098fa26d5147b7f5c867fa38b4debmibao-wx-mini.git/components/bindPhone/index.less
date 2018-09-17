@@ -1,0 +1,133 @@
+@main-color :#3795FF;
+@disabled-color:#EAEAEA;
+
+.form-content
+{
+  background: #fff;
+  padding: 30rpx;
+
+  .form-row
+  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: 20rpx 0;
+
+    .row-main
+    {
+      flex: 1;
+    }
+
+    .row-aside
+    {
+      padding: 0 20rpx;
+    }
+
+    .label
+    {
+      font-size: 26rpx;
+      color: #888;
+    }
+
+    .input-wp
+    {
+      font-size: 28rpx;
+      padding: 10rpx 0;
+      height: 30rpx;
+      line-height: 30rpx;
+      color: #333;
+
+      > input
+      {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+
+        &:active,
+        &:focus
+        {
+          outline: none;
+        }
+      }
+    }
+
+    .aside-btn
+    {
+      color: @main-color;
+      border: 1px solid @main-color;
+      font-size: 24rpx;
+      width: 160rpx;
+      height: 48rpx;
+      line-height: 48rpx;
+      text-align: center;
+      border-radius: 48rpx;
+      overflow: hidden;
+      background: #fff;
+
+      &.disabled
+      {
+        border-color: #EAEAEA;
+        color: #EAEAEA;
+      }
+
+    }
+
+    .captcha-wp
+    {
+      width: 250rpx;
+      max-height: 100rpx;
+      overflow: hidden;
+
+      > image
+      {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+
+    + .form-row
+    {
+      border-top: 1px solid #EAEAEA;
+    }
+
+  }
+
+}
+
+.footer-button-wp
+{
+  position: fixed;
+  bottom:0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 80rpx 40rpx;
+  .button
+  {
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    color: #fff;
+    background: @main-color;
+    font-size: 32rpx;
+    border-radius: 88rpx;
+    overflow: hidden;
+
+    &:active,
+    &:focus
+    {
+      background: darken(@main-color,10%);
+    }
+
+    &.disabled
+    {
+      background: @disabled-color;
+    }
+  }
+}
+

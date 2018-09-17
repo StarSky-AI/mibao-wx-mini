@@ -1,0 +1,201 @@
+/* pages/order/orderExpress/orderExpress.wxss *//* pages/order/logistics /logistics .wxss */
+/*S 头部样式*/
+.container {
+  width: 100%;
+  padding: 0;
+  background: #fff;
+}
+.container .head {
+  box-sizing: border-box;
+  width: 100%;
+  height: 208rpx;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head .head-con {
+  box-sizing: border-box;
+  width: 710rpx;
+  height: 148rpx;
+  background: #F8F8F8;
+  border-radius: 10rpx; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.head .head-con .left {
+  display: flex;
+}
+.head .head-con .left .img {
+  box-sizing: content-box;
+  width: 88rpx;
+  height: 88rpx; 
+  background: #D8D8D8;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.head .head-con .left .logisInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width:350rpx;
+}
+.head .head-con .left .logisInfo text:first-child {
+  color: #041D29;
+  font-size: 32rpx;
+  margin-bottom: 8rpx;
+  font-weight: 600;
+}
+.head .head-con .left .logisInfo text:nth-child(2) {
+  width:350rpx;
+  color: #9B9B9B;
+  font-size: 24rpx;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display:inline-block;
+}
+.head .head-con .right text:first-child {
+  font-size: 24rpx;
+  color: #434343; 
+  margin-right: 10rpx;
+}
+.head .head-con .right text:nth-child(2) {
+  font-size: 24rpx;
+  color: #434343; 
+}
+/*E 头部样式*/
+/*S 物流详情*/
+.body {
+  width: 100%;
+  border-top: solid #F8F8F8 20rpx;
+}
+/*S= 收货地址*/
+.body .address {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 30rpx;
+  position:relative;
+}
+.body .address .addTit {
+  width: 128rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  border-radius: 200rpx;
+  background: #3795FF;
+  text-align: center;
+}
+.body .address .progressLine {
+  width:50rpx;
+  margin: 0 10rpx;
+}
+.body .address .progressLine .progressLine-con{
+  position: absolute;
+  height: 100%;
+  width: 50rpx;
+  top:0;
+  left:170rpx;
+}
+.line {
+  position: absolute;
+  left: 24rpx;
+  height: 100%;
+  top: 0
+}
+.line .line1 {
+  height: 50%;
+  width: 0;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  transform:scaleX(0.5);
+}
+.line .line2 {
+  border-right: 2rpx dashed #BFC5C9;
+  height: 50%;
+  width: 0;
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom:0;
+  transform:scaleX(0.5);
+}
+.point {
+  box-sizing: border-box;
+  height: 50rpx;
+  width: 50rpx;
+  background: #fff;
+  position:relative;
+  z-index:1;
+  top:50%;
+  margin-top:-25rpx;
+  overflow: hidden;
+}
+.point text {
+  display: block;
+  height: 30rpx;
+  line-height:1;
+  width: 30rpx; 
+  font-size: 30rpx; 
+  border-radius: 100%;
+  color: #2395FF;
+  margin:10rpx auto 0;
+}
+.body .address .addCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 492rpx;
+}
+.body .address .addCon text:first-child{
+  font-size: 28rpx;
+  color: #041D29; 
+  line-height:40rpx;
+}
+.body .address .addCon text:nth-child(2){
+  font-size: 24rpx;
+  color: #555555;
+  line-height:32rpx;
+}
+/*E= 收货地址*/
+.body .address .addDate {
+   width: 128rpx;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: center;
+}
+.body .address .addDate text:first-child {
+  font-size: 28rpx;
+  color: #041D29;
+}
+.body .address .addDate text:nth-child(2) {
+  font-size: 22rpx;
+  color: #9B9B9B;
+}
+.body .addDetail .line1 {
+  border-right: 2rpx solid #BFC5C9;
+}
+.body .addDetail .line2 {
+  border-right: 2rpx solid #BFC5C9;
+}
+.body .address:nth-child(2) .line .line1{
+  border-right: 2rpx dashed #BFC5C9;
+}
+.body .address:last-child .line .line2{
+  border-right: 0;
+}
+.body .address:nth-child(2) .addCon text:nth-child(2){
+  color: #F5533A;
+}
+/*E 物流详情*/

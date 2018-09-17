@@ -1,0 +1,49 @@
+<wxs module="filters" src="../../wxs/filter.wxs"></wxs>
+
+<template name="oneLineProduct" >
+    <view class="product-wp" bindtap="toDetail">
+        <view class="product">
+            <view class="img">
+                <image src="{{src[0]}}"></image>
+            </view>
+            <view class="detail">
+                <view class="title jiacu">{{name}}</view>
+                <block wx:if="{{leaseType=='MONTHLY'}}">
+                    <view class="jiage">
+                        <text class="price">{{filters.parsePrice(displayRent*30)}}</text>
+                        <text class="unit">元/月</text>
+                    </view>
+                </block>
+
+                <block wx:else>
+                    <view class="jiage">
+                        <text class="price">{{filters.parsePrice(displayRent)}}</text>
+                        <text class="unit"> 元/天</text>
+                    </view>
+                </block>
+                <view class="tag">
+                    <!--包邮 v-if="item.delivery=='包邮'"-->
+                    <text class="tag_o" wx:if="{{delivery=='包邮'}}">包邮</text>
+                    <!--全新/非全新 :class="{'tag_b':item.oldLevel==10,'tag_g':item.oldLevel!==10}"-->
+                    <text class="{{oldLevelStr=='全新'?'tag_b':'tag_g'}}">{{oldLevelStr=='全新'?'':'非'}}全新</text>
+                    <!--<text class="tag_g">非全新</text>-->
+
+                    <!--礼券v-if="item.bonus!==''"-->
+                    <!--<text class="tag_r">礼券</text>-->
+                </view>
+                <!--店铺内搜索不需要显示 0 是店铺-->
+                <view class="merchant" wx:if="{{a=='1'}}">
+                    <view class="name">
+                        <text class="merchantName">{{shopName}}</text>
+                        <text class="end">{{shopNameEnd}}</text>
+                        <text class="city">{{city}}</text>
+                    </view>
+
+                    <view class="jindian" bindtap="toStore">进店
+                        <text class="iconfont icon-ico_back-copy"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

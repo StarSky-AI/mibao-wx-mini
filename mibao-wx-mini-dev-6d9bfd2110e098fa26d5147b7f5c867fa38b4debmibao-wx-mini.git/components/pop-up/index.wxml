@@ -1,0 +1,21 @@
+<loading hidden="{{loadingHide}}" wx:if="{{position=='top'}}">
+    加载中...
+</loading>
+<view class="pick-wp" hidden="{{hideModal}}" catchtap="hideModal"></view>
+<!--关闭按钮在下方 -->
+<view class="pop-wrap" hidden="{{hideModal}}" wx:if="{{position=='top'}}">
+
+        <slot name="top">
+
+        </slot>
+
+    <view class="close" catchtap="hideModal" hidden="{{closeHide}}">
+        <text class="iconfont icon-ico_gengduo-copy"></text>
+    </view>
+</view>
+<!--从底下慢慢弹出-->
+<view class="shareInfo" hidden="{{hideModal}}" animation="{{animationData}}" wx:if="{{position=='bottom'}}">
+    <slot name="bottom">
+
+    </slot>
+</view>

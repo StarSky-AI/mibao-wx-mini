@@ -1,0 +1,435 @@
+@bgColor:#ffffff;
+@textColor:#000000;
+.mokuaiTitle{
+  padding-left: 30rpx;
+  font-size: 36rpx;
+  color: @textColor;
+}
+page{
+  height: 100%;
+  .store-wp{
+      height: 100%;
+    .store-header{
+      .header-wp{
+        width: 100%;
+        height: 250rpx;
+        background-position: top center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        position: relative;
+        .header{
+          padding-left: 220rpx;
+          width: 100%;
+          box-sizing: border-box;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 150rpx;
+          background: @bgColor;
+          border-top-left-radius:20rpx;
+          border-top-right-radius:20rpx;
+          .avater{
+            background: @bgColor;
+            box-shadow: 0 0 10px 0 rgba(4,29,41,0.30);
+            width: 160rpx;
+            height: 160rpx;
+            border-radius: 50%;
+            text-align: center;
+            position: absolute;
+            left: 36rpx;
+            top: -40rpx;
+            view{
+              width: 148rpx;
+              height: 148rpx;
+              margin: 6rpx auto 0;
+              overflow: hidden;
+              border-radius: 50%;
+              image{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
+            }
+
+          }
+
+          .storeInfo{
+            width: 100%;
+            display: flex;
+            padding: 24rpx 44rpx 0 0;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            box-sizing: border-box;
+            .left{
+              padding-right: 48rpx;
+              border-right: 1rpx solid #EAEAEA;
+              .title{
+                width: 352rpx;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 32rpx;
+                color: @textColor;
+              }
+              .rentnum{
+                height: 34rpx;
+                line-height: 34rpx;
+                text{
+                  font-size: 24rpx;
+                  color: #9B9B9B;
+                  &.num{
+                    font-size: 26rpx;
+                    color: @textColor;
+                    padding-right: 6rpx;
+                  }
+                }
+              }
+            }
+            .right{
+              display: inline-flex;
+              flex-direction: column;
+              align-items: center;
+              .icon{
+                font-size: 36rpx;
+                color: #434343;
+              }
+              .text{
+                font-size: 24rpx;
+                color: #434343;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .tab-header{
+      &.fixed{
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+      }
+      background: #F9FAFB;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 88rpx;
+      .item{
+        height: 88rpx;
+        line-height: 88rpx;
+        color: #434343;
+        font-size: 28rpx;
+        &.active{
+          color: #3795FF;
+          position: relative;
+          &::before{
+            content: '';
+            background: #3795FF;
+            width: 70rpx;
+            height: 4rpx;
+            border-radius: 8rpx 8rpx 0 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+
+    .tab-content{
+      //防止部分很快消失
+      &.fixed{
+        margin-top: 88rpx;
+      }
+      .index{
+        .banner-wp{
+          background: @bgColor;
+          position: relative;
+          width: 100%;
+          padding-bottom: 33.333%;
+          overflow: hidden;
+          .swiper-wp{
+            padding: 40rpx 30rpx;
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            .banner-swiper{
+              height: 100%;
+              .img-wp{
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 24.058%;
+                overflow: hidden;
+                image
+                {
+                  position: absolute;
+                  top:0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+            .dots{
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              bottom: 20rpx;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              text{
+                width: 6rpx;
+                height: 4rpx;
+                border-radius: 200rpx;
+                background: #BFC5C9;
+                margin:0 3rpx;
+                &.active{
+                  background: #9B9B9B;
+                  width: 20rpx;
+                }
+              }
+            }
+
+          }
+        }
+
+        .coupon{
+          background:@bgColor ;
+          margin-top: 10rpx;
+          padding: 20rpx 0;
+
+        }
+
+        .recommend{
+          background: @bgColor;
+          margin-top: 10rpx;
+          padding-top: 40rpx;
+          width: 100%;
+          box-sizing: border-box;
+          .title{
+            .mokuaiTitle;
+          }
+          .list-wp{
+            overflow:scroll;//显示最后的边距
+            position: relative;
+            .goodlist{
+              padding: 40rpx 30rpx;
+              white-space: nowrap;//文本不会换行
+              //避免换行
+              .item{
+                vertical-align:top;
+                width: 33.33333%;
+                display: inline-block;
+                margin-right: 30rpx;
+                &:last-of-type{
+                  margin-right: 0;
+                }
+                .img{
+                  margin: 0 auto;
+                  width: 200rpx;
+                  height: 200rpx;
+                  image{
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+                .info{
+                  .name{
+                    white-space: normal;
+                    margin-top: 6rpx;
+                    font-size: 28rpx;
+                    color: @textColor;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp:2;
+                    -webkit-box-orient: vertical;
+                    line-height: 36rpx;
+                    height:72rpx;
+                  }
+                  .oldstr{
+                    font-size: 24rpx;
+                    color: #9B9B9B;
+                  }
+                  .jiage{
+                    height: 50rpx;
+                    line-height: 50rpx;
+                    .price
+                    {
+                      font-size: 36rpx;
+                      color: #FF5339;
+                    }
+                    .unit
+                    {
+                      color: #9B9B9B;
+                      font-size: 24rpx;
+                      padding-left: 6rpx;
+                    }
+                  }
+                  .oldjiage{
+                    font-size: 11px;
+                    color: #BFC5C9;
+                    text-decoration: line-through;
+                  }
+
+                }
+              }
+            }
+          }
+        }
+
+        .goodsPutAway{
+          padding: 40rpx 0;
+          width: 100%;
+          box-sizing: border-box;
+          .title{
+            .mokuaiTitle;
+          }
+          .more{
+            text-align: center;
+            font-size: 24rpx;
+            color: #9B9B9B;
+            padding-bottom: 88rpx;
+            text{
+              color: #9B9B9B;
+              font-size: 24rpx;
+            }
+          }
+          .goods-wp{
+            margin-top: 24rpx;
+          }
+        }
+      }
+
+      .list{
+        background: @bgColor;
+        .orderbtn
+        {
+          width: 100%;
+          &.fixed{
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 88rpx;
+            z-index: 99;
+          }
+          padding: 50rpx 30rpx 40rpx;
+          box-sizing: border-box;
+          background: @bgColor;
+          .item{
+            display: inline-block;
+            background: #F8F8F8;
+            width: 164rpx;
+            height: 68rpx;
+            text-align: center;
+            line-height: 68rpx;
+            border-radius: 43px;
+            font-size: 26rpx;
+            color: #9B9B9B;
+            &.active {
+              background:rgba(55,149,255,.1);
+              color: #2395FF;
+            }
+          }
+          .jiage{
+            margin-left: 20rpx;
+            .icon{
+              margin-left: 14rpx;
+              width: 20rpx;
+              height: 24rpx;
+            }
+          }
+        }
+        .goodslist-wp{
+          &.fixed{
+            margin-top: 246rpx;
+          }
+
+        }
+
+      }
+    }
+    .footer-wp{
+      background: @bgColor;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 88rpx;
+      .footer-btn{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .left{
+          flex: 1;
+          height: 100%;
+          .item{
+            height: 88rpx;
+            line-height: 88rpx;
+            width: 33.333%;
+            display: inline-block;
+            text-align: center;
+            font-size: 28rpx;
+            color: #434343;
+            &:nth-of-type(-n+2)
+            {
+              position: relative;
+              &::before{
+                position: absolute;
+                content: '';
+                width: 2rpx;
+                height: 50rpx;
+                background: #EAEAEA;
+                right:0;
+                top: 50%;
+                transform: translateY(-50%) scaleX(0.5);
+                z-index: 99;
+              }
+            }
+            &.concat{
+              color: #3795FF;
+              .iconfont{
+                color: #3795FF;
+                font-size: 36rpx;
+              }
+            }
+          }
+        }
+        .right{
+          background: #F8F8F8;
+          text{
+            width: 32rpx;
+            height: 18rpx;
+            color: #434343;
+          }
+          box-sizing: border-box;
+          width: 88rpx;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+          font-size: 20rpx;
+          color: #434343;
+        }
+
+      }
+    }
+  }
+}

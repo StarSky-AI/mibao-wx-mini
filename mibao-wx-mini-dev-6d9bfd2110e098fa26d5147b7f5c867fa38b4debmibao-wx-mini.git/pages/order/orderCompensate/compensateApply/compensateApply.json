@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText":"维权申诉",
+  "usingComponents": {
+    "image-des":"/components/imagesAndDescription/index",
+    "pop-up":"/components/pop-up/index"
+  }
+}

@@ -1,0 +1,122 @@
+<view class="orderReturn-wp">
+    <view class="header">
+        <view class="name">
+            {{returnInfo.merchantName}}
+        </view>
+        <view class="contact" catchtap="callphone">
+            <image src="../../../images/order/ico-contact@2x.png"></image>
+        </view>
+    </view>
+
+    <view class="address-wp">
+        <view class="address">
+            <view class="line userName">
+                <view class="left">
+                   收件人
+                </view>：
+                <view class="right"> {{returnInfo.contact}}</view>
+            </view>
+            <view class="line phone">
+                <view class="left">
+                    联系电话
+                </view>：
+                <view class="right">{{returnInfo.contactNumber}}</view>
+            </view>
+            <view class="line content">
+                <view class="left">
+                    收件地址
+                </view>：
+                <view class="right">
+                    {{returnInfo.receiveAddress}}
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="copy-wp" catchtap="copy">
+        <text class="iconfont icon-ico_back-copy1"></text>
+        复制寄件地址
+    </view>
+
+    <view class="qrcode-wp" catchtap="showCode">
+        <view class="left">
+            <view class="title" catchtap="notice">
+                商品退还码
+                <text class="iconfont icon-wenhao" ></text>
+            </view>
+            <view class="text">
+                让商家扫描二维码以完成退还
+            </view>
+        </view>
+        <view class="right" >
+            <text class="iconfont icon-erweima"></text>
+        </view>
+    </view>
+
+    <view class="logistics-wp">
+        <view class="company item">
+            <view class="title">
+                物流公司
+            </view>
+            <view class="row">
+                <view class="left">
+                    <picker range="{{array}}" bindchange="bindPickerChange"  range-key="{{'name'}}" value="{{index}}">
+                        <view class="picker">
+                            {{array[index].name?array[index].name:'请选择物流公司'}}
+                        </view>
+                    </picker>
+                </view>
+                <view class="right">
+                    <text class="iconfont icon-ico_back-copy"></text>
+                </view>
+            </view>
+        </view>
+        <view class="logisticsNum item">
+            <view class="title">
+                物流单号
+            </view>
+            <view class="row">
+                <view class="left">
+                    {{logisticsNum?"":"请输入物流单号"}}
+                    <input value="{{logisticsNum}}" bindinput="input"/>
+                </view>
+                <view class="right" catchtap="scancode">
+                    <text class="iconfont icon-ico_tiaoxingma"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="note">
+        温馨提示：当您提交成功，商家收货后，验机审核无误，将会返还您的全部资金，请你保持电话畅通，以便与您沟通相关事宜或通知。
+    </view>
+    <view class="submit">
+        <button catchtap="confirmReturn">确认寄回</button>
+    </view>
+
+    <pop-up hideModal="{{hideModal}}" loadingHide="{{loadingHide}}" position="top">
+        <view class="popcontent" slot="top">
+            <view class="code">
+                <!--<image src="../../../images/aa.jpg"></image>-->
+                <canvas class='canvas' canvas-id='canvas'></canvas>
+            </view>
+            <view class="text">
+                让商家扫描二维码以完成退还
+            </view>
+            <view class="time" catchtap="refreshCode">
+                {{time==0?'点击刷新':time+'s后失效'}}
+            </view>
+        </view>
+    </pop-up>
+
+    <pop-up position="bottom" id="returnSuccess">
+        <view class="successcontent" slot="bottom">
+            <text class="iconfont icon-ico_apply"></text>
+            <view class="line1" >商品退还提交成功</view>
+            <view class="line2">
+                请等待商家收货
+            </view>
+            <view class="backToHome" catchtap="backToOrderDetail"> 订单详情 <text class="iconfont icon-ico_former"></text> </view>
+        </view>
+    </pop-up>
+</view>

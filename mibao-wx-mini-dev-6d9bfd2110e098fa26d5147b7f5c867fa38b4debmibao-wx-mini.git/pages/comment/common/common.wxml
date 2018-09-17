@@ -1,0 +1,56 @@
+<!--pages/secondaryPage/comment/index.wxml-->
+<import src="/templates/orderProduct/index.wxml" />
+
+<view class="comment">
+    <template is="product-header-normal" data="{{...goodsInfo}}"/>
+
+    <view class="pro-rater-wp">
+        <view class="type">
+            <text>商品评论</text>
+        </view>
+
+        <view class="comment-wp">
+            <rater finish="{{finish}}" bindchoose="rate" light="{{score}}"></rater>
+        </view>
+    </view>
+
+    <view class="pro-comment-wp">
+        <block wx:if="{{!finish}}">
+            <view class="type">
+                详细评价
+            </view>
+            <view class="comment-wp">
+                <view class="textarea">
+                    <textarea placeholder="说说使用感受吧！" value="{{content}}" focus placeholder-class="pc" bindinput="setContent"></textarea>
+                </view>
+                <view class="imgcomment">
+                    <block wx:for="{{imgList}}" wx:key="index">
+                    <view class="image-item" catchtap="previewImage" data-index="{{index}}">
+                        <image src="{{item.url}}" class="item"></image>
+                        <image class="icon" src="../../../images/comment/ico-del.png" catchtap="delPhote" data-index="{{index}}"></image>
+                    </view>
+                    </block>
+                    <button class="upload" bindtap="chooseImage" hidden="{{imgList.length>=4}}">
+                        <text class="icon iconfont icon-ico_add" ></text>
+                    </button>
+                </view>
+            </view>
+        </block>
+
+        <block wx:else>
+            <view class="comment-cnt">
+                <view class="content">
+                    {{content}}
+                </view>
+                <view class="imgList">
+                    <view class="img" wx:for="{{commentImgUrl}}" wx:key="index" catchtap="previewImg" data-index="{{index}}">
+                        <image src="{{item.url}}"></image>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="submit" wx:if="{{!finish}}">
+        <button catchtap="commentSubmit">提交评论</button>
+    </view>
+</view>

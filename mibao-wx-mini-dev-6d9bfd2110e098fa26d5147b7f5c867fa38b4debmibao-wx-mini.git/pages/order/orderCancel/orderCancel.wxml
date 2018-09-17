@@ -1,0 +1,17 @@
+<!--取消订单-->
+<view class='cancelOrder-wp'>
+    <view class='option-wrapepr'>
+        <block wx:for='{{cancelReasonObj}}' wx:key='index'>
+            <view class='option'>
+                <view class='option-item' bindtap='chooseCancelReason' data-item="{{item}}" data-index="{{index}}">
+                    <view class='option-left'>{{item.reason}}</view>
+                    <view class='option-right'><text class='icon iconfont {{index==chooseIndex?"icon-ico_select_pre":"icon-ico_select"}}'></text></view>
+                </view>
+                <textarea class='other-reason' value='{{textareaValue}}' wx:if="{{index==cancelReasonObj.length-1}}" bindinput='textareaInput' />
+            </view>
+        </block>
+    </view>
+    <view class='submit-area' bindtap='submitReason'>
+        <button>立即提交</button>
+    </view>
+</view>

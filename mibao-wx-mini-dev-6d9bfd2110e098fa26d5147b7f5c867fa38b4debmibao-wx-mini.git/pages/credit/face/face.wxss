@@ -1,0 +1,30 @@
+.face-tip .title {
+  text-align: center;
+  font-size: 34rpx;
+  padding-top: 50rpx;
+  color: #333;
+}
+.face-tip .img {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.face-tip .img > .icon {
+  color: #888;
+  font-size: 160rpx;
+}
+.face-tip .content {
+  font-size: 30rpx;
+  margin-top: 40rpx;
+  background: #fff;
+  padding: 40rpx;
+  color: #888;
+}
+.face-tip .aside {
+  font-size: 24rpx;
+  color: #a3a3a3;
+  padding: 40rpx;
+}

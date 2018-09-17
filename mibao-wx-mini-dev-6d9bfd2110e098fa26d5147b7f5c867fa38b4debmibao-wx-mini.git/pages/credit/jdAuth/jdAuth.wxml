@@ -1,0 +1,2 @@
+<!--pages/credit/jdAuth/jdAuth.wxml-->
+<web-view src="{{authUrl}}"></web-view>

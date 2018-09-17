@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"订单评论",
+  "usingComponents": {
+    "rater":"/components/rater/index"
+  }
+}

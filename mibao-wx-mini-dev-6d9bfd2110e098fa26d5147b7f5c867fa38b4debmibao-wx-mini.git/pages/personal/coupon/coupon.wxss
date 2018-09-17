@@ -1,0 +1,296 @@
+page {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+}
+swiper{
+	width: 100%;
+	height: auto;
+}
+.swiper-tab {
+	display: flex;
+	border-bottom: 2rpx solid #ccc;
+	text-align: center;
+	box-sizing: border-box;
+	height: 88rpx;
+	line-height: 88rpx;
+}
+.swiper-tab-item {
+	flex: 1;
+	height: 50rpx;
+	line-height: 50rpx;
+	margin-top: 20rpx;
+	margin-bottom: 18rpx;
+	font-size: 28rpx;
+	color: #000;
+}
+.swiper-tab-item:last-child {
+	border-right: 0rpx;
+}
+.active {
+	color: #3795FF;
+	position: relative;
+}
+.active:after {
+	position: absolute;
+	content: '';
+	display: block;
+	left: 88rpx; bottom: -15rpx;
+	width: 70rpx;
+	height: 4rpx;
+	background-color: #3795FF;
+	border-radius: 8rpx 8rpx 0rpx 0rpx;
+}
+.tip {
+	display: flex;
+	justify-content: flex-end;
+	box-sizing: border-box;
+	padding: 0rpx 30rpx;
+	height: 82rpx;
+	line-height: 82rpx;
+}
+.tip text {
+	padding-right: 32rpx;
+	font-size: 24rpx;
+	color: #3795FF;
+	position: relative;
+}
+.tip text:after {
+	position: absolute;
+	right: 0rpx;
+	top: 0rpx;
+	content: "\e71d";
+	font-family:"iconfont" !important;
+	display: block;
+
+}
+
+.tab-h{
+	height: 90rpx;
+	width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	line-height: 80rpx;
+	background: #F7F7F7;
+	font-size: 16px;
+	white-space: nowrap;
+	position: fixed;
+	top: 0; left: 0;
+	z-index: 99;
+}
+.tab-item{
+	margin:0 36rpx;
+	display: inline-block;
+}
+.tab-item.active{
+	color: #4675F9;
+	position: relative;
+}
+.tab-item.active:after{
+	content: "";
+	display: block;
+	height: 8rpx;
+	width: 52rpx;
+	background: #4675F9;
+	position: absolute;
+	bottom: 0;
+	left: 5rpx;
+	border-radius: 16rpx;
+}
+.item{
+	background-color: #3795FF;
+	margin-bottom: 20rpx;
+	border-radius: 10rpx;
+	display: flex;
+	padding: 20rpx 0rpx;
+	box-sizing: border-box;
+}
+.item-c {
+	background-color: #c7c7c7;
+	margin-bottom: 20rpx;
+	border-radius: 10rpx;
+	display: flex;
+	padding: 20rpx 0rpx;
+	box-sizing: border-box;
+}
+
+.item .left, .item-c .left1 {
+	width:180rpx;
+	height: 140rpx;
+	border-right: 1px solid #7FBBFF;
+}
+.item .left .left-top, .left-top1 {
+	text-align: center;
+	height: 94rpx;
+	color: #fff;
+}
+.item .left .left-top .rmb, .rmb1 {
+	font-size: 34rpx;
+}
+.item .left .left-top .price, .price1 {
+	font-size: 60rpx;
+}
+.left-bottom, .left-bottom1 {
+	height: 32rpx;
+	display: flex;
+	justify-content: center;
+}
+.label, .label1 {
+	height: 32rpx;
+	line-height: 32rpx;
+	padding: 0rpx 18rpx;
+	font-size: 24rpx;
+	color: #3795FF;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 200rpx;
+}
+.label1 {
+	color: #c7c7c7;
+}
+.item .right, .right1 {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding-left: 56rpx;
+}
+.item {
+	position: relative;
+}
+.item-1, .item-5 {
+	font-size: 32rpx;
+	line-height: 32rpx;
+	color: #fff;
+}
+.item-2, .item-6 {
+	font-size: 24rpx;
+	line-height: 32rpx;
+	color: #1B67BD;
+}
+.item-6 {
+	color: #A8A8A8;
+}
+.item-3, .item-4, .item-7, .item-8 {
+	margin-top: 13rpx;
+	font-size: 24rpx;
+	line-height: 32rpx;
+	color: #fff;
+}
+.item-3 {
+	width: 400rpx;
+	overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap 
+}
+.item-4, .item-8 {
+	margin-top: 0rpx;
+}
+.item-c .left1 {
+	border-right: 1px solid #BABABA;
+}
+.mySwiper {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	box-sizing: border-box;
+	background-color: #FFF;
+	padding: 170rpx 30rpx 0rpx 30rpx;
+	z-index: -1;
+}
+.mySwiper swiper-item {
+	overflow-y: scroll;
+}
+.used {
+	width:71px;
+	height:53px;
+	position: absolute;
+	right: 20rpx; top: 38rpx;
+}
+.item1 {
+	position: relative;
+}
+.Expired {
+	width:71px;
+	height:53px;
+	position: absolute;
+	right: 20rpx; top: 38rpx;
+}
+
+.avatar{
+	width: 100rpx;
+	height: 100rpx;
+	position: relative;
+	padding-right: 30rpx;
+}
+.avatar .img{
+	width: 100%;
+	height: 100%;
+}
+.avatar .doyen{
+	width: 40rpx;
+	height: 40rpx;
+	position: absolute;
+	bottom: -2px;
+	right: 20rpx;
+}
+.expertInfo{
+	font-size: 12px;
+	flex-grow: 2;
+	color: #B0B0B0;
+	line-height: 1.5em;
+}
+.expertInfo .name{
+	font-size: 16px;
+	color:#000;
+	margin-bottom: 6px;
+}
+.askBtn{
+	width: 120rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	text-align: center;
+	font-size: 14px;
+	border-radius: 60rpx;
+	border: 1px solid #4675F9;
+	color:#4675F9;}
+.scoll-h{
+	height: 100%;
+}
+.couponSlide {
+	padding: 0rpx 30rpx;
+}
+.scroll_wp{
+	width: 100%;
+	height: 100%;
+}
+.mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}
+.guide{
+	background-color: #fff;
+}
+.guide .content{
+	overflow: scroll;
+	max-height: 700rpx;
+}
+.guide .title{
+	width: 100%;
+	height: 100rpx;
+	border-bottom: 1px solid #EAEAEA;
+	line-height: 100rpx;
+	text-align: center;
+	font-size: 26rpx;
+}
+.guide .option{
+	font-size: 24rpx;
+	padding: 20rpx 30rpx;
+	border-bottom:1px solid #EAEAEA;
+}

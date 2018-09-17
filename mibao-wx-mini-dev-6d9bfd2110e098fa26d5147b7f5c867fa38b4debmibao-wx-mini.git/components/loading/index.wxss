@@ -1,0 +1,9 @@
+.box {
+  width: 100%;
+  padding: 3%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999999;
+}

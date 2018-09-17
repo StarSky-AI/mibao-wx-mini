@@ -1,0 +1,112 @@
+.product-wp {
+  margin: 0 30rpx;
+  padding: 30rpx 0;
+  border-bottom: 0.5px solid #eaeaea;
+}
+.product-wp .product {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.product-wp .product .img {
+  width: 200rpx;
+  height: 200rpx;
+}
+.product-wp .product .img image {
+  width: 100%;
+  height: 100%;
+}
+.product-wp .product .detail {
+  width: 460rpx;
+}
+.product-wp .product .detail .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 28rpx;
+  color: #041D29;
+  line-height: 36rpx;
+  margin-bottom: 16rpx;
+  height: 72rpx;
+}
+.product-wp .product .detail .jiage {
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.product-wp .product .detail .jiage .price {
+  font-size: 36rpx;
+  color: #FF5339;
+}
+.product-wp .product .detail .jiage .unit {
+  color: #9B9B9B;
+  font-size: 24rpx;
+  padding-left: 6rpx;
+}
+.product-wp .product .detail .tag {
+  line-height: 24rpx;
+  height: 24rpx;
+  margin-bottom: 14rpx;
+}
+.product-wp .product .detail .tag .tag_r,
+.product-wp .product .detail .tag .tag_o,
+.product-wp .product .detail .tag .tag_g,
+.product-wp .product .detail .tag .tag_b {
+  line-height: 24rpx;
+  display: inline-block;
+  height: 24rpx;
+  width: 56rpx;
+  border-radius: 6rpx;
+  font-size: 9px;
+  padding: 0.5rpx 5rpx;
+  margin-right: 10rpx;
+  text-align: center;
+}
+.product-wp .product .detail .tag .tag_r {
+  color: #FF5339;
+  border: 0.5px solid #FF5339;
+}
+.product-wp .product .detail .tag .tag_o {
+  color: #FF8639;
+  border: 0.5px solid #FF8639;
+}
+.product-wp .product .detail .tag .tag_g {
+  width: 74rpx;
+  color: #9B9B9B;
+  border: 0.5px solid #9B9B9B;
+}
+.product-wp .product .detail .tag .tag_b {
+  color: #3795FF;
+  border: 0.5px solid #3795FF;
+}
+.product-wp .product .detail .merchant {
+  font-size: 11px;
+  color: #9B9B9B;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-wp .product .detail .merchant .name {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.product-wp .product .detail .merchant .name .merchantName {
+  width: 163rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-wp .product .detail .merchant .name .city {
+  margin-left: 20rpx;
+}
+.product-wp .product .detail .merchant .jindian {
+  color: #434343;
+}
+.product-wp .product .detail .merchant .jindian > text {
+  font-size: 11px;
+}

@@ -1,0 +1,128 @@
+.product-wp
+{
+  margin: 0 30rpx;
+  padding: 30rpx 0;
+  border-bottom: 0.5px solid #eaeaea;
+  .product{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .img{
+      width: 200rpx;
+      height: 200rpx;
+      image{
+        width: 100%;
+        height: 100%;
+
+      }
+    }
+    .detail{
+      width: 460rpx;
+      .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        font-size: 28rpx;
+        color: #041D29;
+        line-height: 36rpx;
+        margin-bottom: 16rpx;
+        height:72rpx;
+
+      }
+      .jiage{
+        height: 50rpx;
+        line-height: 50rpx;
+        .price
+        {
+          font-size: 36rpx;
+          color: #FF5339;
+        }
+        .unit
+        {
+          color: #9B9B9B;
+          font-size: 24rpx;
+          padding-left: 6rpx;
+        }
+
+      }
+
+      .tag{
+        line-height: 24rpx;
+        height: 24rpx;
+        margin-bottom: 14rpx;
+        .tag_r, .tag_o, .tag_g, .tag_b {
+          line-height: 24rpx;
+          display: inline-block;
+          height: 24rpx;
+          width: 56rpx;
+          border-radius: 6rpx;
+          font-size: 9px;
+          padding: 0.5rpx 5rpx;
+          margin-right: 10rpx;
+          text-align: center;
+
+        }
+        .tag_r {
+          color: #FF5339;
+          border: 0.5px solid #FF5339;
+        }
+        .tag_o {
+          color: #FF8639;
+          border: 0.5px solid #FF8639;
+        }
+        .tag_g {
+          width: 74rpx;
+          color: #9B9B9B;
+          border: 0.5px solid #9B9B9B;
+        }
+        .tag_b {
+          color: #3795FF;
+          border: 0.5px solid #3795FF;
+        }
+      }
+
+      .merchant{
+        font-size: 11px;
+        color: #9B9B9B;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        .name{
+          display: inline-flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+            .merchantName{
+              width: 163rpx;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          .city{
+            margin-left: 20rpx;
+          }
+        }
+
+        .jindian{
+          color: #434343;
+          >text{
+            font-size: 11px;
+          }
+        }
+      }
+    }
+    //&:after{
+    //  z-index: 99;
+    //  position: absolute;
+    //  bottom: -20rpx;
+    //  left: 0;
+    //  height: 0.5px;
+    //  width: 100%;
+    //  background: #EAEAEA;
+    //}
+  }
+}

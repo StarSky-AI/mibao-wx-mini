@@ -1,0 +1,143 @@
+.category-wp{
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+  &:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+  }
+
+  .category-menu{
+    width: 168rpx;
+    background: #F8F8F8;
+    float: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 168rpx;
+    bottom: 0;
+    overflow: hidden;
+    .menu-scroll{
+      height: 100%;
+      overflow: scroll;
+      .menu{
+        height: 100rpx;
+        line-height: 100rpx;
+        background: #F8F8F8;
+        font-size: 28rpx;
+        text-align: center;
+        color: #9B9B9B;
+        &.active{
+          position: relative;
+          &:before{
+            content: '';
+            width: 4rpx;
+            height: 30rpx;
+            background: #434343;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          color: #434343;
+        }
+      }
+    }
+  }
+
+  .category-cnt{
+    padding: 28rpx 30rpx 0;
+    position: fixed;
+    top: 0;
+    left: 168rpx;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    background: #ffffff;
+    overflow: hidden;
+    .type-scroll{
+      height: 100%;
+      overflow: scroll;
+      .search-wp{
+        width:100%;
+        view{
+          height: 58rpx;
+          line-height: 58rpx;
+          background: #EAEAEA;
+          border-radius: 200rpx;
+          font-size: 28rpx;
+          color: #9B9B9B;
+          text-align: left;
+          padding: 0 24rpx;
+          .icon{
+            padding-right: 14rpx;
+            color: #434343;
+          }
+        }
+      }
+      .img{
+        margin-top: 30rpx;
+        width: 100%;
+        padding-bottom: 212rpx;
+        position: relative;
+        border-radius: 8rpx;
+        image{
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .typelists{
+        ::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+          color: transparent;
+        }
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .type{
+          padding-top:60rpx ;
+          width: 33.3333%;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          .typeimg{
+            width: 110rpx;
+            padding-bottom: 110rpx;
+            position: relative;
+            image{
+              border-radius: 50% 50%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .typeName{
+            font-size: 24rpx;
+            color: #434343;
+            padding-top: 20rpx;
+          }
+        }
+      }
+    }
+
+  }
+}

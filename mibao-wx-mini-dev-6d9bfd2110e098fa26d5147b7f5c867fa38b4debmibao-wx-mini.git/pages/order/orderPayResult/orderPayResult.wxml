@@ -1,0 +1,23 @@
+<view class="pay-result">
+    <view class="result-wp">
+        <view class="icon">
+            <text class="iconfont {{result?'icon-ico_payment':'icon-shibaibiaoqing'}}"></text>
+        </view>
+        <view class="resultNote">{{result?'支付成功':'支付失败'}}</view>
+        <view class="des">
+
+        </view>
+
+        <view class="orderList" catchtap="toOrder">
+            <text>查看我的订单</text>
+            <text class="iconfont icon-ico_right1"></text>
+        </view>
+    </view>
+
+    <view class="footer">
+        <view class="logo">
+            <image src="../../../images/common/logo.png"></image>
+        </view>
+        <text class="text">— 本租赁服务由杭州稻本信息技术有限公司提供 —</text>
+    </view>
+</view>

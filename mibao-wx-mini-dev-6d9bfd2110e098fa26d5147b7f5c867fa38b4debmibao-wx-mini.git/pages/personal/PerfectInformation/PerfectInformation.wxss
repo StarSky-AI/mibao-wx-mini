@@ -1,0 +1,109 @@
+.title {
+	box-sizing: border-box;
+	padding-left: 30rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	color: #9B9B9B;
+}
+.Identity_information {
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 0rpx 30rpx;
+	height: 88rpx;
+	background: #fff;
+	line-height: 88rpx;
+}
+.Identity_information text:nth-child(1) {
+	font-size: 28rpx;
+	color: #000;
+}
+.Identity_information text:nth-child(2) {
+	font-size: 28rpx;
+	color: #434343;
+	position: relative;
+	padding-right: 34rpx;
+}
+.Identity_information text:nth-child(2):after {
+	content: "\e642";
+	display: block;
+	font-family:"iconfont" !important;
+	color: #989898;
+	position: absolute;
+	right: 0; top: 0;
+}
+.zhimaxinyong {
+	display: flex;
+	height: 88rpx;
+	box-sizing: border-box;
+	padding-left: 30rpx;
+	line-height: 88rpx;
+	background-color: #fff;
+	margin-top: 20rpx;
+	justify-content: space-between;
+	padding: 0rpx 30rpx;
+}
+.zhimaxinyong .zhima {
+	display: flex;
+	box-sizing: border-box;
+
+}
+.zhimaxinyong .zhima image {
+	width: 44rpx;
+	height: 44rpx;
+	margin-top: 22rpx;
+}
+.zhima .explain {
+	margin-left: 10rpx;
+	font-size: 28rpx;
+	color: #000;
+}
+.zhimaxinyong .status {
+	font-size: 28rpx;
+	color: #434343;
+	padding-right: 34rpx;
+	position: relative;
+}
+.zhimaxinyong .status:after {
+	content: "\e642";
+	display: block;
+	font-family:"iconfont" !important;
+	color: #989898;
+	position: absolute;
+	right: 0; top: 0;
+}
+.supplementary {
+	display: flex;
+	font-size: 24rpx;
+	color: #9B9B9B;
+	box-sizing: border-box;
+	padding-left: 30rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+}
+.info, .info2 {
+	height: 88rpx;
+	font-size: 28rpx;
+	color: #000;
+	line-height: 88rpx;
+	background-color: #fff;
+	box-sizing: border-box;
+	padding: 0rpx 30rpx;
+}
+.info text, .info2 text {
+	display: block;
+	position: relative;
+}
+.info text:after, .info2 text:after{
+	content: "\e642";
+	display: block;
+	font-family:"iconfont" !important;
+	color: #989898;
+	position: absolute;
+	right: 0; top: 0;
+}
+.info2 .borderT {
+	border-top: 1px solid #EAEAEA;
+}

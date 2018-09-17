@@ -1,0 +1,56 @@
+<!--pages/personal/favorite/favorite.wxml-->
+<view class="favorite">
+	<view class="favorite-nav">
+		<view class="{{currentTab == index ? 'active':''}}" data-current = "{{index}}" wx:for="{{switchtab}}" wx:key="{{item}}" catchtap="clickTab">{{item.name}}</view>
+	</view>
+	<view class="favorite-body">
+		<block wx:if="{{currentTab == 0}}" >
+			<block wx:if="{{shopList.length > 0}}" wx:for="{{shopList}}" wx:key="{{index}}">
+				<view class="item">
+					<view class="left">
+						<image src="{{imgHost+item.imgUrl}}"></image>
+					</view>
+					<view class="right">
+						<text class="title">{{item.goodsName}}</text>
+						<view class="h">
+							<text>{{item.displayRent/100}}元/月</text>
+							<text>原价值：{{item.originalPrice/100}}元</text>
+						</view>
+						<view class="y">
+							<text></text>
+							<text catch:tap="RemoveShop" data-id = "{{item.id}}" data-index="{{index}}">删除</text>
+						</view>
+					</view>
+				</view>
+			</block>
+			<block wx:if="{{shopList.length <= 0}}">
+				<empty>暂无收藏商品</empty>
+			</block>
+		</block>
+		<block wx:if="{{currentTab == 1}}">
+			<block wx:if="{{storeList.length > 0}}" wx:for="{{storeList}}" wx:key="{{index}}">
+				<view class="item1">
+					<view class="left1">
+						<image src="{{item.shopLogo}}"></image>
+					</view>
+					<view class="right1">
+						<text class="title1">{{item.shopName}}</text>
+						<view class="h1">
+							<text>{{item.collectNum || 0}}</text>
+							<text catch:tap="showDialog">人关注</text>
+						</view>
+						<view class="n" catch:tap="RemoveStore" data-id = "{{item.id}}" data-index="{{index}}">已关注</view>
+					</view>
+				</view>
+			</block>
+			<block wx:if="{{storeList.length <= 0}}">
+				<empty>暂无收藏店铺</empty>
+			</block>
+		</block>
+	</view>
+</view>
+<!-- 自定义封装弹框组件 -->
+<view class="mask" hidden="{{Maskhidden}}"></view>
+
+
+

@@ -1,0 +1,36 @@
+<!--pages/personal/service/service.wxml-->
+<view class="content">
+		<view class="banner">
+		<image src="{{service}}" style="width:100%;height:200px;"></image>
+		<text class="text1">您的每一次困难</text>
+		<text class="text2">都有蜜宝解决陪伴</text>
+		<text class="text3">Customer\tService</text>
+	</view>
+	<view class="body">
+		<view class="item">
+			<view>
+				<image src="../../../images/personal/left.png" class="left"></image>
+				<text>服务时间</text>
+				<image src="../../../images/personal/right.png" class="right"></image>
+			</view>
+			<view>
+				<text>周一至周五</text>
+			</view>	
+			<view>
+				<text>(9:30-18:30)</text>
+			</view>
+			<view>
+				<image src="../../../images/personal/left.png" class="left"></image>
+				<text>客服电话</text>
+				<image src="../../../images/personal/right.png" class="right"></image>
+			</view>		
+			<view class="calliphone" catchtap="phonecallevent">
+				<text class="num">{{phone}}</text>
+				<text class="call">立即拨打</text>
+			</view>
+			<view class="online">
+				<button>在线客服</button>
+			</view>
+		</view>
+	</view>
+</view>

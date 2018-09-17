@@ -1,0 +1,64 @@
+
+<view class="header">
+	<view class="title" wx:if="{{perfectData}}" catch:tap="goPerfectData">
+		<text>完善资料，信审通过率可以提高50%</text>
+	</view>
+	<view class="title" wx:else></view>
+
+	<view class="content" style="background-image:url('{{background}}')">
+		<view class="user" wx:if="{{LoggedIn}}">
+			<image class="userImg" src="{{UserImg}}" mode="scaleToFill"></image>
+			<view class="userInfo">
+				<text class="userName">{{UserName}}</text>
+				<text class="uncertified" wx:if="{{creditStatus==0}}">{{uncertified}}></text>
+				<image class="certified" src="{{authentication}}" mode="scaleToFill" wx:else></image>
+			</view>
+		</view>
+		<view class="user" wx:else>
+			<image class="userImg" src="{{DefaultUserImg}}" mode="scaleToFill"></image>
+			<text class="PleaseLogIn" catchtap="login">点击登录</text>
+		</view>
+		<view class="OrderNav" wx:if="{{LoggedIn}}">
+			<view class="NavCommom" catchtap="toOrder" data-type="leasing">
+				<text class="title1">进行中</text>
+				<text class="title2">{{going}}</text>
+			</view>
+			<view class="NavCommom" catchtap="toOrder" data-type="finished">
+				<text class="title1">已完成</text>
+				<text class="title2">{{finished}}</text>
+			</view>
+			<view class="NavCommom" catchtap="toOrder" data-type="canceled">
+				<text class="title1">已取消</text>
+				<text class="title2">{{canceled}}</text>
+			</view>
+			<view class="NavLast" catchtap="toOrder" data-type="leasing">
+				<text class="iconfont icon-dingdan"></text>
+				<text class="AllOrder">全部订单</text>
+			</view>
+		</view>
+		<view class="OrderNav" wx:else>
+			<view class="NavCommom">
+				<text class="title1">进行中</text>
+				<text class="title2">0</text>
+			</view>
+			<view class="NavCommom">
+				<text class="title1">已完成</text>
+				<text class="title2">0</text>
+			</view>
+			<view class="NavCommom">
+				<text class="title1">已取消</text>
+				<text class="title2">0</text>
+			</view>
+			<view class="NavLast">
+				<text class="OrderIcon iconfont icon-dingdan1"></text>
+				<text class="AllOrder">全部订单</text>
+			</view>
+		</view>
+	</view>
+	<view class="list">
+		<view class="item-1" catch:tap="coupon">我的优惠券</view>
+		<view class="item-1" catch:tap="favorite">我的收藏</view>
+		<view class="item-1" catch:tap="addressList">收货地址</view>
+	</view>
+	<view class="item-2" catch:tap="service">我的客服</view>
+</view>

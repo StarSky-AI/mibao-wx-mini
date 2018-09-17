@@ -1,0 +1,5 @@
+<import src="/wxParse/wxParse.wxml" />
+
+<view class="xieyi-wp">
+    <template is="wxParse" data="{{wxParseData:insertData.nodes}}" />
+</view>

@@ -1,0 +1,221 @@
+.product-header-normal{
+  background: #ffffff;
+  margin: 20rpx 0;
+  .order-product{
+    overflow: hidden;
+    padding: 20rpx 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 170rpx;
+    box-sizing: border-box;
+    .img{
+      position: relative;
+      width: 130rpx;
+      height: 130rpx;
+      .image{
+        width: 100%;
+        height:100%;
+      }
+    }
+
+    .des{
+      height: 100%;
+      padding-left: 20rpx;
+      flex: 1;
+      .title{
+        font-size: 28rpx;
+        color: #000000;
+        line-height: 36rpx;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .param{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 22rpx;
+        padding-top: 10rpx;
+        color: #434343;
+        .one-param{
+          text{
+            color: #434343;
+          }
+          .line{
+            margin: 0 10rpx;
+          }
+          &:last-of-type{
+            .line{
+              display: none;
+            }
+
+          }
+        }
+      }
+    }
+    //租赁数量在右方
+    .rentNum{
+      flex:1;
+      text-align:center;
+      height: 160rpx;
+      line-height: 160rpx;
+      font-size: 28rpx;
+      color: #000000;
+    }
+  }
+}
+
+.orderProduct-num{
+  border-radius: 10rpx;
+  background: #F8F8F8;
+  .order-product{
+    overflow: hidden;
+    border-radius: 10rpx;
+    padding: 20rpx 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 170rpx;
+    box-sizing: border-box;
+    .img{
+      position: relative;
+      width: 130rpx;
+      height: 130rpx;
+      .image{
+        width: 100%;
+        height:100%;
+      }
+    }
+
+    .des{
+      height: 100%;
+      padding-left: 20rpx;
+      .title{
+        width: 460rpx;
+        font-size: 28rpx;
+        color: #000000;
+        line-height: 36rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .param{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 22rpx;
+        padding-top: 10rpx;
+        color: #434343;
+        .one-param{
+          text{
+            color: #434343;
+          }
+          .line{
+            margin: 0 10rpx;
+          }
+          &:last-of-type{
+            .line{
+              display: none;
+            }
+
+          }
+        }
+      }
+    }
+    //租赁数量在右方
+    .rentNum{
+      flex:1;
+      text-align:center;
+      height: 160rpx;
+      line-height: 160rpx;
+      font-size: 28rpx;
+      color: #000000;
+    }
+  }
+}
+
+.orderProduct-num-left{
+  background: #ffffff;
+  border-bottom: 1px solid #EAEAEA;
+  .order-product{
+    padding: 0 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 200rpx;
+    .img{
+      position: relative;
+      width: 160rpx;
+      height: 160rpx;
+      .image{
+        width: 100%;
+        height:100%;
+      }
+      .leftrentNum{
+        //租赁数量在图片下方
+        width: 160rpx;
+        height: 40rpx;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,.65);
+        font-size: 11px;
+        color: #FFFFFF;
+        text-align: center;
+      }
+    }
+    .des{
+      flex: 1;
+      padding: 20rpx 0;
+      padding-left: 20rpx;
+      .title{
+        font-size: 28rpx;
+        color: #000000;
+        height: 80rpx;
+        font-size: 28rpx;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .param{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 22rpx;
+        color: #434343;
+        .one-param{
+          text{
+            color: #434343;
+          }
+          .line{
+            margin: 0 10rpx;
+          }
+          &:last-of-type{
+            .line{
+              display: none;
+            }
+
+          }
+        }
+      }
+    }
+    //租赁数量在右方
+    .rentNum{
+      flex:1;
+      text-align:center;
+      height: 160rpx;
+      line-height: 160rpx;
+      font-size: 28rpx;
+      color: #000000;
+    }
+  }
+}

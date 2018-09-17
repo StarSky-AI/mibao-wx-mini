@@ -1,0 +1,15 @@
+<view class="home-nav-bar">
+  <view class="nav-bar-fix-fixed">
+  </view>
+
+  <view class="nav-bar-fixed">
+    <view class="bar-content">
+      <block wx:for="{{tabs}}" wx:for-index="index" wx:for-item="tab" wx:key="tab.index">
+        <view class="item {{activeIndex==tab.index?'active':''}}" catchtap="tapTab" data-tab="{{tab}}">
+          <text class="icon iconfont {{tab.icon}}"></text>
+          <text class="name">{{tab.name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

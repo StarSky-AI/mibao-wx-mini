@@ -1,0 +1,239 @@
+.orderReturn-wp{
+  .header{
+    margin-top: 10rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 96rpx;
+    padding: 0 30rpx;
+    background: #fff;
+    .name{
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 32rpx;
+      color: #000000;
+    }
+    .contact{
+      width: 160rpx;
+      height: 48rpx;
+      image{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .address-wp{
+    background: #FFFFFF;
+    .address{
+      margin: 0 20rpx;
+      background: #F8F8F8;
+      border-radius: 10rpx;
+      padding: 30rpx;
+      .line{
+        line-height:1em;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 16rpx;
+        &.content{
+          margin-bottom:0;
+        }
+        .left{
+          width: 140rpx;
+          font-size: 26rpx;
+          color: #555555;
+          letter-spacing: 8.66rpx;
+        }
+        .right{
+          flex: 1;
+          font-size: 26rpx;
+          color: #041D29;
+        }
+      }
+    }
+  }
+
+  .copy-wp{
+    background: #FFFFFF;
+    height: 88rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: #3795FF;
+    .iconfont{
+      font-size: 28rpx;
+      color: #3795FF;
+      margin-right: 10rpx;
+    }
+  }
+
+  .qrcode-wp{
+    background: #FFFFFF;
+    margin:20rpx 14rpx;
+    display: flex;
+    flex-direction: row;
+    padding: 0 30rpx;
+    align-items: center;
+    height: 116rpx;
+    justify-content: space-between;
+    .left{
+      flex-direction: column;
+      .title{
+        font-size: 32rpx;
+        color: #041D29;
+        .iconfont{
+          color:#9B9B9B;
+          font-size: 28rpx;
+        }
+      }
+      .text{
+        font-size: 24rpx;
+        color: #9B9B9B;
+
+      }
+    }
+    .right{
+      .iconfont{
+        font-size: 30rpx;
+        color: #555555;
+      }
+    }
+  }
+
+  .logistics-wp{
+    background: #FFFFFF;
+    padding:  30rpx 30rpx 0;
+    .item{
+      .title{
+        font-size: 26rpx;
+        color: #9B9B9B;
+      }
+      .row{
+        border-bottom: 1px solid #ECECEC;
+        height: 84rpx;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .left{
+          flex: 1;
+          font-size: 28rpx;
+          color: #041D29;
+
+          input{
+            display: inline-block;
+            vertical-align: top;
+          }
+
+        }
+        .right{
+          width: 32rpx;
+          .iconfont{
+            color: #555555;
+            font-size: 30rpx;
+          }
+        }
+      }
+      &.logisticsNum{
+        margin-top: 48rpx;
+        .row{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .note{
+    padding:20rpx 30rpx 180rpx ;
+    font-size: 24rpx;
+    color: #9B9B9B;
+  }
+  .submit{
+    background: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    button{
+      height: 100%;
+      text-align: center;
+      background: #2395FF;
+      border-radius: 66rpx;
+      color: #FFFFFF;
+      width: 100%;
+      font-size: 32rpx;
+    }
+  }
+
+  .popcontent {
+    border-radius: 24rpx;
+    margin: 0 auto;
+    padding: 80rpx 0 40rpx;
+    width: 600rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    .code{
+      width: 400rpx;
+      height: 400rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .canvas{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .text{
+      font-size: 26rpx;
+      margin-top: 44rpx;
+      color: #9B9B9B;
+    }
+    .time{
+      font-size: 22rpx;
+      color: #BFC5C9;
+      margin-top: 8rpx;
+    }
+  }
+
+  .successcontent{
+    width: 100%;
+    background: #FFFFFF;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .iconfont{
+      margin-top: 120rpx;
+      font-size: 160rpx;
+      color: #2395FF ;
+    }
+
+    .line1{
+      margin-top: -35rpx;
+      font-size: 32rpx;color: #434343;
+      margin-bottom: 8rpx;
+    }
+    .line2{
+      font-size: 24rpx;
+      color: #9B9B9B;margin-bottom: 144rpx;
+    }
+    .backToHome{
+      font-size: 24rpx;
+      color: #2395FF;
+      .iconfont{
+        color: #2395FF;
+        font-size: 24rpx;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<view>
+  <view class="face-tip">
+    <view class="title">
+      <text>还差一步 立即完成</text>
+    </view>
+
+    <view class="img">
+      <text class="icon iconfont icon-shualianrenzheng"></text>
+    </view>
+
+    <view class="content">
+      <text>下单前需要进行人脸验证，确保当前是您本人操作，大约花费您30秒时间，请耐心完成。</text>
+    </view>
+
+    <view class="aside">
+      <text>提示：您的信息只用做平台进行信息评估使用，未经您的允许，平台不会泄露给他人。</text>
+    </view>
+  </view>
+
+  <view class="footer-button-wp">
+    <navigator class="button" target="miniProgram" open-type="navigate" app-id="wx7ccfa42a2a641035" path="pages/pre" extra-data="{{extraData}}" version="release">去验证</navigator>
+  </view>
+</view>

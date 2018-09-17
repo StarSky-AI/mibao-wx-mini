@@ -1,0 +1,5 @@
+<view class="box" hidden="{{hide}}">
+    <slot>
+
+    </slot>
+</view>

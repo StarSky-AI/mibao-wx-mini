@@ -1,0 +1,52 @@
+.auth-relation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 36rpx;
+  border-bottom: 1px solid #EAEAEA;
+}
+.auth-relation .logo-wp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auth-relation .logo-wp > image {
+  width: 80rpx;
+  height: 80rpx;
+}
+.auth-relation .logo-wp > text {
+  color: #434343;
+  font-size: 24rpx;
+  padding-top: 10rpx;
+}
+.auth-relation .icon-wp {
+  padding: 0 70rpx;
+}
+.auth-relation .icon-wp > image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.user-info {
+  padding: 0 30rpx;
+  background: #f8f8f8;
+}
+.user-info .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 26rpx 0;
+}
+.user-info .item + .item {
+  border-top: 1px solid #eaeaea;
+}
+.user-info .item > .key {
+  font-size: 26rpx;
+  color: #888;
+}
+.user-info .item > .value {
+  font-size: 28rpx;
+  color: #333;
+  padding-left: 20rpx;
+}

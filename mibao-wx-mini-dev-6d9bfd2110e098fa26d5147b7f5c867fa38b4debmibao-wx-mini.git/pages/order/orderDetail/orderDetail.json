@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText":"",
+  "navigationBarTextStyle":"#ffffff",
+  "navigationBarBackgroundColor": "#3795FF",
+  "backgroundColor":"#3795FF",
+  "usingComponents": {
+    "pop-up":"/components/pop-up/index"
+  }
+}

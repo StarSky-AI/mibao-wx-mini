@@ -1,0 +1,181 @@
+@import "../../../iconfont/iconfont.wxss";
+.favorite-nav {
+	width: 100%;
+	position: fixed;
+	top: 0rpx; left: 0rpx;
+	z-index: 99;
+	display: flex;
+	background-color: #fff;
+}
+.favorite-nav view {
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 28rpx;
+	color: #434343;
+	margin-top: 20rpx;
+	margin-bottom: 18rpx;
+	text-align: center;
+	border-right: 1px solid #EAEAEA;
+	flex: 1;
+}
+.favorite-nav view:nth-child(2) {
+	border-right: 0rpx;
+}
+.favorite-nav .active {
+	color: #3795FF;
+	position: relative;
+}
+.favorite-nav .active:before {
+	display: block;
+	content: "";
+	width: 70rpx;
+	height: 4rpx;
+	background-color: #3795FF;
+	border-radius: 4px 4px 0 0;
+	position: absolute;
+	bottom: -16rpx;
+	left: 152rpx;
+}
+.favorite-body {
+	display: flex;
+	flex-direction: column;
+	border-top: 108rpx solid #f8f8f8;
+}
+.favorite-body .item, .favorite-body .item1 {
+	display: flex;
+	padding: 20rpx 30rpx;
+	background-color: #fff;
+	border-bottom: 1px solid #EAEAEA;
+}
+.favorite-body .item1 {
+	padding: 30rpx 30rpx;
+	box-sizing: border-box;
+	
+}
+.item .right, .item1 .right1 {
+	margin-left: 30rpx;
+	flex: 1;
+}
+.item .right .title{
+	overflow: hidden;
+	width: 410rpx;
+	box-sizing: border-box;
+	display: -webkit-box;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	font-size: 28rpx;
+	line-height: 40rpx;
+}
+.favorite-body .item1 .right1 .title1 {
+	margin-top: 10rpx;
+	display: block;
+	height: 40rpx;
+	line-height: 40rpx;
+	font-size: 28rpx;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	width: 440rpx;
+}
+.item .right .h, .item1 .right1 .h1 {
+	margin-top: 12rpx;
+	line-height: 40rpx;
+}
+.item .right .h text:nth-child(1) {
+	font-size: 32rpx;
+	color: #FF5339;
+}
+.item1 .right1 .h1 text:nth-child(1) {
+	font-size: 28rpx;
+	color: #3795FF;
+}
+.item1 .right1 .h1 text:nth-child(2) {
+	font-size: 28rpx;
+	color: #BFC5C9 ;
+}
+.item .right .h text:nth-child(2) {
+
+	font-size: 24rpx;
+	color: #B8B8B8;
+}
+.item .right .y text:nth-child(1), .item .right .y text:nth-child(2) {
+	font-size: 24rpx;
+	color: #B8B8B8;
+}
+.item .right .y text:nth-child(2):before {
+	content: "\e65a";
+	display: block;
+	width: 26rpx;
+	height: 26rpx;
+	position: absolute;
+	right: 56rpx;
+	top: -3rpx;
+	font-family:"iconfont" !important;
+  	font-size:16px;
+  	font-style:normal;
+}
+.item view text{
+	display: block;
+}
+.item .h {
+	display: flex;
+	flex-direction: column;
+	margin-top: 12rpx;
+	line-height: 44rpx;
+}
+.item .y {
+	display: flex;
+	line-height: 34rpx;
+}
+.item .y {
+	position: relative;
+	justify-content: space-between;
+}
+.favorite-body .item .left {
+	width: 160rpx;
+	height: 160rpx;
+}
+
+.favorite-body .item .left image {
+	width: 100%;
+	height: 100%;
+}
+
+ .favorite-body .item1 .left1 {
+ 	width: 110rpx;
+ 	height: 110rpx;
+ }
+
+.favorite-body .item1 .left1 image {
+	width: 100%;
+	height: 100%;
+}
+
+.right1 {
+	position: relative;
+}
+.n {
+	position: absolute;
+	right: 0rpx;top: 46rpx;
+	font-size: 24rpx;
+	line-height: 40rpx;
+	color: #BFC5C9;
+	border-radius: 200rpx;
+	background-color: #EFEFEF;
+	padding: 0rpx 16rpx;
+	height: 40rpx;
+}
+
+/* 遮罩层 */
+.mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}

@@ -1,0 +1,18 @@
+<view class="page-spacing">
+
+  <view class="logo">
+    <image mode="cover" src="/images/logo/logo@150.png"></image>
+  </view>
+
+  <view class="info">
+    <text>该小程序由蜜宝开发，向其提供以下权限即可继续操作</text>
+  </view>
+
+  <view class="aside">
+    <text>·获得你的公开信息（昵称、头像等）</text>
+  </view>
+
+  <view class="btn-wp">
+    <button class="weui-btn" type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">确认登录</button>
+  </view>
+</view>

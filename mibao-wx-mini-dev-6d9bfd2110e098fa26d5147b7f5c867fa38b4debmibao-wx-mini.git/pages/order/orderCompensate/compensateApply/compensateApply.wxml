@@ -1,0 +1,59 @@
+<import src="/templates/orderProduct/index.wxml" />
+<view class="compensateApply">
+    <view class="header">
+        <view class="name">
+            {{MerchantInfo.merchantName}}
+        </view>
+        <view class="contact" catchtap="callphone">
+            <image src="../../../../images/order/ico-contact@2x.png"></image>
+        </view>
+    </view>
+
+<!--利用模板传递数据-->
+    <view class="order-product-wp">
+        <template is="product-header-normal" data="{{...goodsInfo}}"/>
+    </view>
+
+    <view class="compensateReason-wp">
+        <view class="title">
+            请在下列原因中选择您维权理由
+        </view>
+       <view class="choose">
+           <view class="left">
+           <picker range="{{array}}" bindchange="bindPickerChange"  range-key="{{'name'}}" value="{{index}}">
+               <view class="picker">
+                   {{array[index].name?array[index].name:'请选择你拒绝赔偿的原因'}}
+               </view>
+           </picker>
+           </view>
+           <view class="right">
+               <text class="iconfont icon-ico_back-copy"></text>
+           </view>
+
+       </view>
+    </view>
+
+    <view class="des-wp">
+        <image-des desType="举证描述" bindreceiveData="getData"></image-des>
+
+    </view>
+
+    <view class="note">
+        <view>注：请提供为您所选择的理由添加有效力的凭证</view>
+        <view>订单提交成功后，会有商家、客服与您联系，请保持电话畅通。</view>
+    </view>
+    <view class="submit">
+        <button catchtap="submit">立即提交</button>
+    </view>
+
+    <pop-up position="bottom" id="submitSuccess">
+        <view class="successcontent" slot="bottom">
+                <text class="iconfont icon-ico_apply"></text>
+            <view class="line1" >赔偿申诉提交成功</view>
+            <view class="line2">
+                客服人员会与您联系，请保持电话畅通
+            </view>
+            <view class="backToHome" catchtap="backToOrder"> 订单详情 <text class="iconfont icon-ico_former"></text> </view>
+        </view>
+    </pop-up>
+</view>

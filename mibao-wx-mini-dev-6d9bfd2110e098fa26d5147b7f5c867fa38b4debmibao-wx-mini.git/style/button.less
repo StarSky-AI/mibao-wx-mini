@@ -1,0 +1,52 @@
+@main-color :#3795FF;
+@disabled-color:#EAEAEA;
+
+.footer-button-wp
+{
+  position: fixed;
+  bottom:0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 80rpx 40rpx;
+
+  text-align: center;
+
+  .button
+  {
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    color: #fff;
+    background: @main-color;
+    font-size: 32rpx;
+    border-radius: 88rpx;
+    overflow: hidden;
+
+    &:active,
+    &:focus
+    {
+      background: darken(@main-color,10%);
+    }
+
+    &.disabled,
+    &[disabled]
+    {
+      background: @disabled-color;
+    }
+  }
+
+  .button-text
+  {
+    margin-top: 30rpx;
+    display: inline-block;
+    text-align: center;
+    color: #888;
+    font-size: 24rpx;
+    text-decoration: underline;
+  }
+
+}
+

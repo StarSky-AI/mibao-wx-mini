@@ -1,0 +1,18 @@
+
+
+<view class="productList">
+    <scroll-view class="jieguolist" scroll-y bindscrolltolower="lower" lower-threshold="70" style="height:{{scrollHeight}}px;">
+        <block wx:if="{{list.length}}">
+            <goods-list col='1' list="{{list}}"></goods-list>
+            <loading hide="{{hide}}" bindchange="loadingChange">
+                加载中...
+            </loading>
+            <empty wx:if="{{!hasMore && hide}}">
+                <text>— 宝贝虽有底线，生活无限可能 —</text>
+            </empty>
+        </block>
+        <block wx:if="{{!list.length && hide}}">
+            <empty><text>该分类下暂时没有商品~</text></empty>
+        </block>
+    </scroll-view>
+</view>

@@ -1,0 +1,18 @@
+<wxs module="filters" src="../../../wxs/filter.wxs"></wxs>
+<view class="out_wp">
+    <block class="option" wx:for="{{arr}}" wx:key="index" wx:if="{{index<params.installmentCount}}">
+        <view class="wp">
+            <view class="left">
+                <view>{{(index+1)<10?'0'+(index+1):(index+1)}} /<text class="ease">{{params.installmentCount<10?'0'+params.installmentCount:params.installmentCount}}期</text></view>
+                <view class="daifu">待付租金：<text class="max">{{filters.parsePrice(item)}}</text><text class="min">元</text></view>
+                <view text class="tips" wx:if="{{index==0&&params.checked}}">{{'含押金'+filters.parsePrice(params.deposit)+'元'}}</view>
+                <view text class="tips" wx:if="{{index==0&&params.insurance.control&&params.insurance.choose}}">{{'含保险'+filters.parsePrice(params.insurance.price)+'元'}}</view>
+                <view text class="tips" wx:if="{{index==0&&params.coupon.price}}">{{'含优惠券'+filters.parsePrice(params.coupon.price)+'元,优惠'+filters.parsePrice(cha)+'元'}}</view>
+            </view>
+            <view class="right" hidden="{{index==params.installmentCount-1}}">共30天</view>
+            <view class="right" hidden="{{!(index==params.installmentCount-1)}}">共{{params.days - ((params.installmentCount-1)*30)}}天</view>
+        </view>
+    </block>
+</view>
+
+

@@ -1,0 +1,23 @@
+<view class="title">完善以下身份验证信息，下单审核通过率更高哦！</view>
+<view class="Identity_information">
+	<text>完善身份信息</text>
+	<text>未完善</text>
+</view>
+<!-- <view class="zhimaxinyong">
+	<view class="zhima">
+		<image class="zhimaIcon" src="{{zhimaxinyong}}" mode="scaleToFill"></image>
+		<text class="explain">芝麻信用授权</text>
+	</view>
+	<text class="status">不可用</text>
+</view> -->
+<view class="zhimaxinyong">
+	<view class="zhima">
+		<image class="zhimaIcon" src="{{xiaobaixinyong}}" mode="scaleToFill"></image>
+		<text class="explain">京东小白信用授权</text>
+	</view>
+	<text class="status" wx:if="{{jdAuthorizationStatus == false}}">未授权</text>
+	<text class="status" wx:elif="{{jdAuthorizationStatus == true}}">已授权</text>
+</view>
+<text class="supplementary">辅助信息</text>
+<view class="info"><text>职业认证</text></view>
+<view class="info2"><text class="borderT">辅助资料</text></view>

@@ -1,0 +1,48 @@
+@import "/iconfont/iconfont.wxss";
+
+.home-nav-bar
+{
+
+}
+
+.nav-bar-fix-fixed
+{
+  height: 110rpx;
+}
+
+
+.nav-bar-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.nav-bar-fixed .bar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background: #fff;
+  height: 100rpx;
+  border-top: 1px solid #efefef;
+  overflow: hidden;
+}
+.nav-bar-fixed .bar-content .item {
+  color: #444;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 50rpx;
+}
+.nav-bar-fixed .bar-content .item > .icon {
+  font-size: 44rpx;
+  margin-bottom: -8rpx;
+}
+.nav-bar-fixed .bar-content .item > .name {
+  font-size: 22rpx;
+}
+.nav-bar-fixed .bar-content .item.active {
+  color: #3795FF;
+}

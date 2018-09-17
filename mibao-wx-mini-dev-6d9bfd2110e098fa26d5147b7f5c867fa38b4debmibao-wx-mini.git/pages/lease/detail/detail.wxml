@@ -1,0 +1,286 @@
+<wxs module="filters" src="../../../wxs/filter.wxs"></wxs>
+<import src='../../../templates/wxParse/wxParse.wxml' />
+<scroll-view class="scroll-view" bindscroll="scroll" scroll-y="{{pageControl.hideModal}}" wx:if="{{pageControl.viewShow}}">
+    <swiper class="swiper_box" duration="{{pageControl.duration}}" current="{{pageControl.dotIndex}}" bindchange="changeDot">
+        <block wx:for="{{goodsDetail.imgJson}}" wx:key="{{index}}">
+            <swiper-item>
+                <image src="{{item.url}}" class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="dots">  
+        <block wx:for="{{goodsDetail.imgJson}}" wx:key="{{index}}">  
+            <view class="dot {{index==pageControl.dotIndex?'dot_active':''}}"></view> 
+        </block>  
+    </view> 
+    <view class="content">
+        <view class="detail">
+            <view class="name_info">
+                <text class="name_text">{{pageInfo.detail.name}}</text>
+                <view class="icon" bindtap = "share">
+                    <text class="iconfont icon-ico_share"></text>
+                    <text class="icon_desc">分享</text>
+                </view>
+            </view>
+            <view class="orgPrice_info">
+                <text>[ {{pageInfo.detail.subtitle}} | 商品价格: {{pageInfo.detail.originPrice}}元 ]</text>
+                <text>累计下单:{{pageInfo.rentCount}}笔</text>
+            </view>
+            <view class="price_info">
+                <text class="rent">
+                    <text class="strong">{{pageInfo.detail.chooseRent || pageInfo.detail.defaultRent}}</text> 元/天
+                </text>
+                <text class="old_rent" wx:if="{{pageInfo.detail.oldDefaultRent}}">
+                    ￥{{pageInfo.detail.oldDefaultRent}}元/天
+                </text>
+            </view>
+        </view>
+        <view class="sku_info">
+            <view class="select_sku" data-type="order" bindtap="changeModal">
+                <text class="title">已选择商品规格：</text>
+                <view class="sku">
+                    <block wx:for="{{pageInfo.specJson}}" wx:key="{{index}}">
+                        {{item.select>=0?item.specificationJson[item.select]:''}}{{pageInfo.specJson[index+1].select>=0?'/':''}}{{item.specification=='leaseDay'?'天':''}}
+                    </block>
+                    <text hidden="{{!pageInfo.inputDays}}">/{{pageInfo.inputDays}}天</text>
+                </view>
+            </view>
+            <view class="all_rent" data-type = "rent" bindtap = "changeModal">
+                <view class="title">总租金<text class="iconfont icon-wenhao"></text></view>
+                <view class="rent">￥<text class="big_text">{{pageInfo.totalPriceInt}}.</text>{{pageInfo.totalPriceDouble}}</view>
+            </view>
+        </view>
+        <view class="server_info" data-type="server" bindtap = "changeModal">
+            <view class="left">
+                <block wx:for="{{goodsDetail.characteristics}}" wx:key="{{index}}">
+                    <view class="option"><text class="iconfont icon-ico_payment"></text>{{item.name}}</view>
+                </block>
+            </view>
+            <view class="iconfont icon-ico_more"></view>
+        </view>
+    </view>
+    <view class="tab" id="tab">
+        <view class="option" wx:for="{{pageInfo.tab}}" bindtap = "changeTab" data-index="{{index}}" wx:key="{{index}}">
+            <text class="text {{index==pageControl.tabIndex?'select':''}}">{{item.text}}</text>
+            <text class="r_line"></text>
+            <text class="b_line" hidden="{{index!=pageControl.tabIndex}}"></text>
+        </view>
+    </view>
+    <view class="fixedTab tab" hidden = "{{pageControl.fixShow}}">
+        <view class="option" wx:for="{{pageInfo.tab}}" bindtap = "changeTab" data-index="{{index}}" wx:key="{{index}}">
+            <text class="text {{index==pageControl.tabIndex?'select':''}}">{{item.text}}</text>
+            <text class="r_line"></text>
+            <text class="b_line" hidden="{{index!=pageControl.tabIndex}}"></text>
+        </view>
+    </view>
+    <view class="tab_content">
+        <view class="option" hidden="{{!(pageControl.tabIndex==0)}}">
+            <template is="wxParse" data="{{wxParseData:bindData.pictDetailALL.nodes}}" />
+        </view>
+        <view class="option" hidden="{{!(pageControl.tabIndex==1)}}">
+            <view class="params_wp">
+                <block wx:for="{{pageInfo.parameters}}" wx:key="{{index}}">
+                    <view class="sub_option">
+                        <view class="params_title">{{item.title}}</view>
+                        <view class="params_text">{{item.text}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="option" hidden="{{!(pageControl.tabIndex==2)}}">
+             <image mode="widthFix" src="{{pageInfo.leaseImg}}"></image>
+        </view>
+        <view class="option" hidden="{{!(pageControl.tabIndex==3)}}">
+            <view class="eval_wp">
+                <block wx:for="{{pageInfo.comment}}" wx:key="{{index}}" wx:if="{{pageInfo.comment.length}}">
+                    <view class="eval_option">
+                        <image class="avatar" src = "{{item.headImgUrl}}"></image>
+                        <view class="right">
+                            <view class="first">
+                                <view class="phone">{{item.userName}}</view>
+                                <view class="time">{{item.commentTime}}</view>
+                            </view> 
+                            <view class="star">
+                                <block wx:for="{{pageInfo.star}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="{{subIndex}}" wx:if="{{subIndex<item.score}}">
+                                    <text class="iconfont icon-ico_comment"></text>
+                                </block>
+                            </view>
+                            <view class="text">
+                                {{item.content}}
+                            </view>
+                            <view class="pic">
+                                <block wx:for="{{item.commentImgUrl}}"  wx:for-item="subItem" wx:for-index="subIndex" wx:key="{{subIndex}}">
+                                    <image src="{{subItem.url}}"></image>
+                                </block>
+                            </view>
+                            <view class="reply" wx:if = "{{item.replyContent}}">
+                                <text class="jiao"></text>
+                                {{item.replyContent}}
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <empty wx:if="{{!pageInfo.comment.length}}">
+                    <text>抱歉 ！ 此商品暂无评论</text>
+                </empty>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="icon home" bindtap="toMerchant">
+            <text class="iconfont icon-ico_shop"></text>
+            <text class="icon_desc">店铺</text>
+        </view>
+        <view class="icon" bindtap="toServer">
+            <text class="iconfont icon-ico_goutongfangshi"></text>
+            <text class="icon_desc">客服</text>
+        </view>
+        <view class="icon" bindtap = "collectGoods">
+            <text class="iconfont {{pageInfo.collect?'icon-ico_comment':'icon-ico_collection'}} {{pageInfo.collect?'collect':''}}"></text>
+            <text class="icon_desc">收藏</text>
+        </view>
+        <button class="submit {{pageControl.submitDisable?'modal_submit_dis':''}}" bindtap = "pageBtnClick">
+           {{pageInfo.modalBtnText}}
+        </button>
+    </view>
+</scroll-view>
+<pop-up id="modal" bind:trigger="controlScroll">
+    <view class="modal" slot="bottom">
+        <view class="lease_content">
+            <view class="top_title" hidden="{{!(pageControl.modalType<2)}}">
+                {{pageInfo.modalTitle}}
+            </view>
+            <view class="lease" hidden="{{!(pageControl.modalType==0)}}">
+                <view class="top">
+                    <text class="title">{{pageInfo.installmentCount>1?'首付租金':'总租金'}}</text>
+                    <text class="modify_sku" data-type="order" bindtap="changeModal">更改规格<text class="iconfont icon-ico_More"></text></text>
+                </view>
+                <view class="center">
+                    <view class="rent">
+                        <text class="strong">{{pageInfo.Pay}}</text> 元
+                    </view>
+                    <view class="greay long_lease" wx:if="{{pageInfo.installmentCount<=1}}">
+                        <view class="section">
+                            <view class="sub_title">
+                                租金<text class="ease">(元/天)</text>
+                            </view>
+                            <view class="sub_lease">{{pageInfo.detail.chooseRent}}</view>
+                        </view>
+                        <text class="line center_line"></text>
+                        <view class="section">
+                            <view class="sub_title">
+                                租期<text class="ease">(天)</text>
+                            </view>
+                            <view class="sub_lease">
+                                {{goodsDetail.customLease?pageInfo.inputDays:pageInfo.leaseDays}}
+                            </view>
+                        </view>
+                    </view>
+                    <view class="greay short_lease" wx:else>
+                        <view class="section">
+                            <view class="sub_title">
+                                租金<text class="ease">(元/天)</text>
+                            </view>
+                            <view class="sub_lease">{{pageInfo.detail.chooseRent}}</view>
+                        </view>
+                        <text class="line first_line"></text>
+                        <view class="section">
+                            <view class="sub_title">
+                                租期<text class="ease">(天)</text>
+                            </view>
+                            <view class="sub_lease">
+                                {{goodsDetail.customLease?pageInfo.inputDays:pageInfo.leaseDays}}
+                            </view>
+                        </view>
+                        <text class="line fourth_line"></text>
+                        <view class="section">
+                            <view class="sub_title">
+                                期数
+                            </view>
+                            <view class="sub_lease">
+                                {{pageInfo.installmentCount}}期
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom">
+                    <view class="tips">
+                        <text class="left">计算公式：</text>
+                        <text class="right">*不含优惠券和意外保险</text>
+                    </view>
+                    <view class="formula">
+                        {{pageInfo.installmentCount>1?'首付租金=日租金*30':'总租金=日租金*租期（天）'}}
+                    </view>
+                </view>
+            </view>
+            <view class="server_agement" hidden="{{!(pageControl.modalType==1)}}">
+                <block wx:for="{{goodsDetail.characteristics}}" wx:key="{{index}}">
+                    <view class="option">
+                        <view class="server_title">
+                            <text class="iconfont icon-ico_payment"></text>
+                            <text>{{item.name}}</text>
+                        </view>
+                        <view class="server_desc">
+                            <text>{{item.detail}}</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="sku_content" hidden="{{!(pageControl.modalType==2)}}">
+            <view class="goods_info">
+                <view class="goods_pic">
+                    <image class="goods" src= "{{goodsDetail.imgJson[0].url}}"></image>
+                    <image class="JD" src= "../../../images/order/JD@2x.png"></image>
+                </view>
+                <view class="goods_desc">
+                    <view class="goods_rent">
+                        <view class="left">
+                            <text class="strong">{{pageInfo.detail.chooseRent || pageInfo.detail.defaultRent}}</text><text class="qi">元/天</text>
+                        </view>
+                        <view class="right">
+                            库存:<text class="strong">{{pageInfo.stock}}件</text>
+                        </view>
+                    </view>
+                    <view class="goods_deposit">租品需押金 : <text class="del">{{pageInfo.detail.originPrice}}元</text></view>
+                    <view class="select_sku">已选:<text class="strong" wx:for="{{pageInfo.specJson}}" wx:key="{{index}}"> {{item.select>=0?item.specification=='leaseDay'?'"'+item.specificationJson[item.select]+'天'+'"':'"'+item.specificationJson[item.select]+'"':''}}</text></view>
+                </view>
+            </view>
+            <view class="dis_activity" animation="{{animationData}}" wx:if="{{goodsDetail.customLease&&pageInfo.tips.length}}">
+                <view class="option" hidden="{{pageControl.amtionFlag}}">
+                    <text>优惠活动：</text>
+                    <text>租赁满{{pageInfo.tips[0].day}}天，租金{{filters.parsePrice(pageInfo.tips[0].rent)}}元/天</text>
+                </view>
+                <view class="option {{index>0?'mt10':''}}" wx:for="{{pageInfo.tips}}" hidden="{{!pageControl.amtionFlag}}" wx:key="{{index}}">
+                    <text class="{{index>0?'visi_hide':''}}">优惠活动：</text>
+                    <text>租赁满{{item.day}}天，租金{{filters.parsePrice(item.rent)}}元/天</text>
+                </view>
+                <text class="iconfont {{pageControl.amtionFlag?'icon-ico_right-copy ':'icon-ico_back-copy1'}}" bindtap = "controlTips"></text>
+            </view>
+            <view class="lease_day" wx:if="{{goodsDetail.customLease}}">
+                <text class="title">租期: </text>
+                <input type="number" placeholder="请输入租赁天数 (最少{{pageControl.minLease}}天，最多{{pageControl.maxLease}}天)" value="{{pageInfo.inputDays?pageInfo.inputDays+'天':''}}" bindblur="iptDay" bindconfirm="iptDay" focus="{{pageControl.focus}}"/>
+                <text class="mod_day" bindtap="getFocus">修改租期</text>
+            </view>
+            <view class="choose_sku">
+                <block wx:for="{{pageInfo.specJson}}" wx:key="{{index}}">
+                    <view class="option">
+                        <view class="title">{{item.specificationName}}</view>
+                        <view class="sku_wp">
+                            <block wx:for="{{item.specificationJson}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="{{subIndex}}">
+                                <view class="sku {{item.select==subIndex?'select_sku':'default_sku'}}" data-index="{{index}}" data-subIndex="{{subIndex}}" bindtap = "chooseSku">{{subItem}}{{item.specification=='leaseDay'?'天':''}}</view>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="common_button">
+           <button class="modal_submit {{pageControl.submitDisable&&pageControl.modalType!=1?'modal_submit_dis':''}}" bindtap = "modalBtnClick">
+            {{pageInfo.modalBtnText}}
+           </button>
+        </view>
+    </view>
+</pop-up>
+<share pickerHide="{{pageControl.pickerHide}}" id="share" item="{{pageInfo.item}}"></share>
+<go-home show="{{pageControl.viewShow}}"></go-home>

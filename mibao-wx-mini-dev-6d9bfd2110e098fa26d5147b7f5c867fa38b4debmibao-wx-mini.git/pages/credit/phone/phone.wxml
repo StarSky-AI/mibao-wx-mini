@@ -1,0 +1,19 @@
+<view>
+  <credit-header step-index="1"></credit-header>
+
+  <view class="credit-form">
+    <view class="form-header">
+      <view class="title">绑定手机号</view>
+      <view class="desc">请确保该手机号能联系到您本人</view>
+      <view class="important">请务必保证填写的信息正确</view>
+    </view>
+
+    <bind-phone bind:confirm="onConfirm">下一步</bind-phone>
+
+  </view>
+
+  <view class="credit-footer-tip">
+    提示：您的信息只用做平台进行信息评估使用，未经您的允许，平台不会泄露给他人。
+  </view>
+
+</view>

@@ -1,0 +1,79 @@
+<template name="product-header-normal">
+    <view class="product-header-normal">
+        <view class="order-product">
+            <view class="img">
+                <image src="{{image}}" class="image"></image>
+            </view>
+            <view class="des">
+                <view class="title">
+                    {{goodsName}}
+                </view>
+                <view class="param" >
+                    <view class="one-param" wx:for="{{specification}}" wx:key="index">
+                        <text>{{item.name}}</text>
+                        <text class="line">|</text>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+
+<!--  //租赁数量在右方-->
+<template name="orderProduct-num">
+    <view class="orderProduct-num">
+        <view class="order-product">
+            <view class="img">
+                <image src="{{image}}" class="image"></image>
+            </view>
+            <view class="des">
+                <view class="title">
+                    {{goodsName}}
+                </view>
+                <view class="param">
+                    <view class="one-param" wx:for="{{specification}}" wx:key="index">
+                        <text>{{item.name}}</text>
+                        <text class="line">|</text>
+                    </view>
+                </view>
+            </view>
+            <view class="rentNum">
+                    x{{leaseNum}}
+            </view>
+        </view>
+    </view>
+</template>
+
+<!--//租赁数量在图片下方-->
+<template name="orderProduct-num-left">
+    <view class="orderProduct-num-left">
+        <view class="order-product">
+            <view class="img">
+                <image src="{{image}}" class="image"></image>
+                <view class="leftrentNum">
+                   共{{leaseNum}}件商品
+                </view>
+            </view>
+            <view class="des largedes">
+                <view class="title">
+                    {{goodsName}}
+                </view>
+                <view class="param">
+                    <view class="one-param" wx:for="{{specification}}" wx:key="index">
+                        <text>{{item.name}}</text>
+                        <text class="line">|</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+
+
+
+
+
+

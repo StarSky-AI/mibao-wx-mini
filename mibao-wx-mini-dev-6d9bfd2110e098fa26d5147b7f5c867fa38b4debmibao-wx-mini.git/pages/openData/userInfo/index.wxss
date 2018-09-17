@@ -1,0 +1,34 @@
+/* pages/openData/userInfo/index.wxss */
+.logo
+{
+  padding: 100rpx 0 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo > image
+{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.info
+{
+  font-size: 34rpx;
+  padding-top: 22rpx;
+  border-top: 1px solid #F3F3F3;
+}
+
+.aside
+{
+  font-size: 28rpx;
+  color: #888;
+  padding-top: 46rpx;
+}
+
+.btn-wp
+{
+  padding-top: 80rpx;
+}

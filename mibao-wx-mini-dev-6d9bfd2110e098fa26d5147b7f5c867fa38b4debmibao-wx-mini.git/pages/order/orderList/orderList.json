@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的订单",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "pop-up": "/components/pop-up/index",
+    "empty": "/components/empty/index",
+    "loading": "/components/loading/index"
+  }
+}

@@ -1,0 +1,6 @@
+<view class="empty-container {{inline?'inline':''}}">
+    <text class="info">
+        <slot></slot>
+    </text>
+</view>
+

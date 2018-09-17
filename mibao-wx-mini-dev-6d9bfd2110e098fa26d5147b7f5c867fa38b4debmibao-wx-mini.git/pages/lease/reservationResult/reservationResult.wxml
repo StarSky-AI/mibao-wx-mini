@@ -1,0 +1,23 @@
+<view class="pay-result">
+    <view class="result-wp">
+        <view class="icon">
+            <text class="iconfont {{result?'icon-ico_payment':'icon-shibaibiaoqing'}}"></text>
+        </view>
+        <view class="resultNote">{{result?'提交成功':'提交失败'}}</view>
+        <view class="des">
+            {{result?'我们将尽快安排审核,请留意我们的消息推送！':errorMag}}
+        </view>
+        <view class="orderList" bindtap="goHome">
+            <text>再去逛逛(回首页)</text>
+            <text class="iconfont icon-ico_right1"></text>
+        </view>
+        <view class="navi" wx:if="{{result}}" bindtap="seeOrder">查看我的订单<text class="iconfont icon-ico_right1"></text></view>
+        <view class="navi" wx:if="{{!result}}">返回首页<text class="iconfont icon-ico_right1" bindtap="goHome"></text></view>
+    </view>
+    <view class="footer">
+        <view class="logo">
+            <image src="../../../images/common/logo.png"></image>
+        </view>
+        <text class="text">— 本租赁服务由杭州稻本信息技术有限公司提供 —</text>
+    </view> 
+</view>

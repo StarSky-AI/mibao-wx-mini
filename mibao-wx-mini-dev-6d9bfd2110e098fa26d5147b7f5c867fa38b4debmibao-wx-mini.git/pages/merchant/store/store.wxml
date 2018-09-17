@@ -1,0 +1,214 @@
+<!--pages/merchant/store/store.wxml-->
+<wxs module="filters" src="../../../wxs/filter.wxs"></wxs>
+
+<scroll-view class="store-wp" scroll-y style="height: 100%;" bindscroll="scrollTopFun" scroll-top="{{scroll_top}}"
+             scroll-with-animation="true">
+    <!--头部-->
+    <view class="store-header">
+        <view class="header-wp" style="background-image: url('{{merchantInfo.backgroundPicture}}')">
+            <view class="header">
+                <view class="avater">
+                    <view>
+                        <image src="{{merchantInfo.shopLogo}}">
+
+                        </image>
+                    </view>
+
+                </view>
+                <view class="storeInfo">
+                    <view class="left">
+                        <view class="title">{{merchantInfo.shopName}}</view>
+                        <view class="rentnum">
+                            <text>在租商品：</text>
+                            <text class="num">{{merchantInfo.goodsNumberOnShelf}}</text>
+                            <text>件</text>
+                        </view>
+                    </view>
+                    <view class="right" bindtap="showModel">
+                        <view class="icon iconfont icon-ico_share">
+
+                        </view>
+                        <view class="text">分享</view>
+                    </view>
+
+
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="tab-header {{gudingdingwei?'fixed':''}}">
+        <view class="item {{activeTab=='a'?'active':''}}" catchtap="tabClick" data-name="a">店铺首页</view>
+        <view class="item {{activeTab=='b'?'active':''}}" catchtap="tabClick" data-name="b">全部商品</view>
+        <view class="item {{activeTab=='c'?'active':''}}" catchtap="tabClick" data-name="c">店铺动态</view>
+    </view>
+
+    <!--tab-content-->
+    <view class="tab-content {{gudingdingwei?'fixed':''}}">
+        <view class="index" wx:if="{{activeTab=='a'}}">
+            <view class="banner-wp">
+                <view class="swiper-wp">
+                    <swiper class="banner-swiper" autoplay="{{banner.autoplay}}" current="{{banner.current}}"
+                            interval="{{banner.interval}}" duration="{{banner.duration}}"
+                            previous-margin="{{banner.preMargin}}" next-margin="banner.nextMargin"
+                            display-multiple-items="{{banner.num}}" bindchange="change">
+                        <block wx:for="{{bannerList}}" wx:key="index">
+                            <swiper-item class="banner-item">
+                                <view class="img-wp" catchtap="bannerClick" data-type="{{item.type}}"
+                                      data-bid="{{item.dataId}}">
+                                    <image src="{{item.src}}"></image>
+                                </view>
+                            </swiper-item>
+                        </block>
+                    </swiper>
+                    <view class="dots">
+                        <text wx:for="{{bannerList}}" class="{{index == banner.index ? ' active' : ''}}"
+                              wx:key="index">
+                        </text>
+                    </view>
+                </view>
+            </view>
+            <!--一个可以横向滑动的优惠券组-->
+            <!--<view class="coupon" >-->
+            <!---->
+            <!--</view>-->
+
+            <view class="recommend">
+                <view class="title">
+                    {{hot.title}}
+                </view>
+
+                <view class="list-wp">
+                    <scroll-view scroll-x="true" style="width: 100%" bindscrolltoupper="left" bindscrolltolower="right"
+                                 bindscroll="scroll" class="goodlist">
+                        <view class="item" wx:for="{{hot.goodsList}}" wx:key="{{item.id}}" catchtap="goodsClick" data-id="{{item.id}}">
+                            <view class="img">
+                                <image src="{{item.src}}"></image>
+                            </view>
+                            <view class="info">
+                                <view class="name">
+                                    {{item.name}}
+                                </view>
+                                <view class="oldstr">
+                                    {{item.oldLevelStr}}
+                                </view>
+                                <block wx:if="{{item.leaseType=='MONTHLY'}}">
+                                    <view class="jiage">
+                                        <text class="price">{{item.activityStatus?filters.parsePrice(item.promotionRent*30):filters.parsePrice(item.displayRent*30)}}</text>
+                                        <text class="unit">元/月</text>
+                                    </view>
+                                </block>
+
+                                <block wx:else>
+                                    <view class="jiage">
+                                        <text class="price">{{item.activityStatus?filters.parsePrice(item.promotionRent):filters.parsePrice(item.displayRent)}}</text>
+                                        <text class="unit"> 元/天</text>
+                                    </view>
+                                </block>
+
+                                <view class="oldjiage" wx:if="{{item.activityStatus}}">
+                                    <block wx:if="{{item.leaseType=='MONTHLY'}}">
+                                        <text class="price">{{filters.parsePrice(item.displayRent*30)}}元/月</text>
+                                    </block>
+
+                                    <block wx:else>
+                                        <text class="price">{{filters.parsePrice(item.displayRent)}}元/天</text>
+
+                                    </block>
+
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+
+            <view class="goodsPutAway">
+                <view class="title">
+                    {{newly.title}}
+                </view>
+
+                <view class="goods-wp">
+                    <goods-list col='2' list="{{newly.goodsList}}" showOldPrice="true"
+                                darkBg="true"></goods-list>
+                </view>
+
+                <view class="more" catchtap="toAll">
+                    查看更多商品
+                    <text class="iconfont icon-ico_lower"></text>
+                </view>
+            </view>
+
+        </view>
+
+        <view class="list" wx:if="{{activeTab==='b'}}">
+            <view class="orderbtn {{paixudingwei?'fixed':''}} ">
+                <view class="item time {{orderByTime?'active':''}}" catchtap="setOrderByTime">
+                    上架时间
+                </view>
+                <view class="item jiage {{!orderByTime?'active':''}}" catchtap="setOrderByPrice">
+                    <text class="price">价格</text>
+                    <image src="../../../images/common/price.png" wx:if="{{orderByTime}}" class="icon"></image>
+                    <image src="../../../images/common/priceup.png" wx:if="{{!orderByTime && !priceUp}}"
+                           class="icon"></image>
+                    <image src="../../../images/common/pricedown.png" wx:if="{{!orderByTime && priceUp}}"
+                           class="icon"></image>
+                </view>
+            </view>
+
+            <view class="goodslist-wp {{paixudingwei?'fixed':''}}">
+                <scroll-view scroll-y="true" bindscrolltolower="lower" bindscrolltoupper="topLoad" lower-threshold="70"
+                             scroll-top="{{top}}" bindscroll="scroll" style="height:{{scrollHeight}}px;">
+                    <goods-list col='2' list="{{list}}" showOldPrice="true">
+                    </goods-list>
+                    <loading hide="{{hide}}">
+                        加载中...
+                    </loading>
+                    <view style="margin-bottom: 180rpx;">
+                        <empty wx:if="{{!hasMore && hide}}">
+                            <text>— 宝贝虽有底线，生活无限可能 —</text>
+                        </empty>
+                    </view>
+
+                </scroll-view>
+                <block wx:if="{{!list.length && hide}}">
+                    <empty>
+                        <text>没有任何商品~</text>
+                    </empty>
+                </block>
+            </view>
+        </view>
+        <view class="dongtai" wx:if="{{activeTab==='c'}}">
+            <empty>
+                <text>暂无消息~</text>
+            </empty>
+        </view>
+    </view>
+
+    <!--底部的固定tab-->
+    <view class="footer-wp">
+        <view class="footer-btn">
+            <view class="left">
+                <view class="item" catchtap="toSearch">
+                    搜索商品
+                </view>
+                <view class="item" catchtap="collectStoreOrCel">
+                    {{isCollected?'取消收藏':'收藏店铺'}}
+                </view>
+                <view class="item concat" catchtap="toService">
+                    <text class="iconfont icon-ico_goutongfangshi"></text>
+                    联系客服
+                </view>
+            </view>
+            <view class="right" catchtap="bakToTop">
+                <text class="iconfont icon-ico_right-copy"></text>
+                TOP
+            </view>
+        </view>
+    </view>
+
+
+</scroll-view>
+<share pickerHide="{{pickerHide}}" id="share" bindshare="share" item="{{merchantInfo}}" type="merchant">
+
+</share>

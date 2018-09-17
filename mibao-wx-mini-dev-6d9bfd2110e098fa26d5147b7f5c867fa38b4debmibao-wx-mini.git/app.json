@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/home/index/index",
+    "pages/home/category/category",
+    "pages/home/list/list",
+    "pages/home/search/search",
+    "pages/merchant/store/store",
+    "pages/lease/detail/detail",
+    "pages/lease/reservation/reservation",
+    "pages/lease/stagesPrice/stagesPrice",
+    "pages/lease/reservationResult/reservationResult",
+    "pages/credit/index/index",
+    "pages/credit/phone/phone",
+    "pages/credit/profession/profession",
+    "pages/credit/realname/realname",
+    "pages/credit/score/score",
+    "pages/credit/jdAuth/jdAuth",
+    "pages/credit/face/face",
+    "pages/order/orderReturn/orderReturn",
+    "pages/order/orderBill/orderBill",
+    "pages/order/orderCancel/orderCancel",
+    "pages/order/orderExpress/orderExpress",
+    "pages/order/orderDetail/orderDetail",
+    "pages/order/orderList/orderList",
+    "pages/order/orderPay/orderPay",
+    "pages/order/orderPayResult/orderPayResult",
+    "pages/order/reparationAppeal/reparationAppeal",
+    "pages/order/reparationDetail/reparationDetail",
+    "pages/order/orderCompensate/compensateApply/compensateApply",
+    "pages/comment/common/common",
+    "pages/personal/index/index",
+    "pages/personal/coupon/coupon",
+    "pages/personal/addressEdit/addressEdit",
+    "pages/personal/addressList/addressList",
+    "pages/personal/favorite/favorite",
+    "pages/personal/service/service",
+    "pages/personal/PerfectInformation/PerfectInformation",
+    "pages/openData/userInfo/index",
+    "pages/openData/phoneRegister/index",
+    "pages/order/orderDetail/rentAgreement/rentAgreement"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "蜜宝",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#2e5e86",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbaricon/home_pre@2x.png",
+        "selectedIconPath": "images/tabbaricon/home_pre_active@2x.png"
+      },
+      {
+        "pagePath": "pages/personal/index/index",
+        "text": "我的",
+        "iconPath": "images/tabbaricon/mine_pre@2x.png",
+        "selectedIconPath": "images/tabbaricon/mine_pre_active@2x.png"
+      }
+    ]
+  }
+}

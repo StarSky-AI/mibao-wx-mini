@@ -1,0 +1,83 @@
+<view>
+  <credit-header step-index="3"></credit-header>
+
+  <view class="credit-form">
+
+    <view class="auth-relation">
+      <view class="logo-wp">
+        <image src="/images/logo/logo_xb@2x.png" mode="cover"></image>
+        <text>京东小白</text>
+      </view>
+      <view class="icon-wp">
+        <image src="/images/icon/icon_arrow_lr.png" mode="widthFix"></image>
+      </view>
+      <view class="logo-wp">
+        <image src="/images/logo/logo@150.png" mode="cover"></image>
+        <text>蜜宝</text>
+      </view>
+    </view>
+
+    <view class="form-header">
+      <view class="title">京东小白授权</view>
+
+      <!--京东未授权提示-->
+      <block wx:if="{{xbScore<=0}}">
+        <view class="desc">请确保您的身份信息与京东一致</view>
+        <view class="important">授权京东小白信用，有机会享受信用免押金服务</view>
+      </block>
+
+    </view>
+
+    <!--京东未授权，显示去授权按钮，如果芝麻分够，则可以显示跳过去下单，不够则可以用押金下单-->
+    <block wx:if="{{xbScore<=0}}">
+      <view class="user-info">
+        <view class="item">
+          <text class="key">真实姓名:</text>
+          <text class="value">{{user.realName}}</text>
+        </view>
+        <view class="item">
+          <text class="key">身份证号:</text>
+          <text class="value">{{user.certNo}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!--京东已授权，显示信用分-->
+    <block wx:if="{{xbScore>0}}">
+      <view>
+        <text>您当前的京东小白信用为{{xbScore}}</text>
+      </view>
+    </block>
+
+  </view>
+
+  <view class="credit-footer-tip">
+    提示：您的信息只用做平台进行信息评估使用，未经您的允许，平台不会泄露给他人。
+  </view>
+
+  <view class="footer-button-wp">
+    <!--小白未授权-->
+    <block wx:if="{{xbScore<=0}}">
+      <view class="button" catchtap="xiaobaoAuth">进入京东小白授权</view>
+
+      <!--如果芝麻分够，可以跳过-->
+      <view wx:if="{{zmScore >= zmThreshold}}" class="button-text" catchtap="reservation">跳过小白认证(去下单)</view>
+
+      <!--芝麻分不够，押金下单-->
+      <view wx:if="{{zmScore < zmThreshold}}" class="button-text" catchtap="quickLease">极速租赁</view>
+
+    </block>
+
+    <!--小白已授权-->
+    <block wx:if="{{xbScore>0}}">
+      <!--小白分或芝麻分过，去下单-->
+      <view wx:if="{{xbScore >= xbThreshold || zmScore >= zmThreshold}}" class="button" catchtap="reservation">免押金下单</view>
+
+      <!--都没过，押金下单-->
+      <view wx:if="{{xbScore < xbThreshold && zmScore < zmThreshold}}" class="button" catchtap="quickLease">极速租赁</view>
+
+    </block>
+
+  </view>
+
+</view>

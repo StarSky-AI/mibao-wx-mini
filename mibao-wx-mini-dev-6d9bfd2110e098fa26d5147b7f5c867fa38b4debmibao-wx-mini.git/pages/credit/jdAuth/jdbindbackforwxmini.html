@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>京东小白信用授权</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+  <script>
+    (function () {
+      window.getQueryString = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+      }
+    })();
+  </script>
+</head>
+<body>
+  <script>
+    window.onload = function ()
+    {
+      wx.miniProgram.redirectTo({
+        url:'/pages/credit/score/score?accessToken=' + getQueryString('accessToken'),
+      });
+    }
+  </script>
+</body>
+</html>

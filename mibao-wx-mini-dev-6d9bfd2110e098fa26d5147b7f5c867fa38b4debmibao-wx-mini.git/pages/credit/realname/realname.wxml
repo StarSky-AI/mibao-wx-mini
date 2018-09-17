@@ -1,0 +1,42 @@
+<view>
+  <credit-header step-index="2"></credit-header>
+
+  <view class="credit-form">
+    <view class="form-header">
+      <view class="title">实名认证</view>
+      <view class="desc">请确保您的身份信息与京东、支付宝一致</view>
+      <view class="important">请务必保证填写的信息正确</view>
+    </view>
+
+    <view class="form-content">
+      <view class="form-row">
+        <view class="row-main">
+          <view class="label">真实姓名</view>
+          <view class="input-wp">
+            <input type="text" placeholder="请输入您的真实姓名" maxlength="12" bindinput="inputName" />
+          </view>
+        </view>
+      </view>
+
+      <view class="form-row">
+        <view class="row-main">
+          <view class="label">身份证号</view>
+          <view class="input-wp">
+            <input type="idcard" placeholder="请输入您的身份证号" maxlength="18" bindinput="inputCertNo" />
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="credit-footer-tip">
+    提示：您的信息只用做平台进行信息评估使用，未经您的允许，平台不会泄露给他人。
+  </view>
+
+  <view class="footer-button-wp">
+    <view class="button {{nameOK && certNoOK ?'':'disabled'}}" catchtap="confirm">下一步</view>
+  </view>
+
+</view>

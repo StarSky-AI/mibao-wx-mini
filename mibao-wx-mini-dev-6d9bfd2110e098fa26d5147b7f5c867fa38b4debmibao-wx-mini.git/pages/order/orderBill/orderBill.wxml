@@ -1,0 +1,61 @@
+<!--分期账单-->
+<view class='container'>
+  <view class='item-wp'>
+    <block wx:for="{{orderPaymentBeanList}}" wx:key="{{index}}">
+      <view class='item {{item.paymentState=="paid"?"paid":""}}'>
+        <view class='item-info1' bindtap='spreadToggle' data-index="{{index}}">
+          <view class='item-info1-row1'>
+            <view class='stage'>
+              <view class='stateNum'>{{item.currentPeriod1}}/<text>{{item.currentPeriod2}}期</text></view>
+              <view class='stateDay'>共{{item.currentPeriodLeaseTerm}}天</view>
+            </view>
+            <view class='date' wx:if="{{item.lastPayTime}}">
+              支付期限：{{item.lastPayTime}}
+            </view>
+          </view>
+          <!-- 已支付 -->
+          <view class='item-info1-row2' wx:if="{{item.paymentState=='paid'}}">
+            <view class="price">实付租金：¥{{item.realAmount}}{{item.delayAmount>0?'+'+item.delayAmount+'元违约金':''}}</view>
+            <view class="status">{{item.paymentStateStr}} <text class='iconfont icon-ico_back-copy {{item.spread?"spread":""}}'></text></view>
+          </view>
+          <!-- 未支付 -->
+          <view class='item-info1-row2' wx:if="{{item.paymentState!='paid'}}">
+            <view class="price">待付租金：<text>¥{{item.totalAmount}}{{item.delayAmount>0?'+'+item.delayAmount+'元违约金':''}}</text></view>
+            <view class="status">{{item.paymentStateStr}} <text class='iconfont icon-ico_back-copy {{item.spread?"spread":""}}'></text></view>
+          </view>
+        </view>
+        <view class='item-info2 {{item.spread?"spread":""}}'>
+          <view class='curStageDay item-info2-row'>
+            <view>本期租赁天数</view>
+            <view>{{item.currentPeriodLeaseTerm}} 天</view>
+          </view>
+          <view class='dailyPrice item-info2-row'>
+            <view>每日租金</view>
+            <view>{{item.dailyRent}} 元/天</view>
+          </view>
+          <view class='discountPrice item-info2-row' wx:if="{{item.voucherDiscount>0}}">
+            <view>优惠礼券</view>
+            <view class='warningColor'>- ¥{{item.voucherDiscount}}</view>
+          </view>
+          <view class='discountPrice item-info2-row' wx:if="{{accidentInsurance>0&&index==0}}">
+            <view>租赁保障</view>
+            <view class='warningColor'>¥{{accidentInsurance}}</view>
+          </view>
+          <view class='overdueDay item-info2-row' wx:if="{{item.delayDay}}">
+            <view>逾期天数</view>
+            <view>{{item.delayDay}} 天</view>
+          </view>
+          <view class='overduePrice item-info2-row' wx:if="{{item.delayAmount>0}}">
+            <view>逾期金额</view>
+            <view><text class='warningColor'>¥{{item.delayAmount}}</text></view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class='btn-wp' wx:if="{{payBtnTxt}}" catchtap='payment'>
+    <view class='btn'>{{payBtnTxt}}</view>
+  </view>
+  
+</view>

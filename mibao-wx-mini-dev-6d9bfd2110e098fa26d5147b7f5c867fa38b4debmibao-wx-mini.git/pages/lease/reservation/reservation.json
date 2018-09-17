@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText":"确认订单",
+  "navigationBarBackgroundColor": "#3795FF",
+  "usingComponents": {
+    "pop-up":"/components/pop-up/index"
+  }
+}

@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="head">
+    <view class="head-con">
+      <view class="left">
+        <view class="img">
+          <image src='{{logisticsMsg.img}}' mode='aspectFill'></image>
+        </view>
+        <view class="logisInfo">
+          <text>{{logisticsMsg.logisticsCompany}}</text>
+          <text>{{logisticsMsg.expressNo}}</text>
+        </view>
+      </view>
+      <view class="right">
+        <text class="icon iconfont icon-copy_blue"></text>
+        <text bindtap="copyLogistics">复制单号</text>
+      </view>
+    </view>
+  </view>
+  <view class="body" wx:if='{{id}}'>
+    <view class="address">
+      <view class="addTit">
+        <text>收件地址</text>
+      </view>
+      <view class="progressLine">
+        <view class='progressLine-con'>
+          <view class='line'>
+            <view class='line1'></view>
+            <view class='line2'></view>
+          </view>
+          <view class="point">
+            <text class="icon iconfont icon-ico_round_blued"></text>
+          </view>
+        </view>
+      </view>
+      <view class="addCon">
+        <text>{{logisticsMsg.userReceiveInfoBean.contact}}</text>
+        <text>{{logisticsMsg.userReceiveInfoBean.receiveAddress}}</text>
+      </view>
+    </view>
+    <block wx:for="{{logisticsMsg.info}}" wx:key="index"  wx:for-item="info">
+      <view class="address addDetail">
+        <view class="addDate">
+          <text>{{info.ftime2}}</text>
+          <text>{{info.ftime1}}</text>
+        </view>
+        <view class="progressLine">
+          <view class='progressLine-con'>
+            <view class="line">
+              <view class='line1'></view>
+              <view class='line2'></view>
+            </view>
+            <view class="point">
+              <text class="icon iconfont icon-ico_select_pre"></text>
+            </view>
+          </view>
+        </view>
+        <view class="addCon">
+          <text>{{info.status}}</text>
+          <text>{{info.context}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

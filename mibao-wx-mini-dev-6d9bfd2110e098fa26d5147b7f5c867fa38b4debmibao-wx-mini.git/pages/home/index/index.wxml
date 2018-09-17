@@ -1,0 +1,74 @@
+<wxs module="filters" src="../../../wxs/filter.wxs"></wxs>
+
+<view class="home">
+    <view class="home-search">
+        <view class="search-wp">
+            <view bindtap="sousuo"><text class="icon iconfont icon-ico_sousuo"></text>大疆无人机</view>
+        </view>
+    </view>
+    <view class="banner-wp">
+        <view class="swiper-wp">
+            <swiper class="banner-swiper" autoplay="{{banner.autoplay}}" current="{{banner.current}}" interval="{{banner.interval}}" duration="{{banner.duration}}" previous-margin="{{banner.preMargin}}" next-margin="banner.nextMargin" display-multiple-items="{{banner.num}}" bindchange="change">
+                <block wx:for="{{bannerList}}" wx:key="{{item.dataId}}">
+                    <swiper-item class="banner-item">
+                        <view class="img-wp" catchtap="bannerClick" data-type="{{item.type}}" data-bid="{{item.dataId}}">
+                            <image src="{{item.src}}"></image>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="dots">
+                <text wx:for="{{bannerList}}" class="{{index == banner.index ? ' active' : ''}}" wx:key="index">
+                </text>
+            </view>
+        </view>
+    </view>
+
+    <view class="category-wp">
+        <view class="category" wx:for="{{category}}" wx:key="{{item.id}}" catchtap="categoryClick" data-cid="{{item.id}}">
+            <image src="{{item.src}}"></image>
+            <text>{{item.name}}</text>
+        </view>
+    </view>
+
+
+    <view class="goods-area">
+        <view class="title">
+            <text class="hot jiacu" >{{goodsBean.title}}</text>
+            <text class="des">人气居高不下的种子选手</text>
+        </view>
+
+        <view class="list">
+            <goods-list col='2' list="{{goodsBean.mapList}}"
+                        darkBg="true"></goods-list>
+        </view>
+    </view>
+
+
+
+
+    <view class="footer">
+        <view class="service">
+            <view class="item">
+                <text class="text-icon iconfont icon-ico-zheng"></text>
+                <text class="text-1">正品国行</text>
+                <text class="text-2">官方保修 售后服务</text>
+            </view>
+            <view class="item">
+                <text class="text-icon iconfont icon-ico-mian"></text>
+                <text class="text-1">信用免押</text>
+                <text class="text-2">轻松拥有 精致生活</text>
+            </view>
+            <view class="item">
+                <text class="text-icon iconfont icon-ico-you"></text>
+                <text class="text-1">顺丰包邮</text>
+                <text class="text-2">品质护航 租赁无忧</text>
+            </view>
+        </view>
+
+        <view class="jishu">
+            — 本租赁服务由杭州稻本信息技术有限公司提供 —
+        </view>
+    </view>
+
+</view>

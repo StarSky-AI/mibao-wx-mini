@@ -1,0 +1,225 @@
+.orderReturn-wp .header {
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 96rpx;
+  padding: 0 30rpx;
+  background: #fff;
+}
+.orderReturn-wp .header .name {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 32rpx;
+  color: #000000;
+}
+.orderReturn-wp .header .contact {
+  width: 160rpx;
+  height: 48rpx;
+}
+.orderReturn-wp .header .contact image {
+  width: 100%;
+  height: 100%;
+}
+.orderReturn-wp .address-wp {
+  background: #FFFFFF;
+}
+.orderReturn-wp .address-wp .address {
+  margin: 0 20rpx;
+  background: #F8F8F8;
+  border-radius: 10rpx;
+  padding: 30rpx;
+}
+.orderReturn-wp .address-wp .address .line {
+  line-height: 1em;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16rpx;
+}
+.orderReturn-wp .address-wp .address .line.content {
+  margin-bottom: 0;
+}
+.orderReturn-wp .address-wp .address .line .left {
+  width: 140rpx;
+  font-size: 26rpx;
+  color: #555555;
+  letter-spacing: 8.66rpx;
+}
+.orderReturn-wp .address-wp .address .line .right {
+  flex: 1;
+  font-size: 26rpx;
+  color: #041D29;
+}
+.orderReturn-wp .copy-wp {
+  background: #FFFFFF;
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #3795FF;
+}
+.orderReturn-wp .copy-wp .iconfont {
+  font-size: 28rpx;
+  color: #3795FF;
+  margin-right: 10rpx;
+}
+.orderReturn-wp .qrcode-wp {
+  background: #FFFFFF;
+  margin: 20rpx 14rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 0 30rpx;
+  align-items: center;
+  height: 116rpx;
+  justify-content: space-between;
+}
+.orderReturn-wp .qrcode-wp .left {
+  flex-direction: column;
+}
+.orderReturn-wp .qrcode-wp .left .title {
+  font-size: 32rpx;
+  color: #041D29;
+}
+.orderReturn-wp .qrcode-wp .left .title .iconfont {
+  color: #9B9B9B;
+  font-size: 28rpx;
+}
+.orderReturn-wp .qrcode-wp .left .text {
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+.orderReturn-wp .qrcode-wp .right .iconfont {
+  font-size: 30rpx;
+  color: #555555;
+}
+.orderReturn-wp .logistics-wp {
+  background: #FFFFFF;
+  padding: 30rpx 30rpx 0;
+}
+.orderReturn-wp .logistics-wp .item .title {
+  font-size: 26rpx;
+  color: #9B9B9B;
+}
+.orderReturn-wp .logistics-wp .item .row {
+  border-bottom: 1px solid #ECECEC;
+  height: 84rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.orderReturn-wp .logistics-wp .item .row .left {
+  flex: 1;
+  font-size: 28rpx;
+  color: #041D29;
+}
+.orderReturn-wp .logistics-wp .item .row .left input {
+  display: inline-block;
+  vertical-align: top;
+}
+.orderReturn-wp .logistics-wp .item .row .right {
+  width: 32rpx;
+}
+.orderReturn-wp .logistics-wp .item .row .right .iconfont {
+  color: #555555;
+  font-size: 30rpx;
+}
+.orderReturn-wp .logistics-wp .item.logisticsNum {
+  margin-top: 48rpx;
+}
+.orderReturn-wp .logistics-wp .item.logisticsNum .row {
+  border-bottom: none;
+}
+.orderReturn-wp .note {
+  padding: 20rpx 30rpx 180rpx ;
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+.orderReturn-wp .submit {
+  background: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.orderReturn-wp .submit button {
+  height: 100%;
+  text-align: center;
+  background: #2395FF;
+  border-radius: 66rpx;
+  color: #FFFFFF;
+  width: 100%;
+  font-size: 32rpx;
+}
+.orderReturn-wp .popcontent {
+  border-radius: 24rpx;
+  margin: 0 auto;
+  padding: 80rpx 0 40rpx;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+}
+.orderReturn-wp .popcontent .code {
+  width: 400rpx;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.orderReturn-wp .popcontent .code .canvas {
+  width: 100%;
+  height: 100%;
+}
+.orderReturn-wp .popcontent .text {
+  font-size: 26rpx;
+  margin-top: 44rpx;
+  color: #9B9B9B;
+}
+.orderReturn-wp .popcontent .time {
+  font-size: 22rpx;
+  color: #BFC5C9;
+  margin-top: 8rpx;
+}
+.orderReturn-wp .successcontent {
+  width: 100%;
+  background: #FFFFFF;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.orderReturn-wp .successcontent .iconfont {
+  margin-top: 120rpx;
+  font-size: 160rpx;
+  color: #2395FF ;
+}
+.orderReturn-wp .successcontent .line1 {
+  margin-top: -35rpx;
+  font-size: 32rpx;
+  color: #434343;
+  margin-bottom: 8rpx;
+}
+.orderReturn-wp .successcontent .line2 {
+  font-size: 24rpx;
+  color: #9B9B9B;
+  margin-bottom: 144rpx;
+}
+.orderReturn-wp .successcontent .backToHome {
+  font-size: 24rpx;
+  color: #2395FF;
+}
+.orderReturn-wp .successcontent .backToHome .iconfont {
+  color: #2395FF;
+  font-size: 24rpx;
+}

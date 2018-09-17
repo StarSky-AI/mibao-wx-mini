@@ -1,0 +1,4 @@
+<view class="goHome" catchtap="goHome" wx:if="{{show}}">
+    <view class="iconfont icon-nav_home"></view>
+    <view class="text">首页</view>
+</view>

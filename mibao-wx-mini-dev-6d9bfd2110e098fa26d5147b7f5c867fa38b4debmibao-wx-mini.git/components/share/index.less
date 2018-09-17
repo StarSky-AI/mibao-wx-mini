@@ -1,0 +1,227 @@
+
+// out: index.wxss, sourceMap:false
+@import "../../iconfont/iconfont.wxss";
+button::after{ border: none; }
+.pick-wp{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: 8;
+  background: #000000;
+  opacity: .1;
+}
+.shareInfo {
+  z-index: 2000;
+  width: 100%;
+  height: 150px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 25rpx;
+  box-sizing: border-box;
+  .content{
+    font-size: 24rpx;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 24rpx;
+
+    .left,.right{
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 100%;
+
+      .sharebtn{
+        position: absolute;
+        width: 90rpx;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        background: transparent;
+        border:0 none;
+      }
+      .img{
+        width: 90rpx;
+        height: 90rpx;
+        image{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .desp{
+        font-size: 24rpx;
+        color: #041D29;
+        margin-top: 20rpx;
+      }
+    }
+  }
+}
+
+.Code{
+  z-index: 2000;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 25rpx;
+  box-sizing: border-box;
+  .content{
+    border-radius: 24rpx;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx;
+    position: relative;
+    .close{
+      position: absolute;
+      right: 30rpx;
+      top: 30rpx;
+      .iconfont{
+        color: #EAEAEA;
+        font-size: 40rpx;
+      }
+    }
+    .shopName{
+      width: 100%;
+      height: 140rpx;
+      border-bottom: 1px solid #EAEAEA;
+      box-sizing: border-box;
+      .left{
+        display: inline-flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        .img{
+          width: 80rpx;
+          height: 80rpx;
+          border-radius: 50% 50%;
+          overflow: hidden;
+          image{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .name{
+          padding-left: 20rpx;
+        }
+      }
+
+
+    }
+
+    .qrcode{
+      padding-top: 21rpx;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 600rpx;
+      height: 600rpx;
+      margin:0 auto;
+      image{
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .goodsimg{
+      width: 420rpx;
+      height: 420rpx;
+      align-self: center;
+      image{
+        width: 100%;
+      }
+    }
+    .goodsName{
+      font-size: 34rpx;
+      color: #000;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: 5rpx;
+      padding-right: 85rpx;
+      margin: 0 85rpx 0 10rpx;
+    }
+    .jiage {
+      margin: 0 85rpx 0 10rpx;
+      height: 50rpx;
+      line-height: 50rpx;
+      .price {
+        font-size: 36rpx;
+        color: #FF5339;
+      }
+      .unit {
+        color: #9B9B9B;
+        font-size: 24rpx;
+        margin-left: 6rpx;
+      }
+    }
+    .code-wp{
+      margin-top: 60rpx;
+      padding: 0 5rpx;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      .left{
+        width: 170rpx;
+        height: 170rpx;
+        border-radius: 50% 50%;
+        overflow: hidden;
+        image{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .right{
+        flex:1;
+        padding-left: 20rpx;
+        padding-right: 100rpx;
+        font-size: 26rpx;
+        color: #434343;
+      }
+    }
+  }
+  .btn{
+    border-bottom-left-radius: 24rpx;
+    border-bottom-right-radius: 24rpx;
+    width: 100%;
+    background: #FFFFFF;
+    padding-top: 50rpx;
+    padding-bottom: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .save{
+      font-size: 30rpx;
+      width: 440rpx;
+      height: 88rpx;
+      line-height: 88rpx;
+      background: #3795FF;
+      border-radius: 200rpx;
+      color: #FFFFFF;
+    }
+    .shareNotice{
+      margin-top: 30rpx;
+      font-size: 24rpx;
+      color: #BFC5C9;
+    }
+  }
+
+
+}

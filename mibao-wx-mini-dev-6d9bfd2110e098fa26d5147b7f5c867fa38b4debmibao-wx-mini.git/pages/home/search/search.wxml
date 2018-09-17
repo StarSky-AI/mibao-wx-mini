@@ -1,0 +1,86 @@
+
+<!--<import src="/templates/productsList/index.wxml" />-->
+
+
+<view class="search-wp">
+    <view class="searchBox">
+        <view class="searchinput weui-cell weui-cell_input">
+            <text class="icon iconsearch iconfont icon-ico_sousuo"></text>
+            <input value="{{searchData}}" cursor-spacing="200px" class="shurukuang" bindconfirm="search"
+                   placeholder="iphoneX" confirm-type="search" placeholder-class="input" bindblur="blur" bindfocus="focus"/>
+            <text class="icon icondel iconfont icon-guanbi" catchtap="reset" hidden="{{hideDelicon}}"></text>
+        </view>
+        <view class="searchbutton">
+            <button catchtap="search">搜索</button>
+        </view>
+    </view>
+
+    <!--关键词搜索-->
+    <view class="hotwords-wp" wx:if="{{words.length && !list.length && merchantId==''}}">
+        <view class="hotwords">
+            <view class="title">
+                <text>热门搜索</text>
+            </view>
+
+            <view class="content">
+                <text class="word" wx:for="{{words}}" wx:key="{{item.speech}}" catchtap="setSearchDate"
+                      data-name="{{item.speech}}">{{item.speech}}
+                </text>
+
+            </view>
+        </view>
+    </view>
+
+    <!--历史记录-->
+    <view class="history-wp">
+        <view class="history-record" wx:if="{{historyShow && !list.length }}">
+            <view class="title">历史记录</view>
+            <view class="history-item" wx:for="{{historyRecords}}"wx:key="index">
+                <text catchtap="fillSearch" data-name="{{item}}">{{item}}</text>
+                <text catchtap="deleteHistory" data-index="{{index}}" class="iconfont icon-ico_close"></text>
+            </view>
+            <view class="clear-all" catchtap="clearHistory">清空历史记录</view>
+        </view>
+    </view>
+
+    <!--结果页-->
+
+    <view class="jieguo-wp" wx:if="{{list.length}}">
+        <view class="orderbtn">
+            <view class="time {{orderByTime?'active':''}}" catchtap="setOrderByTime">
+                上架时间
+            </view>
+            <view class="line"></view>
+            <view class="jiage {{!orderByTime?'active':''}}" catchtap="setOrderByPrice">
+                <text class="price">价格</text>
+                <image src="../../../images/common/price.png" wx:if="{{orderByTime}}" class="icon"></image>
+                <image src="../../../images/common/priceup.png" wx:if="{{!orderByTime && !priceUp}}"
+                       class="icon"></image>
+                <image src="../../../images/common/pricedown.png" wx:if="{{!orderByTime && priceUp}}"
+                       class="icon"></image>
+            </view>
+        </view>
+
+        <scroll-view class="jieguolist" scroll-y bindscrolltolower="lower" bindscrolltoupper="topLoad"
+                     lower-threshold="70" scroll-top="{{top}}" bindscroll="scroll" style="height:{{scrollHeight}}px;">
+
+            <goods-list col='1' list="{{list}}" fromMerchant="{{fromMerchant}}"></goods-list>
+            <!--<view class="jieguo" wx:for="{{list}}" wx:key="{{item.id}}" bindtap="toDetail" data-id="{{item.id}}">-->
+                <!--<template is="oneLineProduct" data="{{...item,a:merchantId?'0':'1'}}" />-->
+            <!--</view>-->
+            <loading hide="{{hide}}" bindchange="loadingChange">
+                加载中...
+            </loading>
+            <empty wx:if="{{!hasMore && hide}}">
+                <text>— 宝贝虽有底线，生活无限可能 —</text>
+            </empty>
+
+
+        </scroll-view>
+        <block wx:if="{{!list.length && hide}}">
+            <empty>
+                <text>没有搜索到任何商品，重新搜索试试~</text>
+            </empty>
+        </block>
+    </view>
+</view>

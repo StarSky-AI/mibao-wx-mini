@@ -1,0 +1,57 @@
+@bg-color: #3795FF;
+
+.credit-step {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 68rpx;
+
+  .step {
+    background: #EDECED;
+    color: #B8B8B8;
+    position: relative;
+    text-align: center;
+    height: 68rpx;
+    line-height: 68rpx;
+    font-size: 24rpx;
+    flex: 1;
+    text-indent: 34rpx;
+
+    &:after
+    {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -34rpx;
+      width: 66rpx;
+      height: 66rpx;
+      background: #EDECED;
+      border: 4rpx solid #F6F6F6; /*no*/
+      border-left: transparent;
+      border-top: transparent;
+      transform: rotate(-45deg);
+      transform-origin: center;
+    }
+
+    &.active {
+      background: @bg-color;
+      color: #fff;
+
+      &:after{
+        background: @bg-color;
+      }
+
+    }
+  }
+}
+
+.credit-step-tip
+{
+  font-size: 24rpx;
+  color: #a3a3a3;
+  background: #F6F6F6;
+  padding: 30rpx;
+}

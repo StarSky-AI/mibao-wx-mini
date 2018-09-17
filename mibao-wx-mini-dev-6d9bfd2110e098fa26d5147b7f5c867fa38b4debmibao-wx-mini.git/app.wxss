@@ -1,0 +1,50 @@
+@import '/iconfont/iconfont.wxss';
+
+
+.clear:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+  background: transparent;
+}
+
+page {
+  font-family: PingFangSC-Regular, -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  background-color: #F8F8F8;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color:#333;
+}
+
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.page-spacing
+{
+  padding: 0 40rpx;
+}
+
+@import "/style/button.wxss";
+@import "/style/credit.wxss";
+
+.jiacu{
+    font-family: PingFangSC-Medium;
+}
+
+@import "/style/weui/weui.wxss";
+@import "/style/template.wxss";

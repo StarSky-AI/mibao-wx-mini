@@ -1,0 +1,184 @@
+<wxs module="filters" src="../../../wxs/filter.wxs"></wxs>
+
+<!--确认订单-->
+<view class="orderPay-wp">
+    <scroll-view class="orderPay" style="height: 100%;" scroll-y="{{scrollY}}">
+        <view class="info-wp">
+            <view class="pay-info">
+                <view class="pay-des">实付金额</view>
+                <view class="pay-price">¥
+                    <text>{{factualMoney}}</text>
+
+                    <view class="include-items" wx:if="{{payType=='deposit'}}">含押金:￥{{filters.parsePrice(payInfo.deposit)}}</view>
+                </view>
+
+                <view class="pay-way">
+                    <text class="iconfont icon-weixinzhifu"></text>
+                    微信支付
+                </view>
+            </view>
+            <!--礼券选择  目前是首期押金支付 下单时候没用使用礼券 才可以选择礼券-->
+            <block wx:if="{{!payInfo.orderBonus && payType=='deposit'}}">
+                <view class="couponChoose" catchtap="couponChoose">
+                    <view class="left">
+                        优惠礼券
+                    </view>
+                    <view class="right">
+                        <block wx:if="{{useCoupon && choosedCouponPrice!=0}}">
+                            优惠券：省
+                            <text class="couponNum">{{choosedCouponPrice}}</text>
+                            元
+                        </block>
+                        <block wx:else>
+                            <block wx:if="{{!couponList.length}}">
+                                无可用优惠券
+                            </block>
+                            <block wx:else>
+                                有
+                                <text class="couponNum">{{couponList.length}}</text>
+                                张可用优惠券
+                            </block>
+
+                        </block>
+                        <text class="iconfont icon-ico_back-copy"></text>
+                    </view>
+                </view>
+            </block>
+
+            <view class="rent-info">
+                <view class="rent-info-row">
+                    <view>本期租赁天数</view>
+                    <view>{{payInfo.currentPeriodLeaseTerm}}天</view>
+                </view>
+                <view class="rent-info-row">
+                    <view>每日租金</view>
+                    <view>{{filters.parsePrice(payInfo.dailyRent)}}元</view>
+                </view>
+                <view class="rent-info-row" wx:if="{{payInfo.accidentInsurance}}">
+                    <view>租赁保障</view>
+                    <view>{{filters.parsePrice(payInfo.accidentInsurance)}}元</view>
+                </view>
+                <view class="rent-info-row" wx:if="{{youhuijine}}">
+                    <view>优惠券减免</view>
+                    <view>-{{youhuijine}}元</view>
+                </view>
+                <view class="rent-info-row" wx:if="{{payInfo.delayDay && ayInfo.delayDay>0}}">
+                    <view>逾期天数</view>
+                    <view>{{payInfo.delayDay}}天</view>
+                </view>
+                <view class="rent-info-row" wx:if="{{payInfo.delayAmount && ayInfo.delayAmount>0}}">
+                    <view>逾期金额</view>
+                    <view>
+                        <text>{{filters.parsePrice(payInfo.delayAmount)}}</text>
+                    </view>
+                </view>
+
+
+            </view>
+        </view>
+    </scroll-view>
+    <view class="btn-wp" catchtap="pay">
+        <view class="btn">立即支付</view>
+    </view>
+    <!--礼券弹框-->
+    <pop-up position="bottom" id="couponlist" bindtrigger="disableScroll" bindtrigger="disableScroll">
+        <view class="couponContent" slot="bottom">
+            <view class="header">
+                <view class="left">
+                    优惠券
+                </view>
+                <view class="right" catchtap="useCoupon">
+                    <text class="iconfont  {{!useCoupon?'icon-ico_select_pre':'icon-ico_select'}}"></text>
+                    不使用优惠券
+                </view>
+            </view>
+            <block wx:if="{{!couponList.length && !merchantcouponList.length}}">
+                <view class="empty">
+                    暂无可用优惠券~
+                </view>
+            </block>
+            <block wx:else>
+                <view class="commonList">
+                    <!--蜜宝券-->
+                    <block wx:if="{{couponList.length>0}}">
+                        <block wx:for="{{couponList}}" wx:key="index">
+                            <view class="coupon-wp">
+                                <view class="blueCoupon coupon" catchtap="couponSelect"
+                                      data-price="{{item.price/100}}" data-id="{{item.id}}">
+                                    <!--标识 密券还是宝券-->
+                                    <!--<view class="biaoshi">-->
+                                    <!--<image class="img" src="../../../images/order/img-common@2x.png"></image>-->
+                                    <!--</view>-->
+                                    <view class="cnt">
+                                        <view class="left">
+                                            <view class="money">
+                                                <text class="unit">￥</text>
+                                                <text class="rent">{{item.price/100}}</text>
+                                            </view>
+                                            <view class="menkai">
+                                                {{item.bonusModelMoneyOffRole=='-1'?'无门槛':'满'+filters.parsePrice(item.bonusModelMoneyOffRole)+'可用'}}
+                                            </view>
+                                        </view>
+
+                                        <view class="right">
+                                            <view class="t">
+                                                <view class="title">{{item.bonusModelName}}</view>
+                                                <view class="des">{{item.bonusModelNote}}</view>
+                                            </view>
+                                            <view class="b">
+                                                <view class="line">限{{item.appliesGoodsTypeStr}}</view>
+                                                <view class="line">{{item.effectiveTimeStr}}</view>
+                                            </view>
+
+
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+
+                    <!--商家券-->
+                    <block wx:if="{{merchantcouponList.length>0}}">
+                        <view class="merchantCouponDes">
+                            以下是商家优惠券
+                        </view>
+                        <block wx:for="{{merchantcouponList}}" wx:key="index">
+                            <view class="coupon-wp">
+                                <view class="merchantCoupon coupon">
+                                    <view class="biaoshi">
+                                        <image class="img" src="../../../images/order/img-merchant@2x.png"></image>
+                                    </view>
+                                    <view class="cnt">
+                                        <view class="left">
+                                            <view class="money">
+                                                <text class="unit">￥</text>
+                                                <text class="rent">{{item.price/100}}</text>
+                                            </view>
+                                            <view class="menkai">{{item.type=='cash'?'无门槛':'满188可用'}}</view>
+                                        </view>
+
+                                        <view class="right">
+                                            <view class="t">
+                                                <view class="title">{{item.bonusModelName}}</view>
+                                                <view class="des">{{item.bonusModelNote}}</view>
+                                            </view>
+                                            <view class="b">
+                                                <view class="line">限{{item.appliesGoodsTypeStr}}</view>
+                                                <view class="line">{{item.effectiveTimeStr}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="xianzhi">
+                                    限【店铺名称】商家使用
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                </view>
+            </block>
+
+        </view>
+    </pop-up>
+</view>

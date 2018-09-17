@@ -1,0 +1,144 @@
+/* 分期账单 */
+.warningColor {
+  color: #FF5339 !important;
+}
+.container .item-wp {
+  width: 100%;
+  padding-top: 8rpx;
+  padding-bottom:120rpx;
+}
+.item {
+  background:#fff;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 0;
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+/* 第一部分 */
+.item-info1 {
+  padding-bottom:20rpx; 
+}
+.item-info1 .item-info1-row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.item-info1 .stage {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.item-info1 .stage .stateNum {
+  font-size: 28rpx;
+  color: #000000;
+   margin-right: 12rpx;
+}
+.item-info1 .stage .stateNum text {
+  color: #9B9B9B;
+}
+.item-info1 .stage .stateDay {
+  width: 120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  background: #3795FF;
+  border-radius: 10rpx;
+}
+.item-info1 .date {
+  font-size: 24rpx;
+  color: #434343;
+}
+.item-info1 .item-info1-row2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-info1-row2 .price {
+  font-size: 28rpx;
+  color: #000;
+}
+.item-info1-row2 .price text {
+  color: #FF5339;
+}
+.item-info1-row2 .status {
+  font-size: 24rpx;
+  color: #434343;
+}
+.item-info1-row2 .status text {
+  font-size: 20rpx;
+  display: inline-block;
+  transition: transform 0.2s linear;
+  padding-left: 0;
+  margin-left: 10rpx;
+}
+.item-info1-row2 .status text.spread {
+  transform: rotate(90deg);
+}
+/* 第二部分 */
+.item-info2 {
+  border-top: 2rpx solid #EAEAEA;
+  opacity: 0;
+  transition:0.3s;
+  height: 0;
+  overflow: hidden;
+}
+.item-info2.spread {
+  opacity: 1;
+  display: block;
+  height: auto;
+  padding:10rpx 0 20rpx; 
+}
+.item-info2 .item-info2-row {
+  height:40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.item-info2 .item-info2-row view:first-child {
+  font-size: 24rpx;
+  color: #000000;
+}
+.item-info2 .item-info2-row view:nth-child(2) {
+  font-size: 28rpx;
+  color: #000000;
+}
+/* 已支付账单 */
+.item.paid{
+  background:#f5f5f5;
+}
+.item.paid .item-info1-row2 .price text{
+  color: #000;
+}
+.item.paid .item-info1-row2 .status {
+  font-size: 24rpx;
+  color: #BFC5C9;
+}
+.item.paid .item-info1 .stage .stateDay {
+  color:#9B9B9B;
+  background:#EAEAEA;
+}
+/* 底部支付按钮 */
+.btn-wp {
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+}
+.btn-wp .btn {
+  width: 710rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #2395FF;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 68rpx;
+}

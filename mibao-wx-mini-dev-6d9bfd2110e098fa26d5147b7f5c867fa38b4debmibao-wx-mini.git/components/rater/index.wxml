@@ -1,0 +1,17 @@
+<view class="rate">
+    <block wx:if="{{!finish}}">
+        <view class="xx-wp" wx:for="{{lightNum}}" catchtap="rate" data-id="{{index+1}}" wx:key="index">
+            <text class="icon iconfont icon-ico_comment light" ></text>
+        </view>
+        <view class="xx-wp" wx:for="{{5-lightNum}}" catchtap="rate" data-id="{{lightNum+index+1}}" wx:key="index">
+            <text class="icon iconfont icon-ico_comment " ></text>
+        </view>
+    </block>
+
+    <block wx:if="{{finish}}">
+        <block wx:for="{{light}}" wx:key="index">
+            <text class="icon iconfont icon-ico_comment light"></text>
+        </block>
+    </block>
+</view>
+

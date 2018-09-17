@@ -1,0 +1,321 @@
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 96rpx;
+  padding: 0 30rpx;
+  background: #fff;
+}
+page{
+  height: 100%;
+  .orderPay-wp {
+    width: 100%;
+    height: 100%;
+    view {line-height: 1;}
+    .info-wp {
+      width: 100%;
+      padding-top: 10rpx;
+      .pay-info {
+        background: #fff;
+        margin-bottom: 20rpx;
+        box-sizing: border-box;
+        padding: 90rpx 30rpx;
+        text-align: center;
+        .pay-des {
+          font-size: 36rpx;
+          color: #000000;
+          text-align: center;
+        }
+        .pay-price {
+          font-size: 32rpx;
+          color: #FF5339;
+          text-align: center;
+          margin: 36rpx 0 60rpx;
+          .include-items{
+            margin-top: 10rpx;
+            font-size: 24rpx;
+            color: #9B9B9B;
+            text-align: center;
+          }
+          & text {
+            font-size: 76rpx;
+            color: #FF5339;
+          }
+        }
+
+        .pay-way {
+          font-size: 28rpx;
+          color: #434343;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          & text.iconfont {
+            font-size: 36rpx;
+            color: #54BB2B;
+            opacity: 0.6;
+            margin-right: 8rpx;
+          }
+        }
+      }
+      .couponChoose{
+        margin-bottom:20rpx;
+        .row;
+        padding: 0 30rpx;
+        .left{
+          font-size: 28rpx;
+        }
+        .right{
+          font-size: 28rpx;
+          color: #434343;
+          .iconfont{
+            color: #9B9B9B;
+            font-size: 28rpx;
+          }
+          .money{
+            font-size: 32rpx;
+            color: #000000;
+            &.yuqi{
+              color: #F5533A;
+            }
+          }
+          .danwei{
+            margin:0 4rpx;
+          }
+          .couponNum{
+            font-size: 32rpx;
+            color: #F5533A;
+          }
+        }
+      }
+      .rent-info {
+        width: 100%;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 20rpx 30rpx;
+        .rent-info-row {
+          height: 40rpx;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          & view:first-child {
+            font-size: 24rpx;
+            color: #000;
+          }
+          & view:nth-child(2) {
+            font-size: 26rpx;
+            color: #000;
+            & text {
+              color:#F5533A;
+            }
+          }
+        }
+      }
+    }
+
+    .couponContent{
+      border-top-left-radius:20rpx;
+      border-top-right-radius:20rpx;
+      height: 700rpx;
+      overflow: auto;
+      background: #FFFFFF;
+      .header{
+        border-top-left-radius:20rpx;
+        border-top-right-radius:20rpx;
+        font-size: 32rpx;
+        color: #041D29;
+        .row;
+        height: 110rpx;
+        .left{
+
+        }
+        .right{
+          font-size: 28rpx;
+          color: #9B9B9B;
+          .iconfont{
+            color:  #BFC5C9;
+            font-size: 36rpx;
+            &.icon-ico_select_pre{
+              color:  #3795FF;
+            }
+          }
+        }
+      }
+      .empty{
+        width:100%;
+        padding:30rpx 0;
+        text-align:center;
+        background:#FFFFFF;
+        color:#434343;
+      }
+      .commonList{
+        padding: 0 30rpx;
+        background: #FFFFFF;
+        .coupon-wp{
+          margin-bottom: 20rpx;
+          .coupon{
+            overflow: hidden;
+            &.blueCoupon{
+              background: #3795FF;
+            }
+            border-radius: 10rpx;
+            width: 100%;
+            height: 180rpx;
+            position: relative;
+            .biaoshi{
+              width: 44rpx;
+              height: 44rpx;
+              position: absolute;
+              top: 0;
+              left: 0;
+              .img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .cnt{
+              display: flex;
+              flex-direction: row;
+              height:100%;
+              box-sizing:border-box;
+              .left{
+                padding: 30rpx 40rpx;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                &:before{
+                  content: '';
+                  position: absolute;
+                  width: 1px;
+                  height: 140rpx;
+                  background: #7FBBFF;
+                  right: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                }
+                .money{
+                  text-align: center;
+                  color: #FFFFFF;
+                  .unit{
+                    font-size: 24rpx;
+                  }
+                  .rent{
+                    font-size: 60rpx;
+                  }
+                }
+                .menkai{
+                  padding: 0 16rpx;
+                  height: 32rpx;
+                  line-height: 32rpx;
+                  background: #F9FCFF;
+                  border-radius: 200rpx;
+                  font-size: 22rpx;
+                  color: #3795FF;
+                  text-align: center;
+                }
+              }
+
+              .right{
+                flex: 1;
+                margin: 14rpx 0;
+                padding-left: 26rpx;
+                display: flex;
+                flex-direction: column;
+                font-size: 30rpx;
+                color: #FFFFFF;
+                justify-content: space-between;
+                .line{
+                  font-size: 22rpx;
+                  color: #F8F8F8;
+                }
+                .t{
+                  .title{
+                    height: 42rpx;
+                  }
+                  .des{
+                    height: 32rpx;
+                    font-size: 22rpx;
+                    color: #1B67BD;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                  }
+                }
+                .b{
+
+                }
+
+
+              }
+
+            }
+            &.merchantCoupon{
+              background: #F5A623;
+              .cnt{
+                .left{
+                  border-right: 1px solid  #FEC25E;
+                  .menkai{
+                    color: #F5A623;
+                  }
+                }
+                .right{
+                  .t{
+                    .des{
+                      color: #A76801;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .xianzhi{
+            background: #F8F8F8;
+            border-radius:10rpx ;
+            font-size: 22rpx;
+            color: #9B9B9B;
+            padding:10rpx 24rpx;
+
+          }
+
+        }
+
+
+        .merchantCouponDes{
+          margin: 10rpx 0 30rpx 0;
+          background: #F8F8F8;
+          border-radius:4rpx ;
+          font-size: 22rpx;
+          color: #BFC5C9;
+          height: 38rpx;
+          line-height: 38rpx;
+          padding-left: 16rpx;
+        }
+      }
+    }
+    .btn-wp {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120rpx;
+      padding: 20rpx;
+      box-sizing: border-box;
+      .btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: #2395FF;
+        border-radius: 66rpx;
+        color: #FFFFFF;
+        width: 100%;
+        font-size: 32rpx;
+      }
+    }
+  }
+
+}

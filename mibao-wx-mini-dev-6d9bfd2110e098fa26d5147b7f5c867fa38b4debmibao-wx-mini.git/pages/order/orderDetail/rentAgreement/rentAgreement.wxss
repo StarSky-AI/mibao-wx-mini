@@ -1,0 +1,6 @@
+/* pages/order/orderDetail/rentAgreement/rentAgreement.wxss */
+@import "../../../../wxParse/wxParse.wxss";
+.xieyi-wp{
+    padding:20rpx;
+    font-size: 28rpx;
+}

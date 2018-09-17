@@ -1,0 +1,259 @@
+<import src='../../../templates/wxParse/wxParse.wxml' />
+<wxs module="filters" src="../../../wxs/filter.wxs"></wxs>
+<scroll-view scroll-y class="scroll_wp">
+<view class="wp">
+    <image class="bg_pic" src="../../../images/order/confirm_order@2x.jpg" mode="widthFix"></image>   
+    <view class="head_tab">
+        <view wx:for="{{params.deliveryWay}}" wx:key="{{index}}" class="tab_option {{tabIndex==index?'select':''}}" data-index="{{index}}" bindtap="changeTab">
+            <text class="iconfont {{item=='PRIVATE_STORE'?'icon-ico_shop':'icon-kuaidi'}}"></text>
+            <text>{{item=='PRIVATE_STORE'?'门店自提':'快递配送'}}</text>
+        </view>
+    </view>
+    <view class="lease_info">
+        <view class="address">
+            <button class="select_address" wx:if="{{params.deliveryWay[tabIndex]=='TO_DOOR_SERVICE'&&expressAddress.id==undefined}}" bindtap="selectAdd"><text class="iconfont icon-ico_add"></text>选择收货地址</button>
+
+            <button class="select_address" wx:if="{{params.deliveryWay[tabIndex]=='PRIVATE_STORE'&&storeAddress.id==undefined}}" bindtap="selectAdd"><text class="iconfont icon-ico_add"></text>选择收货地址</button>
+
+            <view class="user_detail" wx:if="{{params.deliveryWay[tabIndex]=='TO_DOOR_SERVICE'&&expressAddress.id}}">
+                <view class="user">
+                    <text>{{expressAddress.name}}</text>
+                    <text class="phone">{{expressAddress.phone}}</text>
+                </view>
+                <view class="address_detail">{{expressAddress.provice}}{{expressAddress.city}}{{expressAddress.regoin}}{{expressAddress.text}}</view>
+            </view>
+            <view class="user_detail" wx:if="{{params.deliveryWay[tabIndex]=='PRIVATE_STORE'&&storeAddress.id!=undefined}}">
+                <view class="user" wx:if="{{params.deliveryWay[tabIndex]=='PRIVATE_STORE'}}">
+                    <text>{{storeAddress.name}}</text>
+                    <text class="phone">{{storeAddress.phone}}</text>
+                </view>
+                <view class="address_detail" wx:if="{{params.deliveryWay[tabIndex]=='PRIVATE_STORE'}}">{{storeAddress.text}}</view>
+            </view>
+            <view class="more" wx:if="{{params.deliveryWay[tabIndex]=='TO_DOOR_SERVICE'&&expressAddress.id}}" bindtap="showList">配送地址<text class="iconfont icon-ico_More"></text></view>
+
+            <view class="more" wx:if="{{params.deliveryWay[tabIndex]=='PRIVATE_STORE'&&storeAddress.id!=undefined}}" bindtap="showList">自提门店<text class="iconfont icon-ico_More"></text></view>
+
+            <image mode="widthFix" class="logo" src="../../../images/order/logo@2x.png"></image>
+        </view>
+        <image class="min_line" mode="widthFix" src="../../../images/order/line_mine@2x.png"></image>
+        <view class="goods_info">
+            <view class="goods_pic">
+                <image src="{{params.pic}}"></image>
+            </view>
+            <view class="goods_detail">
+                <view class="name">{{params.name}}</view>
+                <view class="sku">
+                    <block wx:for="{{params.sku}}" wx:key="index">
+                        {{item.chooseSku}}{{index==params.sku.length-1?'天':' | '}}
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class="lease_detail">
+            <view class="main_title">租赁信息</view>
+            <view class="detail">
+                 <view class="option {{params.checked?'hide':''}}">
+                    <text>{{text}}</text>
+                    <text class="through">￥{{filters.parsePrice(params.deposit)}}元</text>
+                </view>
+                <view class="option">
+                    <text>商品租金</text>
+                    <text>{{filters.parsePrice(params.rent)}}元/天</text>
+                </view>
+                <view class="option">
+                    <text>租赁天数</text>
+                    <text>{{params.days}}天/{{params.installmentCount}}期</text>
+                </view>
+            </view>
+            <view class="mark">
+                <text class="title">订单备注: </text>
+                <input placeholder="给商家留言…" value="{{params.msg}}" bindinput = "iptMsg"/>
+            </view>
+        </view>
+    </view>
+    <view class="lease_guara" wx:if="{{params.insurance.control}}">
+        <view class="title">
+            租赁保障<text class="ease">(只需首期支付)</text>
+        </view>
+        <view class="bottom">
+            <view class="left">
+                <text class="iconfont {{params.insurance.choose?'icon-ico_select_pre':'icon-ico_select'}}" bindtap="selectInsurance"></text>
+                <text class="Insurance" bindtap="selectInsurance">{{params.insurance.rentTitle}}{{params.insurance.rentsubtit}}</text>
+                <text class="iconfont icon-wenhao"></text>
+            </view>
+            <view class="right">￥{{filters.parsePrice(params.insurance.price)}}</view>
+        </view>
+    </view>
+    <view class="stages_price" bindtap="seeStages">
+        <view class="left">分期账单</view>
+        <view class="right">
+            <text>共{{params.installmentCount}}期</text>
+            <text class="iconfont icon-ico_back-copy"></text>
+        </view>
+    </view>
+    <view class="dis_coupon" bindtap="chooseCoupon">
+        <view class="left">优惠礼券</view>
+        <view class="right">
+            <text wx:if="{{couponList.length==0}}">无优惠券</text>
+            <text wx:if="{{couponList.length>0}}" hidden="{{params.coupon.price}}">{{couponList.length}}张优惠券</text>
+            <text wx:if="{{couponList.length>0}}" hidden="{{!params.coupon.price}}" >-￥{{filters.parsePrice(params.coupon.price)}}</text>
+            <text class="iconfont icon-ico_back-copy"></text>
+        </view>
+    </view>
+    <view class="quick_lease {{creditStatus!=1&&creditStatus!=2?'warn':''}}">
+        <view class="warning" wx:if="{{creditStatus!=1&&creditStatus!=2}}">您的信用分不足,开启押金功能才能带走宝贝哦！</view>
+        <view class="top">
+            <view class="left">
+                <image src="../../../images/order/quick_lease@2x.png"></image>
+                <text class="quick_text">极速租赁</text>
+                <text class="ease" hidden="{{!params.checked}}">(押金:￥{{filters.parsePrice(params.deposit)}})</text>
+            </view>
+            <view class="right">
+                <switch checked="{{params.checked}}" bindchange="switchChange"/>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="strong" hidden="{{params.checked}}">尚未开启，支付押金可跳过审核环节，即用即租！</view>
+            <view class="strong" hidden="{{!params.checked}}">已开启，支付押金后免审核，即用即租！</view>
+        </view>
+    </view>
+    <view class="tips">确认下单即代表同意<text class="Agreement" bindtap = "seeAgreement">《用户租赁及服务协议》</text></view>
+    <view class="footer">
+        <view class="total_price">
+            <view class="price">
+                <view class="flex">
+                    <view class="">
+                        <text class="ease">¥</text>
+                        <text class="number">{{filters.parsePrice(totalPrice)}}</text>
+                    </view>
+                    <text class="line" hidden="{{!params.coupon.price}}"></text>
+                    <text class="tip" hidden="{{!params.coupon.price}}">  已优惠 : ￥{{filters.parsePrice(savePrice)}}</text>
+                </view>
+                <view class="bot">
+                    <view class="deposit" hidden="{{!params.checked}}">含押金:￥{{filters.parsePrice(params.deposit)}}</view>
+                    <view class="insu" hidden="{{!params.insurance.choose}}">含保险金:￥{{filters.parsePrice(params.insurance.price)}}</view>
+                </view>
+            </view>
+        </view>
+        <button class="submit {{submitDis?'disabled':''}}" bindtap = "submit" >{{submitText}}</button>
+    </view> 
+</view>
+</scroll-view>
+ <!--礼券弹框-->
+<pop-up position="bottom" id="modal">
+    <view class="couponContent" slot="bottom">
+        <view class="header">
+            <view class="left">
+                优惠券
+            </view>
+            <view class="right" catchtap="noCoupon">
+                <text class="iconfont  {{!params.coupon.price?'icon-ico_select_pre':'icon-ico_select'}}"></text>
+                不使用优惠券
+            </view>
+        </view>
+        <view class="commonList">
+            <view class="coupon-wp">
+                <block wx:for="{{couponList}}" wx:key="{{index}}">
+                    <view class="blueCoupon coupon" bindtap = "useCoupon" data-item="{{item}}">
+                        <!-- 标识 密券还是宝券
+                        <view class="biaoshi">
+                            <image class="img" src="../../../images/order/img-common@2x.png"></image>
+                        </view> -->
+                       <view class="cnt">
+                            <view class="left">
+                                <view class="money">
+                                    <text class="unit">￥</text>
+                                    <text class="rent">{{filters.parsePrice(item.price)}}</text>
+                                </view>
+                                <view class="menkai">{{item.bonusModelMoneyOffRole<0?'无门槛':'满'+filters.parsePrice(item.bonusModelMoneyOffRole)+'可用'}}</view>
+                            </view>
+                            <view class="right">
+                                <view class="t">
+                                    <view class="title">{{item.bonusModelName}}</view>
+                                    <view class="des">{{item.bonusModelNote}}</view>
+                                </view>
+                                <view class="b">
+                                    <view class="line">限{{item.appliesGoodsTypeStr}}</view>
+                                    <view class="line">{{item.effectiveTimeStr}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <block wx:if="{{merchantcouponList.length>0}}">
+                <view class="merchantCouponDes">
+                    以下为商家专属券
+                </view>
+                <view class="coupon-wp">
+                    <block wx:for="{{merchantcouponList}}" wx:key="index">
+                        <view class="merchantCoupon coupon">
+                            <view class="biaoshi">
+                                <image class="img" src="../../../images/order/img-merchant@2x.png"></image>
+                            </view>
+                            <view class="cnt">
+                                <view class="left">
+                                    <view class="money">
+                                        <text class="unit">￥</text>
+                                        <text class="rent">{{filters.parsePrice(item.price)}}</text>
+                                    </view>
+                                    <view class="menkai">{{item.type=='cash'?'无门槛':'满188可用'}}</view>
+                                </view>
+
+                                <view class="right">
+                                    <view class="t">
+                                        <view class="title">{{item.bonusModelName}}</view>
+                                        <view class="des">{{item.bonusModelNote}}</view>
+                                    </view>
+                                    <view class="b">
+                                        <view class="line">限{{item.appliesGoodsTypeStr}}</view>
+                                        <view class="line">{{item.effectiveTimeStr}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="xianzhi">
+                            限【店铺名称】商家使用
+                        </view>
+                    </block>
+                </view>
+            </block>
+        </view>
+    </view>
+</pop-up>
+<pop-up position="top" id="agreement">
+    <view class="agreement_content" slot="top">
+        <view class="content">
+            <template is="wxParse" data="{{wxParseData:bindData.pictDetailALL.nodes}}" />
+        </view>
+    </view>
+</pop-up>
+<pop-up position="bottom" id="store">
+    <view class="storeContent" slot="bottom">
+        <view class="title">
+            门店地址 
+        </view>
+        <view class="content">
+            <radio-group class="radio-group" bindchange="radioChange">
+                <view class="option">
+                    <view class="top">
+                        <view>{{storeFirst.name}}</view>
+                        <view>{{storeFirst.phone}}</view>
+                    </view>
+                    <view class="bottom">{{storeFirst.text}}</view>
+                    <radio value="main" checked="{{true}}"/>
+                </view>
+                <block wx:for="{{storeList}}" wx:key="{{index}}">
+                    <view class="option">
+                        <view class="top">
+                            <view>{{item.name}}</view>
+                            <view>{{item.phone}}</view>
+                        </view>
+                        <view class="bottom">{{item.text}}</view>
+                        <radio value="{{index}}" checked="{{false}}"/>
+                    </view>
+                </block>
+            </radio-group>
+        </view>
+    </view>
+</pop-up>

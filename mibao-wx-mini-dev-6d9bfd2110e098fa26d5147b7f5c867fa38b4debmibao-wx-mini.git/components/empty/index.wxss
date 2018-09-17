@@ -1,0 +1,22 @@
+.empty-container {
+  height: 34rpx;
+  line-height: 34rpx;
+  display: block;
+  text-align: center;
+  margin: 200rpx auto -80rpx;
+}
+.empty-container > .info {
+  display: block;
+  font-size: 28rpx;
+  color: #BFC5C9;
+  letter-spacing: 0;
+}
+.empty-container.inline {
+  margin: 34rpx auto 60rpx ;
+}
+.empty-container.inline > .info {
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  color: #BFC5C9;
+}

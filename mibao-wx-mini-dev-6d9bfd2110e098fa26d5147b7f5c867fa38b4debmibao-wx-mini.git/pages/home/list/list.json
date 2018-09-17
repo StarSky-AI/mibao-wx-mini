@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText":"商品列表",
+  "usingComponents": {
+    "empty":"/components/empty/index",
+    "loading":"/components/loading/index",
+    "goods-list":"/components/goodsList/index"
+  },
+  "enablePullDownRefresh":true
+}

@@ -1,0 +1,1020 @@
+/**
+ * author: Di (微信小程序开发工程师)
+ * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ *               垂直微信小程序开发交流社区
+ * 
+ * github地址: https://github.com/icindy/wxParse
+ * 
+ * for: 微信小程序富文本解析
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ */
+.wxParse {
+  margin: 0 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.8;
+}
+view {
+  word-break: break-all;
+  overflow: auto;
+}
+.wxParse-inline {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+/*//标题 */
+.wxParse-div {
+  margin: 0;
+  padding: 0;
+}
+.wxParse-h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+.wxParse-h2 {
+  font-size: 1.5em;
+  margin: 0.75em 0;
+}
+.wxParse-h3 {
+  font-size: 1.17em;
+  margin: 0.83em 0;
+}
+.wxParse-h4 {
+  margin: 1.12em 0;
+}
+.wxParse-h5 {
+  font-size: .83em;
+  margin: 1.5em 0;
+}
+.wxParse-h6 {
+  font-size: .75em;
+  margin: 1.67em 0;
+}
+.wxParse-h1 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: .9em;
+}
+.wxParse-h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: .34em;
+}
+.wxParse-h3 {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: .34em;
+}
+.wxParse-h4 {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: .24em;
+}
+.wxParse-h5 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: .14em;
+}
+.wxParse-h6 {
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: .04em;
+}
+.wxParse-h1,
+.wxParse-h2,
+.wxParse-h3,
+.wxParse-h4,
+.wxParse-h5,
+.wxParse-h6,
+.wxParse-b,
+.wxParse-strong {
+  font-weight: bolder;
+}
+.wxParse-i,
+.wxParse-cite,
+.wxParse-em,
+.wxParse-var,
+.wxParse-address {
+  font-style: italic;
+}
+.wxParse-pre,
+.wxParse-tt,
+.wxParse-code,
+.wxParse-kbd,
+.wxParse-samp {
+  font-family: monospace;
+}
+.wxParse-pre {
+  white-space: pre;
+}
+.wxParse-big {
+  font-size: 1.17em;
+}
+.wxParse-small,
+.wxParse-sub,
+.wxParse-sup {
+  font-size: 0.83em;
+}
+.wxParse-sub {
+  vertical-align: sub;
+}
+.wxParse-sup {
+  vertical-align: super;
+}
+.wxParse-s,
+.wxParse-strike,
+.wxParse-del {
+  text-decoration: line-through;
+}
+/*wxparse-自定义个性化的css样式*/
+/*增加video的css样式*/
+.wxParse-strong,
+.wxParse-s {
+  display: inline;
+}
+.wxParse-a {
+  color: deepskyblue;
+  word-break: break-all;
+  overflow: auto;
+}
+.wxParse-video {
+  text-align: center;
+  margin: 10px 0;
+}
+.wxParse-video-video {
+  width: 100%;
+}
+.wxParse-img {
+  /*background-color: #efefef;*/
+  overflow: hidden;
+}
+.wxParse-blockquote {
+  margin: 0;
+  padding: 10px 0 10px 5px;
+  font-family: Courier, Calibri, "宋体";
+  background: #f5f5f5;
+  border-left: 3px solid #dbdbdb;
+}
+.wxParse-code,
+.wxParse-wxxxcode-style {
+  display: inline;
+  background: #f5f5f5;
+}
+.wxParse-ul {
+  margin: 20rpx 10rpx;
+}
+.wxParse-li,
+.wxParse-li-inner {
+  display: flex;
+  align-items: baseline;
+  margin: 10rpx 0;
+}
+.wxParse-li-text {
+  align-items: center;
+  line-height: 20px;
+}
+.wxParse-li-circle {
+  display: inline-flex;
+  width: 5px;
+  height: 5px;
+  background-color: #333;
+  margin-right: 5px;
+}
+.wxParse-li-square {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #333;
+  margin-right: 5px;
+}
+.wxParse-li-ring {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  border: 2rpx solid #333;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 5px;
+}
+/*.wxParse-table{
+    width: 100%;
+    height: 400px;
+}
+.wxParse-thead,.wxParse-tfoot,.wxParse-tr{
+    display: flex;
+    flex-direction: row;
+}
+.wxParse-th,.wxParse-td{
+    display: flex;
+    width: 580px;
+    overflow: auto;
+}*/
+.wxParse-u {
+  text-decoration: underline;
+}
+.wxParse-hide {
+  display: none;
+}
+.WxEmojiView {
+  align-items: center;
+}
+.wxEmoji {
+  width: 16px;
+  height: 16px;
+}
+.wxParse-tr {
+  display: flex;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+}
+.wxParse-th,
+.wxParse-td {
+  flex: 1;
+  padding: 5px;
+  font-size: 28rpx;
+  border-left: 1px solid #e0e0e0;
+  word-break: break-all;
+}
+.wxParse-td:last {
+  border-top: 1px solid #e0e0e0;
+}
+.wxParse-th {
+  background: #f0f0f0;
+  border-top: 1px solid #e0e0e0;
+}
+.wxParse-del {
+  display: inline;
+}
+.wxParse-figure {
+  overflow: hidden;
+}
+view {
+  overflow: hidden;
+}
+page {
+  width: 100%;
+  height: 100%;
+}
+.scroll-view {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.swiper_box {
+  width: 100%;
+  height: 750rpx;
+}
+.slide-image {
+  width: 100%;
+  height: 750rpx;
+}
+.dots {
+  position: absolute;
+  left: 0;
+  top: 740rpx;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.dots .dot {
+  width: 20rpx;
+  height: 2rpx;
+  margin-right: 10rpx;
+  background-color: #D8D8D8;
+}
+.dots .dot_active {
+  background-color: #434343;
+}
+.content {
+  background-color: #fff;
+  padding: 24rpx 20rpx 0 20rpx;
+}
+.content .detail {
+  padding: 0 10rpx;
+}
+.content .name_info {
+  display: flex;
+  justify-content: space-between;
+}
+.content .name_text {
+  width: 600rpx;
+  color: #000;
+  font-size: 34rpx;
+  line-height: 42rpx;
+  font-family: PingFangSC-Medium;
+}
+.content .icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rpx;
+}
+.content .icon-ico_share {
+  font-size: 36rpx;
+  line-height: 36rpx;
+  color: #555555;
+}
+.content .icon_desc {
+  color: #434343;
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  margin-top: 4rpx;
+}
+.content .orgPrice_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  color: #9B9B9B;
+  line-height: 34rpx;
+}
+.content .price_info {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 16rpx;
+}
+.content .price_info .rent {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #9B9B9B;
+  font-family: PingFangSC-Regular;
+}
+.content .price_info .rent .strong {
+  font-size: 56rpx;
+  line-height: 56rpx;
+  color: #FF5339;
+  letter-spacing: -1.4rpx;
+  font-family: PingFangSC-Medium;
+}
+.content .price_info .old_rent {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #9B9B9B;
+  margin-left: 12rpx;
+  padding-bottom: 2rpx;
+  text-decoration: line-through;
+  font-family: PingFangSC-Regular;
+}
+.content .sku_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22rpx;
+  height: 130rpx;
+  background: #F8F8F8;
+  border-radius: 8rpx;
+  padding: 24rpx 0 24rpx 30rpx;
+  box-sizing: border-box;
+}
+.content .sku_info .select_sku {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 472rpx;
+  border-right: 1px solid #BFC5C9;
+  font-family: PingFangSC-Regular;
+}
+.content .sku_info .select_sku .title {
+  width: 440rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #9B9B9B;
+}
+.content .sku_info .select_sku .sku {
+  width: 440rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.content .sku_info .all_rent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 246rpx;
+  font-size: 24rpx;
+}
+.content .sku_info .all_rent .title {
+  flex: 1;
+  color: #434343;
+}
+.content .sku_info .all_rent .title .icon-wenhao {
+  font-size: 22rpx;
+  color: #555555;
+  margin-left: 4rpx;
+}
+.content .sku_info .all_rent .rent {
+  flex: 0 0 40rpx;
+  color: #2395FF;
+}
+.content .sku_info .all_rent .rent .big_text {
+  font-size: 32rpx;
+  letter-spacing: -0.64rpx;
+}
+.content .server_info {
+  margin-left: 10rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content .server_info .left {
+  width: 640rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.content .server_info .option {
+  width: 140rpx;
+  flex: 0 0 140rpx;
+  margin-right: 28rpx;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  height: 30rpx;
+  color: #9B9B9B;
+  font-family: PingFangSC-Regular;
+}
+.content .server_info .icon-ico_payment {
+  font-size: 26rpx;
+  color: #2395FF;
+  margin-right: 8rpx;
+}
+.content .server_info .icon-ico_more {
+  font-size: 34rpx;
+  line-height: 34rpx;
+  color: #888;
+  margin-left: 10rpx;
+}
+.tab {
+  display: flex;
+  height: 88rpx;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #434343;
+  text-align: center;
+  background-color: #fff;
+  border-bottom: 1px solid #EAEAEA;
+  font-family: PingFangSC-Medium;
+}
+.tab .option {
+  flex: 1;
+  font-size: 26rpx;
+  color: #9B9B9B;
+  line-height: 88rpx;
+  text-align: center;
+  position: relative;
+  font-family: PingFangSC-Medium;
+}
+.tab .option .r_line {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -20rpx;
+  width: 1px;
+  height: 40rpx;
+  background-color: #f8f8f8;
+}
+.tab .option .b_line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -35rpx;
+  width: 70rpx;
+  height: 4rpx;
+  background-color: #3795FF;
+  border-radius: 8rpx 8rpx 0 0;
+}
+.tab .option .select {
+  color: #434343;
+}
+.fixedTab {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin-top: 0;
+}
+.tab_content {
+  padding-bottom: 120rpx;
+}
+.tab_content .option {
+  min-width: 100vw;
+  min-height: 100vw;
+  background-color: #fff;
+}
+.tab_content .option image {
+  width: 100%;
+}
+.tab_content .params_wp {
+  padding: 40rpx 30rpx;
+  background-color: #fff;
+}
+.tab_content .params_wp .sub_option {
+  display: flex;
+  border: 1px solid #EAEAEA;
+  border-bottom: 0 none;
+  font-size: 24rpx;
+  color: #a4a4a4;
+}
+.tab_content .params_wp .sub_option .params_title {
+  width: 178rpx;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0 20rpx 20rpx;
+  box-sizing: border-box;
+  border-right: 1px solid #EAEAEA;
+  background-color: #f9f9f9;
+}
+.tab_content .params_wp .sub_option .params_text {
+  width: 508rpx;
+  padding: 20rpx 80rpx 20rpx 30rpx;
+  box-sizing: border-box;
+  color: #3e3e3e;
+}
+.tab_content .params_wp .sub_option:last-child {
+  border-bottom: 1px solid #EAEAEA;
+}
+.tab_content .eval_wp {
+  width: 100%;
+}
+.tab_content .eval_wp .eval_option {
+  display: flex;
+  margin-bottom: 10rpx;
+  padding: 30rpx;
+  background-color: #fff;
+}
+.tab_content .eval_wp .avatar {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  background-color: #D8D8D8;
+}
+.tab_content .eval_wp .right {
+  display: flex;
+  flex-direction: column;
+  width: 600rpx;
+  font-family: PingFangSC-Regular;
+}
+.tab_content .eval_wp .right .first {
+  display: flex;
+  justify-content: space-between;
+}
+.tab_content .eval_wp .right .first .phone {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #555;
+}
+.tab_content .eval_wp .right .first .time {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #9B9B9B;
+}
+.tab_content .eval_wp .right .star .iconfont {
+  font-size: 22rpx;
+  color: #FF9B55;
+  margin-right: 6rpx;
+}
+.tab_content .eval_wp .right .text {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #555;
+}
+.tab_content .eval_wp .right .pic {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.tab_content .eval_wp .right .pic image {
+  width: 190rpx;
+  height: 190rpx;
+  margin-bottom: 14rpx;
+}
+.tab_content .eval_wp .right .reply {
+  position: relative;
+  overflow: visible;
+  margin-top: 12rpx;
+  background-color: #F7F7F7;
+  padding: 16rpx 20rpx;
+  font-size: 26rpx;
+  color: #9B9B9B;
+}
+.tab_content .eval_wp .right .reply .jiao {
+  position: absolute;
+  left: 16rpx;
+  top: -32rpx;
+  width: 0;
+  height: 0;
+  border: 16rpx solid;
+  border-color: transparent transparent #F7F7F7 transparent;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.footer .icon {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 40rpx;
+  width: 40rpx;
+  height: 70rpx;
+  color: #4A4A4A;
+}
+.footer .home {
+  color: #3795FF;
+}
+.footer .iconfont {
+  font-size: 40rpx;
+  line-height: 40rpx;
+}
+.footer .icon_desc {
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  font-family: PingFangSC-Regular;
+}
+.footer .submit {
+  width: 420rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: #2395FF;
+  border-radius: 200rpx;
+  font-size: 16px;
+  color: #fff;
+}
+.footer .modal_submit_dis {
+  background: rgba(35, 149, 255, 0.3);
+}
+.footer .collect {
+  color: red;
+}
+.modal {
+  position: relative;
+  padding-bottom: 120rpx;
+}
+.modal .common_button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  border-top: 1px solid #EAEAEA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .common_button .modal_submit {
+  font-size: 32rpx;
+  color: #FFF;
+  width: 690rpx;
+  height: 80rpx;
+  background: #2395FF;
+  border-radius: 66rpx;
+  font-family: PingFangSC-Regular;
+}
+.modal .common_button .modal_submit_dis {
+  background: rgba(35, 149, 255, 0.3);
+}
+.modal .lease_content {
+  background-color: #fff;
+}
+.modal .lease_content .top_title {
+  height: 92rpx;
+  line-height: 92rpx;
+  color: #000;
+  text-align: center;
+  font-size: 28rpx;
+  border-bottom: 1px solid #EAEAEA;
+  font-family: PingFangSC-Regular;
+}
+.modal .lease_content .lease {
+  /* 租金的content */
+  padding: 43rpx 30rpx 54rpx 30rpx;
+  box-sizing: border-box;
+}
+.modal .lease_content .lease .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.modal .lease_content .lease .top .title {
+  font-size: 36rpx;
+  color: #000;
+  font-family: PingFangSC-Medium;
+}
+.modal .lease_content .lease .modify_sku {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #434343;
+  line-height: 25rpx;
+  font-family: PingFangSC-Regular;
+}
+.modal .lease_content .lease .modify_sku .icon-ico_More {
+  margin-left: 6rpx;
+  font-size: 24rpx;
+}
+.modal .lease_content .lease .greay {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 54rpx;
+  position: relative;
+  margin-top: 20rpx;
+  height: 160rpx;
+  padding: 24rpx 0 20rpx 0;
+  box-sizing: border-box;
+  background-color: #FBFBFB;
+}
+.modal .lease_content .lease .greay .sub_title {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #434343;
+  font-family: PingFangSC-Regular;
+}
+.modal .lease_content .lease .greay .sub_lease {
+  margin-top: 10rpx;
+  font-size: 48rpx;
+  line-height: 66rpx;
+  color: #000000;
+  font-family: PingFangSC-Medium;
+}
+.modal .lease_content .lease .greay .ease {
+  margin-left: 4rpx;
+  color: #9B9B9B;
+}
+.modal .lease_content .lease .greay .line {
+  position: absolute;
+  top: 50%;
+  margin-top: -50rpx;
+  width: 1px;
+  height: 100rpx;
+  background: #EAEAEA;
+}
+.modal .lease_content .lease .rent {
+  font-size: 24rpx;
+  color: #9B9B9B;
+  font-family: PingFangSC-Regular;
+}
+.modal .lease_content .lease .rent .strong {
+  font-size: 56rpx;
+  color: #FF5339;
+  letter-spacing: -1.4rpx;
+  font-family: PingFangSC-Medium;
+}
+.modal .lease_content .lease .bottom {
+  font-size: 24rpx;
+  color: #9B9B9B;
+  font-family: PingFangSC-Regular;
+}
+.modal .lease_content .lease .bottom .tips {
+  display: flex;
+  justify-content: space-between;
+}
+.modal .lease_content .lease .bottom .formula {
+  font-size: 28rpx;
+  color: #000000;
+}
+.modal .lease_content .long_lease .section {
+  width: 344rpx;
+  text-align: center;
+}
+.modal .lease_content .long_lease .center_line {
+  left: 50%;
+}
+.modal .lease_content .short_lease .section {
+  width: 228rpx;
+  text-align: center;
+}
+.modal .lease_content .short_lease .first_line {
+  left: 33%;
+}
+.modal .lease_content .short_lease .fourth_line {
+  left: 66%;
+}
+.modal .lease_content .server_agement {
+  max-height: 540rpx;
+  overflow-y: scroll;
+  padding: 53rpx 30rpx 40rpx 30rpx;
+  font-family: PingFangSC-Regular;
+}
+.modal .lease_content .server_agement .option {
+  margin-bottom: 46rpx;
+}
+.modal .lease_content .server_agement .option:last-child {
+  margin-bottom: 0;
+}
+.modal .lease_content .server_agement .icon-ico_payment {
+  margin-right: 16rpx;
+  font-size: 26rpx;
+  color: #2395FF;
+}
+.modal .lease_content .server_agement .server_title {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #434343;
+}
+.modal .lease_content .server_agement .server_desc {
+  margin-top: 4rpx;
+  margin-left: 42rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #9B9B9B;
+}
+.modal .sku_content {
+  max-height: 800rpx;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding-top: 20rpx;
+}
+.modal .sku_content .goods_info {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 30rpx 30rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+.modal .sku_content .goods_pic {
+  width: 172rpx;
+  height: 172rpx;
+  margin-right: 18rpx;
+  position: relative;
+}
+.modal .sku_content .goods_pic .goods {
+  width: 100%;
+  height: 100%;
+}
+.modal .sku_content .goods_pic .JD {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 176rpx;
+  height: 40rpx;
+}
+.modal .sku_content .goods_desc {
+  width: 492rpx;
+}
+.modal .sku_content .goods_desc .select_sku {
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .goods_desc .select_sku .strong {
+  color: #000;
+}
+.modal .sku_content .goods_rent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12rpx;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .goods_rent .left {
+  display: flex;
+  align-items: flex-end;
+}
+.modal .sku_content .goods_rent .left .strong {
+  margin-right: 6rpx;
+  font-size: 40rpx;
+  line-height: 40rpx;
+  color: #FF5339;
+  letter-spacing: -0.88rpx;
+  font-family: PingFangSC-Medium;
+}
+.modal .sku_content .goods_rent .left .qi {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #9B9B9B;
+}
+.modal .sku_content .goods_rent .right {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  height: 24rpx;
+}
+.modal .sku_content .goods_rent .right .strong {
+  margin-left: 6rpx;
+  color: #000;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .goods_deposit {
+  line-height: 24rpx;
+  margin-top: 16rpx;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .goods_deposit .del {
+  margin-left: 6rpx;
+  color: #000;
+  text-decoration: line-through;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .dis_activity {
+  position: relative;
+  height: 70rpx;
+  padding-left: 30rpx;
+  padding-top: 18rpx;
+  box-sizing: border-box;
+  background-color: #F8F8F8;
+  overflow: hidden;
+}
+.modal .sku_content .dis_activity .iconfont {
+  padding: 10rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 14rpx;
+  color: #9B9B9B;
+}
+.modal .sku_content .dis_activity .option {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #041D29;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .dis_activity .mt10 {
+  margin-top: 10rpx;
+}
+.modal .sku_content .lease_day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+  height: 88rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid #EAEAEA;
+}
+.modal .sku_content .lease_day .title {
+  color: #000;
+  line-height: 28rpx;
+}
+.modal .sku_content .lease_day input {
+  width: 500rpx;
+  height: 100%;
+  padding-left: 10rpx;
+}
+.modal .sku_content .lease_day .mod_day {
+  font-size: 28rpx;
+  color: #1b99fb;
+}
+.modal .sku_content .choose_sku .option {
+  padding: 34rpx 30rpx 22rpx 30rpx;
+  border-bottom: 1px solid #EAEAEA;
+}
+.modal .sku_content .choose_sku .title {
+  margin-bottom: 24rpx;
+  font-size: 28rpx;
+  color: #000;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .choose_sku .sku_wp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.modal .sku_content .choose_sku .sku_wp .sku {
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  padding: 16rpx 42rpx;
+  border-radius: 200rpx;
+  font-family: PingFangSC-Regular;
+}
+.modal .sku_content .choose_sku .sku_wp .select_sku {
+  color: #FFF;
+  background: #3698FF;
+}
+.modal .sku_content .choose_sku .sku_wp .disabled_sku {
+  color: #BFC5C9;
+  border: 1px dashed #BFC5C9;
+}
+.modal .sku_content .choose_sku .sku_wp .default_sku {
+  color: #434343;
+  background: #F8F8F8;
+}
+.visi_hide {
+  visibility: hidden;
+}

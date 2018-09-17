@@ -1,0 +1,119 @@
+<view class="swiper-tab">
+    <block wx:for="{{tab}}" wx:key="index">
+        <view class="swiper-tab-item {{currentTab==index?'active':''}}" data-index="{{index}}" bindtap="changeTab">{{item}}</view>
+    </block>
+</view>
+<view class="tip" bindtap="showGuide">
+	<text>使用说明</text>
+</view>
+<view class="couponSlide">
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="swiperChange"
+            style="height:{{winHeight}}rpx">
+        <swiper-item> 
+            <scroll-view scroll-y class="scroll_wp">
+                  <block wx:if="{{UsedCoupon.length&&currentTab==0}}" wx:for="{{UsedCoupon}}" wx:key="index">
+                    <view class="item">
+                        <view class="left">
+                            <view class="left-top">
+                                <text class="rmb">¥</text>
+                                <text class="price">{{item.price/100}}</text>
+                            </view>
+                            <view class="left-bottom">
+                                <text class="label" wx:if="item.bonusModelMoneyOffRole">无门槛</text>
+                            </view>
+                        </view>
+                        <view class="right">
+                            <text class="item-1">{{item.bonusModelName}}</text>
+                            <text class="item-2">{{item.bonusModelTypeStr}}</text>
+                            <text class="item-3">{{item.bonusModelNote}}</text>
+                            <text class="item-4">{{item.effectiveTimeStr}}</text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{!UsedCoupon.length && currentTab==0}}">
+                    <empty>暂无对应优惠券</empty>
+                </block>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y class="scroll_wp">
+                <block wx:if="{{UnusedCoupon.length&&currentTab==1}}" wx:for="{{UnusedCoupon}}" wx:key="index">
+                    <view class="item">
+                        <view class="left">
+                            <view class="left-top">
+                                <text class="rmb">¥</text>
+                                <text class="price">{{item.price/100}}</text>
+                            </view>
+                            <view class="left-bottom">
+                                <text class="label" wx:if="item.bonusModelMoneyOffRole">无门槛</text>
+                            </view>
+                        </view>
+                        <view class="right">
+                            <text class="item-1">{{item.bonusModelName}}</text>
+                            <text class="item-2">{{item.bonusModelTypeStr}}</text>
+                            <text class="item-3">{{item.bonusModelNote}}</text>
+                            <text class="item-4">{{item.effectiveTimeStr}}</text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{!UnusedCoupon.length&&currentTab==1}}">
+                    <empty>暂无对应优惠券</empty>
+                </block>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y class="scroll_wp">
+                <block wx:if="{{InvalidCoupon.length&&currentTab==2}}" wx:for="{{InvalidCoupon}}" wx:key="index">
+                    <view class="item-c">
+                        <view class="left1">
+                            <view class="left-top1">
+                                <text class="rmb1">¥</text>
+                                <text class="price1">{{item.price/100}}</text>
+                            </view>
+                            <view class="left-bottom1">
+                                <text class="label1" wx:if="item.bonusModelMoneyOffRole">无门槛</text>
+                            </view>
+                        </view>
+                        <view class="right1">
+                            <text class="item-5">{{item.bonusModelName}}</text>
+                            <text class="item-6">{{item.bonusModelTypeStr}}</text>
+                            <text class="item-7">{{item.bonusModelNote}}</text>
+                            <text class="item-8">{{item.effectiveTimeStr}}</text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{!InvalidCoupon.length&&currentTab==2}}" wx:if="{{currentTab==0}}">
+                    <empty>暂无对应优惠券</empty> 
+                </block>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+<pop-up id="guide">
+    <view class="guide" slot="bottom">
+        <view class="title">优惠券使用说明</view>
+        <view class="content">
+            <view class="option">
+            1、优惠券仅限在蜜宝平台或蜜宝在第三方合作平台的相关场景使用，依据抵扣条件对所支付订单金额的款项进行减免
+            </view>
+            <view class="option">
+                2、优惠券获取方式：包括但不限于新人注册赠送、每日连续签到、APP内各类活动、关注蜜宝（支付宝、京东、微信、微博等平台）专属特权活动、邀请等。
+            </view>
+            <view class="option">
+                3、使用优惠券的订单，在订单未支付状态下取消，系统将自动返还相应优惠券；若订单被支付，优惠券则不予以返还。
+            </view>
+            <view class="option">
+                4、蜜宝平台发放的同类型优惠券每笔订单仅限使用1张，不可叠加。
+            </view>
+            <view class="option">
+                5、使用优惠券的订单，若发生退货等问题，优惠券均不予以返还。
+            </view>
+            <view class="option">
+                6、优惠券不能进行兑换、出售、转让或其他用途。
+            </view>
+            <view class="option">
+                7、本规则由蜜宝依据国家相关法律法规及规章制度予以解释。
+            </view>
+        </view>
+    </view>
+</pop-up>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"完善身份信息",
+  "usingComponents": {
+    "credit-header": "/components/credit/header/header"
+  }
+}

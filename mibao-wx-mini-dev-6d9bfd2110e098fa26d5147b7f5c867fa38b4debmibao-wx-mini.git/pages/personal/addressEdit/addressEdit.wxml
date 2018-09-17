@@ -1,0 +1,39 @@
+<!--pages/personal/addressEdit/addressEdit.wxml-->
+<view class="content">
+  <form bindsubmit="addrFormSubmit" report-submit="true">
+    <view class="form-top">
+      <view class="item">
+        <label>收件人</label>
+        <input placeholder="请输入收件人姓名" bindinput="inputName" value='{{address.name}}' maxlength='10'/>
+      </view>
+      <view class="item">
+        <label>联系电话</label>
+        <input placeholder="请输入联系电话" value='{{address.phone}}' bindinput="inputPhone" maxlength='12'/>
+      </view>
+      <view class="item">
+        <label>收货地址</label>
+        <picker value="{{region}}" mode="region" bindchange="bindRegionChange">
+          <view wx:if="{{address.provice && address.city && address.regoin}}" class="mn">
+            <text class='show_region_text'>{{address.provice}}-{{address.city}}-{{address.regoin}}</text>
+          </view>
+          <text wx:else class="area">请选择所在地区</text>
+          <text class="iconfont icon-ico_back-copy"></text>
+        </picker>
+      </view>
+    </view>
+    <view class="form-center">
+      <textarea class="detail" placeholder="请输入详细地址" maxlength='80' value='{{address.text}}' bindinput="inputAddr" />
+    </view>
+    <view class="tip">
+      <text>温馨提示:</text>
+      <text>填写完整的收货地址可以提高您的信用审核通过率及物流速度，建议详细至具体的门牌号；</text>
+    </view>
+    <view class="default">
+      <text>设置为默认地址</text>
+      <switch class='addr_switch' checked="{{address.defaulted}}" bindchange="switchChangeEvent" />
+    </view>
+    <view class="submit">
+      <button form-type="submit" type='primary' form-type="submit" disabled="{{btnDisabled}}">立即保存</button>
+    </view>
+  </form>
+</view>

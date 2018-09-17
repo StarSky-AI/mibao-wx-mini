@@ -1,0 +1,11 @@
+<view>
+
+  <view class="user-info">
+    <image class="user-info-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="user-info-nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <bind-phone bind:confirm="onConfirm">登 录</bind-phone>
+
+
+</view>

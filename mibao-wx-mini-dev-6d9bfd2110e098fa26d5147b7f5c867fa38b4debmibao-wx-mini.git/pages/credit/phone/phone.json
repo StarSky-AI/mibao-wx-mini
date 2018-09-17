@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText":"绑定手机",
+  "usingComponents": {
+    "credit-header": "/components/credit/header/header",
+    "bind-phone": "/components/bindPhone/index"
+  }
+}

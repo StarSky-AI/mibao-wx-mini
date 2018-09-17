@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText":"",
+  "usingComponents": {
+    "goods-list":"/components/goodsList/index",
+    "empty":"/components/empty/index",
+    "loading":"/components/loading/index",
+    "share":"/components/share/index"
+  }
+}

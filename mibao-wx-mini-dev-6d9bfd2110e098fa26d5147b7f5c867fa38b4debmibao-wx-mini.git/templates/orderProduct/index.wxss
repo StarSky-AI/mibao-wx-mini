@@ -1,0 +1,197 @@
+.product-header-normal {
+  background: #ffffff;
+  margin: 20rpx 0;
+}
+.product-header-normal .order-product {
+  overflow: hidden;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 170rpx;
+  box-sizing: border-box;
+}
+.product-header-normal .order-product .img {
+  position: relative;
+  width: 130rpx;
+  height: 130rpx;
+}
+.product-header-normal .order-product .img .image {
+  width: 100%;
+  height: 100%;
+}
+.product-header-normal .order-product .des {
+  height: 100%;
+  padding-left: 20rpx;
+  flex: 1;
+}
+.product-header-normal .order-product .des .title {
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 36rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.product-header-normal .order-product .des .param {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 22rpx;
+  padding-top: 10rpx;
+  color: #434343;
+}
+.product-header-normal .order-product .des .param .one-param text {
+  color: #434343;
+}
+.product-header-normal .order-product .des .param .one-param .line {
+  margin: 0 10rpx;
+}
+.product-header-normal .order-product .des .param .one-param:last-of-type .line {
+  display: none;
+}
+.product-header-normal .order-product .rentNum {
+  flex: 1;
+  text-align: center;
+  height: 160rpx;
+  line-height: 160rpx;
+  font-size: 28rpx;
+  color: #000000;
+}
+.orderProduct-num {
+  border-radius: 10rpx;
+  background: #F8F8F8;
+}
+.orderProduct-num .order-product {
+  overflow: hidden;
+  border-radius: 10rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 170rpx;
+  box-sizing: border-box;
+}
+.orderProduct-num .order-product .img {
+  position: relative;
+  width: 130rpx;
+  height: 130rpx;
+}
+.orderProduct-num .order-product .img .image {
+  width: 100%;
+  height: 100%;
+}
+.orderProduct-num .order-product .des {
+  height: 100%;
+  padding-left: 20rpx;
+}
+.orderProduct-num .order-product .des .title {
+  width: 460rpx;
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 36rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.orderProduct-num .order-product .des .param {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 22rpx;
+  padding-top: 10rpx;
+  color: #434343;
+}
+.orderProduct-num .order-product .des .param .one-param text {
+  color: #434343;
+}
+.orderProduct-num .order-product .des .param .one-param .line {
+  margin: 0 10rpx;
+}
+.orderProduct-num .order-product .des .param .one-param:last-of-type .line {
+  display: none;
+}
+.orderProduct-num .order-product .rentNum {
+  flex: 1;
+  text-align: center;
+  height: 160rpx;
+  line-height: 160rpx;
+  font-size: 28rpx;
+  color: #000000;
+}
+.orderProduct-num-left {
+  background: #ffffff;
+  border-bottom: 1px solid #EAEAEA;
+}
+.orderProduct-num-left .order-product {
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 200rpx;
+}
+.orderProduct-num-left .order-product .img {
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+}
+.orderProduct-num-left .order-product .img .image {
+  width: 100%;
+  height: 100%;
+}
+.orderProduct-num-left .order-product .img .leftrentNum {
+  width: 160rpx;
+  height: 40rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.65);
+  font-size: 11px;
+  color: #FFFFFF;
+  text-align: center;
+}
+.orderProduct-num-left .order-product .des {
+  flex: 1;
+  padding: 20rpx 0;
+  padding-left: 20rpx;
+}
+.orderProduct-num-left .order-product .des .title {
+  color: #000000;
+  height: 80rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.orderProduct-num-left .order-product .des .param {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 22rpx;
+  color: #434343;
+}
+.orderProduct-num-left .order-product .des .param .one-param text {
+  color: #434343;
+}
+.orderProduct-num-left .order-product .des .param .one-param .line {
+  margin: 0 10rpx;
+}
+.orderProduct-num-left .order-product .des .param .one-param:last-of-type .line {
+  display: none;
+}
+.orderProduct-num-left .order-product .rentNum {
+  flex: 1;
+  text-align: center;
+  height: 160rpx;
+  line-height: 160rpx;
+  font-size: 28rpx;
+  color: #000000;
+}

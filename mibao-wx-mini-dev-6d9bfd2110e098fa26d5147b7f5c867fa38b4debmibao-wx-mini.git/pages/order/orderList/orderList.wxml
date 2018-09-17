@@ -1,0 +1,166 @@
+<import src="/templates/orderProduct/index.wxml"/>
+<wxs module="filters" src="../../../wxs/filter.wxs"></wxs>
+<!--我的订单-->
+<view class='container'>
+  <view class='nav'>
+    <text class='{{orderType=="leasing"?"active":""}}' catchtap="getLeasingOrders">进行中</text>
+    <text class='{{orderType=="finished"?"active":""}}' catchtap="getFinishedOrders">已完成</text>
+    <text class='{{orderType=="canceled"?"active":""}}' catchtap="getCanceledOrders">已取消</text>
+  </view>
+  <view class='listWrapper'>
+    <scroll-view wx:if="{{orderLists.length}}" scroll-y="{{scrollY}}" scroll-top="{{scrollTop}}" bindscrolltolower='loadMore' bindscrolltoupper='refresh'>
+      
+      <block wx:for='{{orderLists}}'  wx:key='{{index}}'>
+        <view class='list' catchtap="goOrderDetail" data-id="{{item.id}}">
+          <!-- ----------------------------- top --------------------------- -->
+          <view class='top'>
+            <view class='top-left {{item.state=="running_overdue"||item.state=="return_overdue"||item.state=="pending_compensate_check"?"warningColor":""}}'>{{item.stateStr}}</view>
+            <!-- 租赁中/到期待还-逾期 -->
+            <view class='top-right ' wx:if="{{(item.state=='running_overdue'||item.state=='pending_return')&&item.delayDay}}">逾期天数：{{item.delayDay}}天</view>
+          </view>
+          <!-- ----------------------------- con -------------------------------- -->
+           <view class='con'>
+            <view class='con-left'>
+              <view class='img'>
+                <image src='{{item.goodsImage}}' mode='aspectFill'></image>
+                <view class='num' wx:if="{{item.leaseNum>1}}">共{{item.leaseNum}}件商品</view>
+              </view>
+            </view>
+            <view class='con-right'>
+              <view class='name'>{{item.goodsName}}</view>
+              <view class='sku'>{{item.standard}}</view>
+            </view>
+          </view> 
+          <!-- ---------------------------- bottom ----------------------------- -->
+          <!-- 待支付 -->
+          <block wx:if="{{item.state=='pending_pay' || item.state=='pending_relet_pay'}}">
+            <view class='bottom'>
+              <view class='des'>
+                首期租金: <text class='colorRed'>￥{{item.firstPay}}</text>
+                <text wx:if='{{item.deposit>0}}' class='despoit-des'>(含押金：¥{{item.deposit}})</text>
+              </view>
+              <view class='btn'>
+                <view catchtap='payOrder' data-id="{{item.id}}" data-deposit="{{item.deposit}}" data-state="{{item.state}}" data-goodsId="{{item.goodsId}}">立即支付</view>
+              </view>
+            </view>
+          </block>
+          <!-- 待发货 -->
+          <block wx:elif="{{item.state=='pending_send_goods'&& item.reminded}}">
+            <view class='bottom'>
+              <view class='des'></view>
+              <view class='btn'>
+                <view class='grey' catchtap='orderReminder' data-id='{{item.id}}' data-reminded="{{item.reminded}}" data-state="{{item.state}}">催促发货</view>
+              </view>
+            </view>
+          </block>
+          <!-- 待收货 -->
+          <block wx:elif="{{item.state=='pending_receive_goods'}}">
+            <view class='bottom'>
+              <view class='des'></view>
+              <view class='btn'>
+                <view class='blue' catchtap='showReceiveModel' data-id='{{item.id}}'>确认收货</view>
+              </view>
+            </view>
+          </block>
+          <!-- 租赁中 1 -->
+          <block wx:elif="{{item.state=='running'&&!item.nextPayTime}}">
+            <view class='bottom'>
+              <view class='des'>归还日期：{{filters.parseTime(item.backTime,'y-m-d')}}</view>
+              <view class='btn'>
+                <view class='grey' catchtap='goOrderReturn' data-id='{{item.id}}'>提前归还</view>
+              </view>
+            </view>
+          </block>
+          <!-- 租赁中 2 -->
+          <block wx:elif="{{item.state=='running'&&item.nextPayTime}}">
+            <view class='bottom'>
+              <view class='des'>下期支付日期：{{filters.parseTime(item.nextPayTime,'y-m-d')}}</view>
+              <view class='btn'>
+                <view>支付租金</view>
+              </view>
+            </view>
+          </block>
+          <!-- 租赁中-逾期 1 -->
+          <block wx:elif="{{item.state=='running_overdue'&&!item.delayAmount}}">
+            <view class='bottom'>
+              <view class='des'></view>
+              <view class='btn'>
+                <view>逾期支付</view>
+              </view>
+            </view>
+          </block>
+          <!-- 租赁中- 逾期 2 -->
+          <block wx:elif="{{item.state=='running_overdue'&&item.delayAmount}}">
+            <view class='bottom'>
+              <view class='des'>逾期费用:<text class='colorRed'>￥{{item.delayAmount}}</text></view>
+              <view class='btn'>
+                <view>逾期支付</view>
+              </view>
+            </view>
+          </block>
+          <!-- 到期待还-逾期 1 -->
+          <block wx:elif="{{item.state=='pending_return'&&!item.delayAmount}}">
+             <view class='bottom'>
+              <view class='des'></view>
+              <view class='btn'>
+                <view class='warning' catchtap='goOrderReturn'>立即归还</view>
+              </view>
+            </view>
+          </block>
+          <!-- 到期待还 逾期 2 -->
+          <block wx:elif="{{item.state=='pending_return'&&item.delayAmount}}">
+            <view class='bottom'>
+              <view class='des'>逾期费用:<text class='colorRed'>￥{{item.delayAmount/100}}</text></view>
+              <view class='btn'>
+                <view class='warning' catchtap='goOrderReturn'>立即归还</view>
+              </view>
+            </view>
+          </block>
+          <!-- 还机待赔偿 -->
+          <block wx:elif="{{item.state=='pending_compensate_check'}}">
+            <view class='bottom'>
+              <view class='des'>赔偿费用:<text class='colorRed'>￥{{item.delayAmount/100}}</text></view>
+              <view class='btn'>
+                <view class='warning'>赔偿支付</view>
+              </view>
+            </view>
+          </block>
+          <!-- 其他 -->
+          <block wx:elif="{{item.quickLease}}">
+            <view class='bottom'>
+              <view class='des'></view>
+              <view class='btn'>
+                <view catchtap="showDepositModal" data-info='{{item}}'>押金支付</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+      <loading hide="{{hide}}">
+        加载中...
+      </loading>
+      <block wx:if="{{!hasMore}}">
+          <empty><text>— 没有更多订单了 —</text></empty>
+      </block>
+    </scroll-view>
+    <view wx:if="{{!orderLists.length && hide}}" style="padding-top:120rpx;">
+      <block>
+          <empty><text>该分类下暂时没有订单~</text></empty>
+      </block>
+    </view>
+  </view>
+  <!--押金支付确认弹框-->
+  <pop-up hideModal="{{depositModal}}" bindtrigger="disableScroll" position="top" id="depositPayConfirm"
+          closeHide="true">
+      <view class="depositContent" slot="top">
+          <view class='header'>押金支付</view>
+          <view class="cont">
+              当前订单正在进行免押审核，审核通过后，即可进行免押租赁，如果现在选择押金支付则会跳过免押审核，直接进行交押金租赁，并且一但选择交押支付后该订单不可以再进行免押审核，你是否确定交押金支付？
+          </view>
+          <view class="btn">
+              <view class="think" catchtap="closeDepositModal">我再想想</view>
+              <view class="payDeposit" catchtap="payDeposit">继续支付</view>
+          </view>
+      </view>
+  </pop-up>
+</view>

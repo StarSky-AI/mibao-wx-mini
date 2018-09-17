@@ -1,0 +1,286 @@
+
+.home{
+  background: #f8f8f8;
+  .home-search {
+    width: 100%;
+    background: #fff;
+    .search-wp {
+      height: 88rpx;
+      padding: 14rpx 30rpx;
+      box-sizing: border-box;
+       view{
+        position: relative;
+        border-radius: 200rpx;
+        border: none;
+        text-align: center;
+        width: 100%;
+        background: #EAEAEA;
+        height:60rpx;
+        line-height: 60rpx;
+        color: #9B9B9B;
+        font-size: 28rpx;
+        .icon{
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 240rpx;
+          font-size:28.8rpx;
+          color: #9B9B9B;
+        }
+      }
+    }
+  }
+  .banner-wp{
+    position: relative;
+    width: 100%;
+    padding-bottom: 44.8%;
+    overflow: hidden;
+
+    .swiper-wp{
+      position: absolute;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      .banner-swiper{
+        height: 100%;
+        .img-wp{
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding-bottom: 44.8%;
+          overflow: hidden;
+          image
+          {
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .dots{
+        height: 32rpx;
+        position: absolute;
+        right: 30rpx;
+        bottom: 14rpx;
+        opacity: 0.2;
+        background: #000000;
+        border-radius: 200rpx;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 10rpx;
+        text{
+          width: 8rpx;
+          height: 8rpx;
+          border-radius: 50% 50%;
+          opacity: 0.2;
+          background: #FFFFFF;
+          margin:0 5rpx;
+          &.active{
+            background: #efefef;
+            opacity: 1;
+          }
+        }
+      }
+
+    }
+  }
+
+  .category-wp{
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30rpx;
+    background: #fff;
+    .category{
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20%;
+      color: #434343;
+      padding: 20rpx 0;
+      image{
+        width: 80rpx;
+        height: 80rpx;
+      }
+      text{
+        padding-top: 16rpx;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .goods-area{
+    .title{
+      height: 144rpx;
+      display: flex;
+      padding: 0 30rpx;
+      flex-direction: column;
+      justify-content: center;
+      .hot{
+        font-size: 18px;
+        color: #000000;
+      }
+      .des{
+        font-size: 12px;
+        color: #BFC5C9;
+      }
+    }
+
+    .list{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+      .goods{
+        padding-bottom:30rpx ;
+        margin-bottom:22rpx;
+        background: #FFFFFF;
+        border-radius: 16rpx;
+        width: 48.5%;
+        display: inline-flex;
+        flex-direction: column;
+        .img{
+          border-top-left-radius: 16rpx;
+          border-top-right-radius: 16rpx;
+          width: 100%;
+          padding-bottom: 100%;
+          height: 0;
+          position: relative;
+          overflow: hidden;
+          image
+          {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          }
+        }
+        .info{
+          padding: 0 20rpx;
+          .name{
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 28rpx;
+            color: #000000;
+            padding-top: 14rpx;
+            padding-bottom:18rpx ;
+          }
+          > .aside
+          {
+            padding: 0;
+            .jiage{
+              height: 50rpx;
+              line-height: 50rpx;
+              .price
+              {
+                font-size: 36rpx;
+                color: #FF5339;
+              }
+              .unit
+              {
+                color: #9B9B9B;
+                font-size: 24rpx;
+                padding-left: 6rpx;
+              }
+
+            }
+
+            .tag{
+              height: 24rpx;
+              line-height: 24rpx;
+              .tag_r, .tag_o, .tag_g, .tag_b {
+                display: inline-block;
+                height: 24rpx;
+                width: 56rpx;
+                border-radius: 6rpx;
+                font-size: 9px;
+                padding: 1rpx 5rpx;
+                margin-right: 10rpx;
+                text-align: center;
+              }
+              .tag_r {
+                color: #FF5339;
+                border: 0.5px solid #FF5339;
+              }
+              .tag_o {
+                color: #FF8639;
+                border: 0.5px solid #FF8639;
+              }
+              .tag_g {
+                width: 74rpx;
+                color: #9B9B9B;
+                border: 0.5px solid #9B9B9B;
+              }
+              .tag_b {
+                color: #3795FF;
+                border: 0.5px solid #3795FF;
+              }
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+  .footer{
+    padding-bottom: 30rpx;
+    .service{
+      padding:0  32rpx;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      >view{
+        padding-top: 80rpx;
+        padding-bottom: 36rpx;
+        >image{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      color: #999;
+      .item
+      {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.6;
+        .text-icon
+        {
+          font-size: 52rpx;
+          margin-bottom: -10rpx;
+        }
+        .text-1
+        {
+          color: #888;
+          font-size: 26rpx;
+        }
+
+        .text-2
+        {
+          font-size: 22rpx;
+        }
+      }
+    }
+    .jishu{
+      font-size: 24rpx;
+      color: #B5B5B5;
+      text-align:center;
+    }
+  }
+
+}

@@ -1,0 +1,40 @@
+.toast_content_box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    transition: opacity 3s;
+    opacity: 1;
+}
+.toast_content_box.hide{
+
+    height: 0;
+    opacity: 0;
+    transition: all .2s;
+}
+
+.toast_content.hide {
+    opacity: 0;
+    transition: all .2s;
+}
+.toast_content {
+    width: 50%;
+    padding: 30rpx;
+    background: #000000;
+    opacity: .6;
+    border-radius: 20rpx;
+    transition: opacity 3s;
+}
+.toast_content_text {
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+
+/*在组件wxss中不应使用ID选择器、属性选择器和标签名选择器。*/

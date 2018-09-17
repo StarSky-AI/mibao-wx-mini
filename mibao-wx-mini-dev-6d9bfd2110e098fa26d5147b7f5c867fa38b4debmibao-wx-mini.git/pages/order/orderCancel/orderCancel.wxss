@@ -1,0 +1,78 @@
+/* pages/order/cancelOrder/cancelOrder.wxss */
+page {
+  background: #FFFFFF;
+}
+page .cancelOrder-wp {
+  padding: 0;
+  padding-top: 10rpx;
+  background: #FFFFFF;
+}
+page .cancelOrder-wp .option-wrapepr {
+  width: 100%;
+  background: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+page .cancelOrder-wp .option-wrapepr .option-item {
+  border-bottom: 2rpx solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+page .cancelOrder-wp .option-wrapepr .option-item .option-left {
+  font-size: 28rpx;
+  color: #000000;
+  padding: 32rpx 0 28rpx;
+}
+page .cancelOrder-wp .option-wrapepr .option-item .option-right {
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+page .cancelOrder-wp .option-wrapepr .option-item .option-right text {
+  color: #2395ff;
+}
+page .cancelOrder-wp .option-wrapepr .option-item .option-right .icon-ico_select {
+  color: #bfc5c9;
+}
+page .cancelOrder-wp .option-wrapepr .option .other-reason {
+  box-sizing: border-box;
+  width: 690rpx;
+  height: 200rpx;
+  padding: 20rpx 16rpx;
+  background: #f7f7f7;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #333;
+  line-height: 30rpx;
+}
+page .cancelOrder-wp .option-wrapepr .option:last-child {
+  padding-bottom: 40rpx;
+}
+page .cancelOrder-wp .option-wrapepr .option:last-child .option-item {
+  border: 0;
+}
+page .cancelOrder-wp .submit-area {
+  height: 120rpx;
+  width: 750rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+page .cancelOrder-wp .submit-area button {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 620rpx;
+  background: #2395ff;
+  border-radius: 68rpx;
+  font-size: 32rpx;
+  color: #ffffff;
+  border: 0;
+  outline: 0;
+}

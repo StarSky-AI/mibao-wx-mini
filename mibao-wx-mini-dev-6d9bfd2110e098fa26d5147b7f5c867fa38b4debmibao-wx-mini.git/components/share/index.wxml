@@ -1,0 +1,94 @@
+
+<view class="pick-wp" hidden="{{pickerHide}}" catchtap="hideModal"></view>
+<!--控件-->
+<view class="shareInfo" hidden="{{pickerHide || hideIcon}}" animation="{{animationData}}">
+    <view class="content">
+        <view class="left">
+            <view class="img">
+                <image src="../../images/share/ico-shareFriends@2x.png"></image>
+            </view>
+            <view class="desp">
+                发给好友
+            </view>
+            <button open-type="share" id="store" class="sharebtn">
+            </button>
+        </view>
+        <view class="right" catchtap="getQrcode">
+            <view class="img">
+                <image src="../../images/share/ico-shareErweima@2x.png"></image>
+            </view>
+            <view class="desp">
+                二维码分享
+            </view>
+        </view>
+    </view>
+</view>
+<loading hidden="{{loadingHide}}">
+    加载中...
+</loading>
+<view class="Code" wx:if="{{showCode}}" animation="{{codeanimation}}" style="">
+    <view class="content" id="cnt">
+        <view class="close" catchtap="hideModal">
+            <text class="iconfont icon-guanbi"></text>
+        </view>
+        <!--店铺分享-->
+        <block wx:if="{{type=='merchant'}}">
+            <view class="shopName">
+                <view class="left">
+                    <view class="img">
+                        <image src="{{item.shopLogo}}"></image>
+                    </view>
+                    <view class="name">
+                        {{item.shopName}}
+                    </view>
+                </view>
+            </view>
+            <view class="qrcode">
+                <image src="{{codeImg}}"></image>
+            </view>
+        </block>
+<!--商品分享-->
+        <block wx:else>
+            <view class="goodsimg">
+                <image src="{{item.img}}"></image>
+            </view>
+            <view class="goodsName">{{item.goodsName}}</view>
+            <block wx:if="{{item.leaseType=='MONTHLY'}}">
+                <view class="jiage">
+                    <text class="price">{{item.defaultRent}}</text>
+                    <text class="unit">元/月起</text>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="jiage">
+                    <text class="price">{{item.defaultRent}}</text>
+                    <text class="unit"> 元/天起</text>
+                </view>
+            </block>
+            <view class="code-wp">
+                <view class="left" bindlongpress = "scanCode">
+                    <image src="{{codeImg}}"></image>
+                </view>
+                <view class="right">
+                    <view>长按识别图中的小程序码</view>
+                    <view>查看详情</view>
+                </view>
+            </view>
+        </block>
+    </view>
+<!--<view style='width:0px;height:0px;overflow:hidden;'>-->
+    <!--<canvas canvas-id="myCanvas" style="border: 1px solid" />-->
+<!--</view>-->
+    <!--<view class="btn" >-->
+        <!--<button class="save" catchtap="save">一键截图</button>-->
+        <!--<view class="shareNotice">-->
+            <!--分享到微信和朋友圈，方便大家找到你-->
+        <!--</view>-->
+    <!--</view>-->
+</view>
+
+
+
+
+
+

@@ -1,0 +1,195 @@
+@import '../../../iconfont/iconfont.wxss';
+.header {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+}
+.header .title {
+	flex: 1;
+	height: 80rpx;
+	padding: 0rpx 30rpx;
+	box-sizing: border-box;
+}
+.header .title text {
+	display: block;
+	width: 690rpx;
+	height: 60rpx;
+	box-sizing: border-box;
+	padding-left: 58rpx;
+	position: relative;
+	background-color: #FFF5CD;
+	font-size: 24rpx;
+	color: #555555;
+	line-height: 60rpx;
+}
+.header .title text:before {
+	content: '\e678';
+	font-family: "iconfont";
+	color: #F5533A;
+	display: block;
+	width: 32rpx;
+	height: 32rpx;
+	position: absolute;
+	left: 20rpx; top: 0rpx;
+}
+.header .title text:after {
+	content: '\e642';
+	font-family: "iconfont";
+	color: #9B9B9B ;
+	display: block;
+	width: 12rpx;
+	height: 20rpx;
+	position: absolute;
+	right: 16rpx; top: 0rpx;
+}
+.header .content {
+	flex: 1;
+	height: 390rpx;
+	background-size: 300rpx 252rpx;
+	background-position: 450rpx 0rpx;
+	background-repeat: no-repeat;
+}
+.header .content .user {
+	display: flex;
+	height: 120rpx;
+	margin-top: 20rpx;
+	box-sizing: border-box;
+	padding: 0rpx 30rpx;
+}
+.header .content .userImg {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+}
+.header .content .userInfo {
+	margin-left: 30rpx;
+	display: flex;
+	flex-direction: column;
+}
+.header .content .userInfo .userName {
+	font-size: 44rpx;
+	color: #000;
+	line-height: 44rpx;
+	margin-top: 4rpx;
+}
+.header .content .userInfo .uncertified {
+	padding: 4rpx 16rpx 6rpx 22rpx;
+	line-height: 34rpx;
+	background: #EAEAEA;
+	border-radius: 30rpx;
+	margin-top: 16rpx;
+	font-size: 24rpx;
+	color: #434343;
+}
+.header .content .userInfo .certified {
+	width: 156rpx;
+	height: 44rpx;
+	margin-top: 16rpx;
+}
+.header .content .user .PleaseLogIn {
+	margin-left: 30rpx;
+	font-size: 40rpx;
+	height: 120rpx;
+	line-height: 120rpx;
+	text-align: center;
+}
+.header .content .OrderNav {
+	display: flex;
+	margin-top: 50rpx;
+	width: 690rpx;
+	height: 160rpx;
+	margin-left: 30rpx;
+	background: #FFF;
+	box-shadow: 0 0 30rpx 0 rgba(4,29,41,0.08);
+	border-radius: 10rpx;
+}
+.header .content .OrderNav .NavCommom {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 180rpx;
+	height: 80rpx;
+	box-sizing: border-box;
+	padding-left: 40rpx;
+	margin: 40rpx 0rpx;
+}
+.header .content .OrderNav .NavCommom .title1 {
+	font-size: 24rpx;
+	color: #434343;
+}
+.header .content .OrderNav .NavCommom .title2 {
+	width: 72rpx;
+	text-align: center;
+	line-height: 36rpx;
+	font-size: 40rpx;
+	color: #000;
+}
+.header .content .OrderNav .NavLast {
+	display: flex;
+	flex-direction: column;
+	width: 124rpx;
+	height: 80rpx;
+	margin-top: 46rpx;
+	padding-left: 20rpx;
+	margin-bottom: 34rpx;
+	box-sizing: border-box;
+	border-left: 1px solid #f8f8f8;
+	text-align: center;
+}
+.header .content .OrderNav .NavLast .icon-dingdan {
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 50rpx;
+	color: #3795ff;
+}
+.header .content .OrderNav .NavLast .AllOrder {
+	height: 30rpx;
+	font-size: 24rpx;
+	line-height: 28rpx;
+	color: #000;
+}
+.header .content .OrderNav .icon-dingdan1 {
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 40rpx;
+	color: #8a8a8a;
+}
+.header .list {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding: 0rpx 30rpx;
+}
+.header .list .item-1 {
+	height: 90rpx;
+	border-top: 1px solid #EAEAEA;
+	font-size: 28rpx;
+	color: #000;
+	line-height: 90rpx;
+	position: relative;
+}
+.header .list .item-1:after {
+	content: "\e642";
+	font-family:"iconfont" !important;
+	color: #9B9B9B;
+	display: block;
+	position: absolute;
+	right: 0rpx; top: 0rpx;
+}
+.header .item-2 {
+	padding: 0rpx 30rpx;
+	height: 90rpx;
+	border-top: 20rpx solid #f8f8f8;
+	font-size: 28rpx;
+	color: #000;
+	line-height: 90rpx;
+	position: relative;
+}
+.header .item-2:after {
+	content: "\e642";
+	font-family:"iconfont" !important;
+	color: #9B9B9B;
+	display: block;
+	position: absolute;
+	right: 30rpx; top: 0rpx;
+}

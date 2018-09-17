@@ -1,0 +1,21 @@
+/* pages/openData/phoneRegister/index.wxss */
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40rpx 20rpx;
+}
+
+.user-info-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-info-nickname {
+  color: #aaa;
+  min-height: 1em;
+}

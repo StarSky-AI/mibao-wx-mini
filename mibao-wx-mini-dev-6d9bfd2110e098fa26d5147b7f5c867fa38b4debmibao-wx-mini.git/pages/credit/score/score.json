@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"信用认证",
+  "usingComponents": {
+    "credit-header": "/components/credit/header/header"
+  }
+}
